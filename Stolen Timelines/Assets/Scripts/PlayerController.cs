@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     LayerMask wallLayer;
     [SerializeField]
     private bool isWalled;
+    private Vector2 wallHitDirecton;
    
 
     private void Awake()
@@ -93,6 +94,17 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        if(transform.localScale.x ==1 )
+        {
+            wallHitDirecton = Vector2.right;
+            wallJumpForce.x = -50;
+        }
+        else if (transform.localScale.x == -1 )
+        {
+            wallHitDirecton = Vector2.left;
+            wallJumpForce.x = 50;   
+        }
+
         groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
 
         if(groundHit.collider != null)
@@ -112,14 +124,14 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        wallHit = Physics2D.Raycast(wallCheck.position, Vector2.right, 0.2f, wallLayer);
+        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
         if (wallHit.collider != null)
         {
             isWalled = true;
        
             playerMovement.Walled();
-                
+            Debug.Log("walled");
             
             if(jumpPressed && isWalled)
             {
@@ -132,6 +144,10 @@ public class PlayerController : MonoBehaviour
             isWalled = false;
         }
 
+        if(isGrounded && isWalled)
+        {
+           
+        }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext val)

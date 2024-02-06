@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Walled()
     {
-        rb.velocityY = 2.0f;
+        rb.velocityY = -2.0f;
     }
 
     public void flip(Transform playerTransform)
