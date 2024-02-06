@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     // Input variables
     private CustomInput input = null; //Input system declaration
     private Vector2 moveVec = Vector2.zero; // Read movement input
-    private float jumpInput = 0; // read jump inpuy
-   
+    private float jumpInput = 0; // read jump input
+    private float slideInput = 0; // read slide input
+
     //Jump logic
     [SerializeField]
     private float jumpForce; 
@@ -17,6 +18,11 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private bool isGrounded;
     RaycastHit2D groundHit;
+
+    //Slide logic
+    [SerializeField]
+    private PlayerSlide playerSlide;
+    private bool slidePressed = false;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -44,12 +50,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isWalled;
     private Vector2 wallHitDirecton;
-   
+
+    //Player Slide variables
+    [SerializeField]
+    private float slideForce = 5.0f;
+
 
     private void Awake()
     {
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
+        playerSlide = GetComponent<PlayerSlide>();
     }
 
     private void OnEnable()
@@ -60,8 +71,9 @@ public class PlayerController : MonoBehaviour
       
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Jump.canceled += OnJumpCanceled;
-   
 
+        input.Player.Slide.performed += OnSlidePerformed;
+        input.Player.Slide.canceled += OnSlideCanceled;
     }
 
     private void OnDisable()
@@ -73,6 +85,9 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpCanceled;
+
+        input.Player.Slide.performed -= OnSlidePerformed;
+        input.Player.Slide.canceled -= OnSlideCanceled;
     }
 
     private void FixedUpdate()
@@ -116,6 +131,18 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Jump");
 
            }
+
+           if(slidePressed && isGrounded)
+            {
+                playerSlide.prefromSlide(moveVec, slideInput, slideForce);
+                Debug.Log("Slide");
+            }
+
+            if (!slidePressed && isGrounded) // constantly called, could be done better (switch statements maybe - default state)
+            {
+                playerSlide.stopSlide();
+            }
+
 
         }
 
@@ -174,6 +201,18 @@ public class PlayerController : MonoBehaviour
     {
         jumpInput = val.ReadValue<float>();
         jumpPressed = false;
+    }
+
+    private void OnSlidePerformed(InputAction.CallbackContext val)
+    {
+        slideInput = val.ReadValue<float>();
+        slidePressed = true;
+    }
+
+    private void OnSlideCanceled(InputAction.CallbackContext val)
+    {
+        slideInput= val.ReadValue<float>();
+        slidePressed = false;
     }
 
     private void flip()
