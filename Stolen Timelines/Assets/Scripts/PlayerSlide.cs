@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerSlide : MonoBehaviour
 {
 
-    private PlayerMovement PM;
-
     private Rigidbody2D rb;
 
     public BoxCollider2D regularColl;
@@ -19,7 +17,6 @@ public class PlayerSlide : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        PM = GetComponent<PlayerMovement>();
     }
 
     public void prefromSlide(Vector2 inputVec, float slideInput, float slideForce)
