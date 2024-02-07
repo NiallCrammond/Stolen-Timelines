@@ -1079,7 +1079,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 30
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1279,11 +1279,11 @@ MonoBehaviour:
   wallCheck: {fileID: 1195646562}
   speed: 150
   maxSpeed: 50
-  wallJumpForce: {x: 50, y: 70}
+  wallJumpForce: {x: -30, y: 50}
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  isWalled: 0
+  wallHitDirecton: {x: 0, y: 0}
   slideForce: 5
 --- !u!114 &1301309006
 MonoBehaviour:
@@ -1801,7 +1801,7 @@ Transform:
   m_GameObject: {fileID: 2113271430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 9.02, y: -3.97, z: 10}
+  m_LocalPosition: {x: 9.02, y: 2.89, z: 10}
   m_LocalScale: {x: 17.29, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+
     // Input variables
     private CustomInput input = null; //Input system declaration
     private Vector2 moveVec = Vector2.zero; // Read movement input
@@ -16,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private float jumpForce; 
     private bool jumpPressed = false;
     public LayerMask groundLayer;
-    private bool isGrounded;
     RaycastHit2D groundHit;
 
     //Slide logic
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 10;
     private PlayerMovement playerMovement; // refernence to player movement script
     private bool movePressed = false; // check for input
+    private bool isFlipped = false;
+    private Rigidbody2D rb;
 
     //Wall Jump Variables
     [SerializeField]
@@ -48,7 +51,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     LayerMask wallLayer;
     [SerializeField]
-    private bool isWalled;
     private Vector2 wallHitDirecton;
 
     //Player Slide variables
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
         playerSlide = GetComponent<PlayerSlide>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -93,7 +96,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        playerMovement.flip(transform);
+        flip();
+        setJumpForce();
+
         if (movePressed)
         {
             playerMovement.move(moveVec, speed, maxSpeed);
@@ -108,73 +113,50 @@ public class PlayerController : MonoBehaviour
             //Idle animation
         }
 
-
-        if(transform.localScale.x ==1 )
-        {
-            wallHitDirecton = Vector2.right;
-            wallJumpForce.x = -50;
-        }
-        else if (transform.localScale.x == -1 )
-        {
-            wallHitDirecton = Vector2.left;
-            wallJumpForce.x = 50;   
-        }
-
         groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
+        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
-        if(groundHit.collider != null)
+        if(isGrounded(groundHit) &&!isWalled(wallHit))
         {
-            isGrounded = true;
-           if(jumpPressed && isGrounded)
+           if(jumpPressed)
            {
             playerMovement.jump(jumpInput, jumpForce);
                 Debug.Log("Jump");
 
            }
 
-           if(slidePressed && isGrounded)
-            {
-                playerSlide.prefromSlide(moveVec, slideInput, slideForce);
-                Debug.Log("Slide");
-            }
-
-            if (!slidePressed && isGrounded) // constantly called, could be done better (switch statements maybe - default state)
-            {
-                playerSlide.stopSlide();
-            }
-
-
         }
 
-        else
-        {
-            isGrounded = false;
-        }
 
-        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
-
-        if (wallHit.collider != null)
+        if (isWalled(wallHit))
         {
-            isWalled = true;
-       
-            playerMovement.Walled();
+            
+            if(!isGrounded(groundHit))
+            {
+             playerMovement.Walled();
+            }
             Debug.Log("walled");
             
-            if(jumpPressed && isWalled)
+            if(jumpPressed)
             {
                 playerMovement.wallJump(wallJumpForce);
 
             }
         }
-        else
-        {
-            isWalled = false;
-        }
 
-        if(isGrounded && isWalled)
-        {
-           
-        }
+        if(slidePressed && isGrounded(groundHit))
+            {
+                playerSlide.prefromSlide(moveVec, slideInput, slideForce);
+                Debug.Log("Slide");
+            }
+
+            if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
+            {
+                playerSlide.stopSlide();
+            }
+
+        
+
     }
 
     private void OnMovePerformed(InputAction.CallbackContext val)
@@ -217,15 +199,66 @@ public class PlayerController : MonoBehaviour
 
     private void flip()
     {
-        if(moveVec.x > 0)
+   
+
+        if(!isFlipped &&  rb.velocityX < -0.1 || isFlipped && rb.velocityX >0.1)
         {
-            transform.localScale = (new Vector3(1, 1, 1));
-        }
-        else if (moveVec.x < 0)
-        {
-            transform.localScale = (new Vector3(-1, 1, 1));
-        }
+            isFlipped = !isFlipped;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }    
     }
 
+    private bool isGrounded(RaycastHit2D groundHit)
+    {
+        if(groundHit.collider != null)
+        {
+            return true;
+        }
 
+        else
+        {
+            return false;
+        }
+
+    }
+
+    private bool isWalled(RaycastHit2D wallHit)
+    {
+        if (wallHit.collider != null)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+
+    }
+
+    private void setJumpForce()
+    {
+        if (transform.localScale.x == 1)
+        {
+            wallHitDirecton = Vector2.right;
+
+            if (wallJumpForce.x > 0)
+            {
+                wallJumpForce.x = -wallJumpForce.x;
+            }
+
+        }
+        else if (transform.localScale.x == -1)
+        {
+            wallHitDirecton = Vector2.left;
+
+            if (wallJumpForce.x < 0)
+            {
+                wallJumpForce.x = -wallJumpForce.x;
+            }
+
+        }
+    }
 }

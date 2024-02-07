@@ -35,15 +35,5 @@ public class PlayerMovement : MonoBehaviour
         rb.velocityY = -2.0f;
     }
 
-    public void flip(Transform playerTransform)
-    {
-        if (rb.velocityX > 0)
-        {
-            transform.localScale = (new Vector3(1, playerTransform.localScale.y, transform.localScale.z));
-        }
-        else if (rb.velocityX < 0)
-        {
-            transform.localScale = (new Vector3(-1, playerTransform.localScale.y, transform.localScale.z));
-        }
-    }
+
 }
