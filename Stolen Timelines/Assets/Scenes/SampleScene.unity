@@ -1058,6 +1058,8 @@ GameObject:
   - component: {fileID: 1301309004}
   - component: {fileID: 1301309006}
   - component: {fileID: 1301309007}
+  - component: {fileID: 1301309009}
+  - component: {fileID: 1301309008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1305,8 +1307,7 @@ MonoBehaviour:
   regularSprite: {fileID: 1301309000}
   slideSprite: {fileID: 495661293}
 --- !u!114 &1301309007
-TrailRenderer:
-  serializedVersion: 3
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1317,7 +1318,16 @@ TrailRenderer:
   m_Script: {fileID: 11500000, guid: fa8b9fc32675e504ba1f42eee1970986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beaconPrefab: {fileID: 6849760792737536890, guid: a222b79f233ef744c9a483ac2bebd6bd, type: 3}
+  beaconPrefab: {fileID: 0}
+--- !u!96 &1301309008
+TrailRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301308998}
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1369,7 +1379,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.877095
+        time: 0.73743016
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1383,7 +1393,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1399,8 +1409,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 5204
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -1409,7 +1419,7 @@ TrailRenderer:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -1422,6 +1432,23 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1301309009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301308998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f61cba6d7d18342a97503154e6e874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDash: 0
+  isDashing: 0
+  dashingPower: 40
+  dashCooldown: 10
+  tr: {fileID: 1301309008}
 --- !u!1 &1500688170
 GameObject:
   m_ObjectHideFlags: 0

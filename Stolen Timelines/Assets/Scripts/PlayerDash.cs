@@ -25,10 +25,6 @@ public class PlayerDash : MonoBehaviour
 
     public void performDash(Vector2 inputVec, float dashInput)
     {
-        if (isDashing)
-        {
-            return;
-        }
         StartCoroutine(Dash());
 
     }
