@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVec = Vector2.zero; // Read movement input
     private float jumpInput = 0; // read jump input
     private float slideInput = 0; // read slide input
+    private float dashInput = 0; // read dash input
 
     //Jump logic
     [SerializeField]
@@ -23,6 +24,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerSlide playerSlide;
     private bool slidePressed = false;
+
+    //Dash logic
+    [SerializeField]
+    private PlayerDash playerDash;
+    private bool dashPressed = false;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -61,6 +67,7 @@ public class PlayerController : MonoBehaviour
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
         playerSlide = GetComponent<PlayerSlide>();
+        playerDash = GetComponent<PlayerDash>();
     }
 
     private void OnEnable()
@@ -74,6 +81,10 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Slide.performed += OnSlidePerformed;
         input.Player.Slide.canceled += OnSlideCanceled;
+
+        input.Player.Dash.performed += OnDashPerformed;
+        input.Player.Dash.canceled += OnDashCanceled;
+
     }
 
     private void OnDisable()
@@ -88,6 +99,10 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Slide.performed -= OnSlidePerformed;
         input.Player.Slide.canceled -= OnSlideCanceled;
+
+        input.Player.Dash.performed -= OnDashPerformed;
+        input.Player.Dash.canceled -= OnDashCanceled;
+
     }
 
     private void FixedUpdate()
@@ -151,6 +166,12 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
+        if (dashPressed && playerDash.canDash)
+        {
+            playerDash?.performDash(moveVec, dashInput);
+            Debug.Log("Dash");
+        }
+
         wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
         if (wallHit.collider != null)
@@ -166,6 +187,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
         else
         {
             isWalled = false;
@@ -213,6 +235,18 @@ public class PlayerController : MonoBehaviour
     {
         slideInput= val.ReadValue<float>();
         slidePressed = false;
+    }
+
+    private void OnDashPerformed(InputAction.CallbackContext val)
+    {
+        dashInput = val.ReadValue<float>();
+        dashPressed = true;
+    }
+
+    private void OnDashCanceled(InputAction.CallbackContext val)
+    {
+        dashInput = val.ReadValue<float>();
+        dashPressed = false;
     }
 
     private void flip()
