@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVec = Vector2.zero; // Read movement input
     private float jumpInput = 0; // read jump input
     private float slideInput = 0; // read slide input
+    private float rewindInput = 0; // read rewind input
 
     //Jump logic
     [SerializeField]
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerSlide playerSlide;
     private bool slidePressed = false;
+
+    [SerializeField]
+    private PlayerRewind playerRewind;
+    private bool rewindPressed = false;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -61,6 +66,7 @@ public class PlayerController : MonoBehaviour
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
         playerSlide = GetComponent<PlayerSlide>();
+        playerRewind = GetComponent<PlayerRewind>();
     }
 
     private void OnEnable()
@@ -74,6 +80,9 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Slide.performed += OnSlidePerformed;
         input.Player.Slide.canceled += OnSlideCanceled;
+
+        input.Player.Rewind.performed += OnRewindPerformed;
+        input.Player.Rewind.canceled += OnRewindCanceled;
     }
 
     private void OnDisable()
@@ -88,6 +97,9 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Slide.performed -= OnSlidePerformed;
         input.Player.Slide.canceled -= OnSlideCanceled;
+
+        input.Player.Rewind.performed -= OnRewindPerformed;
+        input.Player.Rewind.canceled -= OnRewindCanceled;
     }
 
     private void FixedUpdate()
@@ -143,7 +155,11 @@ public class PlayerController : MonoBehaviour
                 playerSlide.stopSlide();
             }
 
-
+            if (rewindPressed && isGrounded)
+            {
+                playerRewind.rewindUsed();
+                Debug.Log("Q pressed");
+            }
         }
 
         else
@@ -211,8 +227,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnSlideCanceled(InputAction.CallbackContext val)
     {
-        slideInput= val.ReadValue<float>();
+        slideInput = val.ReadValue<float>();
         slidePressed = false;
+    }
+
+    private void OnRewindPerformed(InputAction.CallbackContext val)
+    {
+        rewindInput = val.ReadValue<float>();
+        rewindPressed = true;
+    }
+
+    private void OnRewindCanceled(InputAction.CallbackContext val)
+    {
+        rewindInput = val.ReadValue<float>();
+        rewindPressed = false;
     }
 
     private void flip()

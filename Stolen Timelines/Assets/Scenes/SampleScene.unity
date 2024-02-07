@@ -557,9 +557,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
+  m_Color: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1057,6 +1057,7 @@ GameObject:
   - component: {fileID: 1301309005}
   - component: {fileID: 1301309004}
   - component: {fileID: 1301309006}
+  - component: {fileID: 1301309007}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1274,6 +1275,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   playerSlide: {fileID: 0}
+  playerRewind: {fileID: 0}
   groundCheck: {fileID: 1834148092}
   ceilingCheck: {fileID: 695712309}
   wallCheck: {fileID: 1195646562}
@@ -1301,6 +1303,19 @@ MonoBehaviour:
   slideColl: {fileID: 495661292}
   regularSprite: {fileID: 1301309000}
   slideSprite: {fileID: 495661293}
+--- !u!114 &1301309007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301308998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8b9fc32675e504ba1f42eee1970986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beacon: {fileID: 6849760792737536890, guid: a222b79f233ef744c9a483ac2bebd6bd, type: 3}
 --- !u!1 &1500688170
 GameObject:
   m_ObjectHideFlags: 0
