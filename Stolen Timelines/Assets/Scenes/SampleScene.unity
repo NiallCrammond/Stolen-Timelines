@@ -1305,8 +1305,6 @@ MonoBehaviour:
   regularSprite: {fileID: 1301309000}
   slideSprite: {fileID: 495661293}
 --- !u!114 &1301309007
-MonoBehaviour:
---- !u!96 &1301309007
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0

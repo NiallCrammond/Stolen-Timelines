@@ -178,28 +178,31 @@ public class PlayerController : MonoBehaviour
         }
 
         if (isWalled(wallHit))
-
-        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
-
-        if (wallHit.collider != null)
         {
-            
-            if(!isGrounded(groundHit))
+
+            if (!isGrounded(groundHit))
             {
-             playerMovement.Walled();
+                playerMovement.Walled();
             }
             Debug.Log("walled");
-            
-            if(jumpPressed)
+
+            if (jumpPressed)
             {
                 playerMovement.wallJump(wallJumpForce);
 
             }
         }
-        else
+
+        if (slidePressed && isGrounded(groundHit))
         {
-            isWalled = false;
-        }        
+            playerSlide.prefromSlide(moveVec, slideInput, slideForce);
+            Debug.Log("Slide");
+        }
+
+        if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
+        {
+            playerSlide.stopSlide();
+        }
 
     }
 
