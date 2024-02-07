@@ -39,6 +39,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+		    "initialStateCheck": false
+		},
+		{
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "ebdc0cb3-d0cc-4f9e-9913-acfdc297a813",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -128,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+		},
+		{
+                    "name": "",
+                    "id": "7e028319-572f-4a90-b91f-c58d8f6f606b",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

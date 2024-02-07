@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float jumpInput = 0; // read jump input
     private float slideInput = 0; // read slide input
     private float rewindInput = 0; // read rewind input
+    private float dashInput = 0; // read dash input
 
     //Jump logic
     [SerializeField]
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerRewind playerRewind;
     private bool rewindPressed = false;
+
+    //Dash logic
+    [SerializeField]
+    private PlayerDash playerDash;
+    private bool dashPressed = false;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -70,7 +76,7 @@ public class PlayerController : MonoBehaviour
         playerSlide = GetComponent<PlayerSlide>();
         rb = GetComponent<Rigidbody2D>();
         playerRewind = GetComponent<PlayerRewind>();
-
+        playerDash = GetComponent<PlayerDash>();
     }
 
     private void OnEnable()
@@ -87,6 +93,10 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Rewind.performed += OnRewindPerformed;
         input.Player.Rewind.canceled += OnRewindCanceled;
+
+        input.Player.Dash.performed += OnDashPerformed;
+        input.Player.Dash.canceled += OnDashCanceled;
+
     }
 
     private void OnDisable()
@@ -104,6 +114,10 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Rewind.performed -= OnRewindPerformed;
         input.Player.Rewind.canceled -= OnRewindCanceled;
+
+        input.Player.Dash.performed -= OnDashPerformed;
+        input.Player.Dash.canceled -= OnDashCanceled;
+
     }
 
     private void FixedUpdate()
@@ -157,8 +171,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (dashPressed && playerDash.canDash)
+        {
+            playerDash?.performDash(moveVec, dashInput);
+            Debug.Log("Dash");
+        }
 
         if (isWalled(wallHit))
+
+        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
+
+        if (wallHit.collider != null)
         {
             
             if(!isGrounded(groundHit))
@@ -173,19 +196,10 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
-        if(slidePressed && isGrounded(groundHit))
-            {
-                playerSlide.prefromSlide(moveVec, slideInput, slideForce);
-                Debug.Log("Slide");
-            }
-
-            if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
-            {
-                playerSlide.stopSlide();
-            }
-
-        
+        else
+        {
+            isWalled = false;
+        }        
 
     }
 
@@ -237,6 +251,18 @@ public class PlayerController : MonoBehaviour
     {
         rewindInput = val.ReadValue<float>();
         rewindPressed = false;
+    }
+
+    private void OnDashPerformed(InputAction.CallbackContext val)
+    {
+        dashInput = val.ReadValue<float>();
+        dashPressed = true;
+    }
+
+    private void OnDashCanceled(InputAction.CallbackContext val)
+    {
+        dashInput = val.ReadValue<float>();
+        dashPressed = false;
     }
 
     private void flip()
