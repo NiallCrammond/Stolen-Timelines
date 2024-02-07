@@ -68,11 +68,9 @@ public class PlayerController : MonoBehaviour
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
         playerSlide = GetComponent<PlayerSlide>();
-<<<<<<< HEAD
         rb = GetComponent<Rigidbody2D>();
-=======
         playerRewind = GetComponent<PlayerRewind>();
->>>>>>> 58fdc858e2419c4fab5ace54a9f87e679e2f6fe0
+
     }
 
     private void OnEnable()
@@ -140,25 +138,23 @@ public class PlayerController : MonoBehaviour
 
            }
 
-<<<<<<< HEAD
-=======
-           if(slidePressed && isGrounded)
+           if(slidePressed && isGrounded(groundHit))
             {
                 playerSlide.prefromSlide(moveVec, slideInput, slideForce);
                 Debug.Log("Slide");
             }
 
-            if (!slidePressed && isGrounded) // constantly called, could be done better (switch statements maybe - default state)
+            if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
             {
                 playerSlide.stopSlide();
             }
 
-            if (rewindPressed && isGrounded)
+            if (rewindPressed && isGrounded(groundHit))
             {
                 playerRewind.rewindUsed();
                 Debug.Log("Q pressed");
             }
->>>>>>> 58fdc858e2419c4fab5ace54a9f87e679e2f6fe0
+
         }
 
 

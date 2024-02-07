@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8b9fc32675e504ba1f42eee1970986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beacon: {fileID: 6849760792737536890, guid: a222b79f233ef744c9a483ac2bebd6bd, type: 3}
+  beaconPrefab: {fileID: 6849760792737536890, guid: a222b79f233ef744c9a483ac2bebd6bd, type: 3}
 --- !u!1 &1500688170
 GameObject:
   m_ObjectHideFlags: 0
