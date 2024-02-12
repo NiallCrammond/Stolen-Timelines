@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         if (movePressed)
         {
             playerMovement.move(moveVec, speed, maxSpeed);
-            Debug.Log("Moving");
+         
         }
 
         else
@@ -148,14 +148,14 @@ public class PlayerController : MonoBehaviour
            if(jumpPressed)
            {
             playerMovement.jump(jumpInput, jumpForce);
-                Debug.Log("Jump");
+            
 
            }
 
            if(slidePressed && isGrounded(groundHit))
             {
                 playerSlide.prefromSlide(moveVec, slideInput, slideForce);
-                Debug.Log("Slide");
+           
             }
 
             if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
             if (rewindPressed && isGrounded(groundHit))
             {
                 playerRewind.rewindUsed();
-                Debug.Log("Q pressed");
+             
             }
 
         }
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
         if (dashPressed && playerDash.canDash)
         {
             playerDash?.performDash(moveVec, dashInput);
-            Debug.Log("Dash");
+           
         }
 
         if (isWalled(wallHit))
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerMovement.Walled();
             }
-            Debug.Log("walled");
+      
 
             if (jumpPressed)
             {
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
         if (slidePressed && isGrounded(groundHit))
         {
             playerSlide.prefromSlide(moveVec, slideInput, slideForce);
-            Debug.Log("Slide");
+         
         }
 
         if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
