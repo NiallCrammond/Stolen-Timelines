@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour
 
         if (instance == null)
         {
+        scoreData.score = 0;
+        scoreData.itemsCollected = 0;
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -21,8 +24,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
   
-        scoreData.score = 0;
-        scoreData.itemsCollected = 0;
        
 
     }
@@ -31,5 +32,7 @@ public class GameController : MonoBehaviour
         scoreData.score += 10;
         scoreData.itemsCollected++;
     }
+
+
 
 }
