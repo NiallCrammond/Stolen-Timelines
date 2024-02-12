@@ -7,11 +7,13 @@ public class Coin : MonoBehaviour
 
     public UnityEvent onCoinCollect;
 
+    private bool collected = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(!collected && collision.CompareTag("Player"))
         {
             onCoinCollect.Invoke();
+            collected = true;
             Destroy(gameObject);
         }
     }
