@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float slideInput = 0; // read slide input
     private float rewindInput = 0; // read rewind input
     private float dashInput = 0; // read dash input
+    private float menuInput = 0; // read menu input
 
     //Jump logic
     [SerializeField]
@@ -35,6 +36,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerDash playerDash;
     private bool dashPressed = false;
+
+    //Menu logic
+    [SerializeField]
+    private PauseMenu pauseMenu;
+    private bool menuPressed = false;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -77,6 +83,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerRewind = GetComponent<PlayerRewind>();
         playerDash = GetComponent<PlayerDash>();
+        pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
     }
 
     private void OnEnable()
@@ -96,6 +103,9 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Dash.performed += OnDashPerformed;
         input.Player.Dash.canceled += OnDashCanceled;
+
+        input.Player.Menu.started += OnMenuPerformed;
+        input.Player.Menu.canceled += OnMenuCanceled;
 
     }
 
@@ -118,43 +128,105 @@ public class PlayerController : MonoBehaviour
         input.Player.Dash.performed -= OnDashPerformed;
         input.Player.Dash.canceled -= OnDashCanceled;
 
+        input.Player.Menu.started -= OnMenuPerformed;
+        input.Player.Menu.canceled -= OnMenuCanceled;
+
     }
 
-    private void FixedUpdate()
+    private void Update() // for NON physics functions
+    {
+        if (menuPressed)
+        {
+            if (pauseMenu.isPaused)
+            {
+                pauseMenu.resumeGame();
+            }
+            else
+            {
+                pauseMenu.pauseGame();
+            }
+        }
+
+        menuPressed = false;
+    }
+
+    private void FixedUpdate() // for physics functions
     {
 
-        flip();
-        setJumpForce();
-
-        if (movePressed)
+        if (!pauseMenu.isPaused)
         {
-            playerMovement.move(moveVec, speed, maxSpeed);
-            Debug.Log("Moving");
-        }
+            flip();
+            setJumpForce();
 
-        else
-        {
-           // Debug.Log("stationary");
-
-            //Don't Move
-            //Idle animation
-        }
-
-        groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
-
-        if(isGrounded(groundHit) &&!isWalled(wallHit))
-        {
-           if(jumpPressed)
-           {
-            playerMovement.jump(jumpInput, jumpForce);
-                Debug.Log("Jump");
-
-           }
-
-           if(slidePressed && isGrounded(groundHit))
+            if (movePressed)
             {
-                playerSlide.prefromSlide(moveVec, slideInput, slideForce);
+                playerMovement.move(moveVec, speed, maxSpeed);
+                Debug.Log("Moving");
+            }
+
+            else
+            {
+                // Debug.Log("stationary");
+
+                //Don't Move
+                //Idle animation
+            }
+
+            groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
+            wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
+
+            if (isGrounded(groundHit) && !isWalled(wallHit))
+            {
+                if (jumpPressed)
+                {
+                    playerMovement.jump(jumpInput, jumpForce);
+                    // Debug.Log("Jump");
+
+                }
+
+                if (slidePressed && isGrounded(groundHit))
+                {
+                    playerSlide.prefromSlide(moveVec, slideForce);
+                    // Debug.Log("Slide");
+                }
+
+                if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
+                {
+                    playerSlide.stopSlide();
+                }
+            }
+
+            if (rewindPressed)
+                {
+                    playerRewind.rewindUsed(isGrounded(groundHit));
+                    Debug.Log("Q pressed");
+                }
+
+            if (dashPressed && playerDash.canDash)
+            {
+                playerDash?.performDash(moveVec, dashInput);
+                Debug.Log("Dash");
+            }
+
+            if (isWalled(wallHit))
+            {
+
+                if (!isGrounded(groundHit))
+                {
+                    playerMovement.Walled();
+                }
+                Debug.Log("walled");
+
+                if (jumpPressed)
+                {
+                    playerMovement.wallJump(wallJumpForce);
+
+                }
+            }
+
+            if (slidePressed && isGrounded(groundHit))
+            {
+                playerSlide.prefromSlide(moveVec, slideForce);
                 Debug.Log("Slide");
             }
 
@@ -162,48 +234,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerSlide.stopSlide();
             }
-
-            if (rewindPressed && isGrounded(groundHit))
-            {
-                playerRewind.rewindUsed();
-                Debug.Log("Q pressed");
-            }
-
         }
-
-        if (dashPressed && playerDash.canDash)
-        {
-            playerDash?.performDash(moveVec, dashInput);
-            Debug.Log("Dash");
-        }
-
-        if (isWalled(wallHit))
-        {
-
-            if (!isGrounded(groundHit))
-            {
-                playerMovement.Walled();
-            }
-            Debug.Log("walled");
-
-            if (jumpPressed)
-            {
-                playerMovement.wallJump(wallJumpForce);
-
-            }
-        }
-
-        if (slidePressed && isGrounded(groundHit))
-        {
-            playerSlide.prefromSlide(moveVec, slideInput, slideForce);
-            Debug.Log("Slide");
-        }
-
-        if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
-        {
-            playerSlide.stopSlide();
-        }
-
     }
 
     private void OnMovePerformed(InputAction.CallbackContext val)
@@ -266,6 +297,18 @@ public class PlayerController : MonoBehaviour
     {
         dashInput = val.ReadValue<float>();
         dashPressed = false;
+    }
+
+    private void OnMenuPerformed(InputAction.CallbackContext val)
+    {
+        menuInput = val.ReadValue<float>();
+        menuPressed = true;
+    }
+
+    private void OnMenuCanceled(InputAction.CallbackContext val)
+    {
+        menuInput = val.ReadValue<float>();
+        menuPressed = false;
     }
 
     private void flip()

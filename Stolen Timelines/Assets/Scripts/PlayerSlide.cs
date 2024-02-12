@@ -19,7 +19,7 @@ public class PlayerSlide : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void prefromSlide(Vector2 inputVec, float slideInput, float slideForce)
+    public void prefromSlide(Vector2 inputVec, float slideForce)
     {
 
         regularColl.enabled = false;

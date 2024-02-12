@@ -19,13 +19,13 @@ public class PlayerRewind : MonoBehaviour
         
     }
 
-    public void rewindUsed()
+    public void rewindUsed(bool groundCheck)
     {
         if (isBeaconSpawned && Time.time > beaconUseStart + cooldown)
         {
             useBeacon();
         }
-        else if (!isBeaconSpawned && Time.time > beaconPlaceStart + cooldown)
+        else if (!isBeaconSpawned && Time.time > beaconPlaceStart + cooldown && groundCheck)
         {
             spawnBeacon();
         }
