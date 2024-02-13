@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float slideForce = 5.0f;
 
+    //Player fall through floor
+    private GameObject currentPlatform;
+    [SerializeField]
+    BoxCollider2D topCollider;
+    CircleCollider2D bottomCollider;
 
     private void Awake()
     {
@@ -84,6 +89,18 @@ public class PlayerController : MonoBehaviour
         playerRewind = GetComponent<PlayerRewind>();
         playerDash = GetComponent<PlayerDash>();
         pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
+        topCollider = GetComponent<BoxCollider2D>();
+        bottomCollider = GetComponent<CircleCollider2D>();
+
+        if(topCollider == null)
+        {
+            Debug.Log("No top collider");
+        }
+
+        if(bottomCollider == null)
+        {
+            Debug.Log("No bottom collider");
+        }
     }
 
     private void OnEnable()
@@ -147,18 +164,29 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(moveVec.y <-0.5)
+        {
+            if(currentPlatform!= null)
+            {
+
+            StartCoroutine(activateOneWay());
+            }
+        }
         menuPressed = false;
     }
 
     private void FixedUpdate() // for physics functions
     {
+            groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
+            wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
+
 
         if (!pauseMenu.isPaused)
         {
             flip();
             setJumpForce();
 
-            if (movePressed)
+            if (movePressed && (isGrounded(groundHit)))
             {
                 playerMovement.move(moveVec, speed, maxSpeed);
                 Debug.Log("Moving");
@@ -171,9 +199,6 @@ public class PlayerController : MonoBehaviour
                 //Don't Move
                 //Idle animation
             }
-
-            groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-            wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
             if (isGrounded(groundHit) && !isWalled(wallHit))
             {
@@ -374,5 +399,33 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentPlatform = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentPlatform = null;
+        }
+    }
+
+    private IEnumerator activateOneWay()
+    {
+        BoxCollider2D platform = currentPlatform.GetComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(topCollider, platform);
+        Physics2D.IgnoreCollision(bottomCollider, platform);
+        yield return new WaitForSeconds(1.0f);
+        Physics2D.IgnoreCollision(topCollider, platform, false);
+        Physics2D.IgnoreCollision(bottomCollider, platform, false);
+
+
     }
 }
