@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      B1_PLATFORMBLOCK_LARGE_0: 7343269394343007825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

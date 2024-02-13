@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      B1_BALCONY_01_0: 7768057090893789323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

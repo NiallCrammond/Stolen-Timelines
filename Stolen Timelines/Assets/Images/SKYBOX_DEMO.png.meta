@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SKYBOX_DEMO_0: 4067247241622548265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
