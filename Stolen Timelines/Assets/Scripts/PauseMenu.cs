@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    public ScoreData scoreData;
+    public GameController gameController;
     public GameObject pauseMenu;
     public bool isPaused = false;
     
@@ -31,6 +32,8 @@ public class PauseMenu : MonoBehaviour
 
     public void goToMainMenu()
     {
+       // scoreData.score = 0;
+        gameController.scoreData.score = 0;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
