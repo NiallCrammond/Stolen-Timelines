@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             if (movePressed && (isGrounded(groundHit)))
             {
                 playerMovement.move(moveVec, speed, maxSpeed);
-                Debug.Log("Moving");
+               // Debug.Log("Moving");
             }
 
             else
@@ -430,16 +430,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public ScoreData scoreData;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Trap"))
-        {
-            SceneManager.LoadScene("MainMenu");
-            scoreData.score = 0;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Trap"))
+    //    {
+    //        SceneManager.LoadScene("MainMenu");
+    //        scoreData.score = 0;
+    //    }
+    //}
 
 }
 

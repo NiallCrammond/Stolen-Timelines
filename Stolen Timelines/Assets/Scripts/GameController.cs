@@ -9,13 +9,14 @@ public class GameController : MonoBehaviour
 
     public ScoreData scoreData;
 
+
     private void Awake()
     {
 
         if (instance == null)
         {
-        scoreData.score = 0;
-        scoreData.itemsCollected = 0;
+            scoreData.score = 0;
+            scoreData.itemsCollected = 0;
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -29,8 +30,12 @@ public class GameController : MonoBehaviour
     }
     public void increaseScore()
     {
+
         scoreData.score += 10;
         scoreData.itemsCollected++;
+       Debug.Log("Score: " + scoreData.score);
+
+
     }
 
 
