@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gold_cup_Artifact(Jamie)_0: 6428803974541151850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

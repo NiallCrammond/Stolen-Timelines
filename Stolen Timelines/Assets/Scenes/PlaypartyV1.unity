@@ -11972,9 +11972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e336ba38d414d574dab92c3c2e48724e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreData: {fileID: 0}
-  gameController: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
+  gameController: {fileID: 180367022}
+  pauseMenu: {fileID: 1501796036}
   isPaused: 0
 --- !u!114 &1501796038
 MonoBehaviour:
@@ -16429,7 +16429,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.3}
-  m_Radius: 0.19641133
+  m_Radius: 0.2
 --- !u!61 &2044685240
 BoxCollider2D:
   m_ObjectHideFlags: 0

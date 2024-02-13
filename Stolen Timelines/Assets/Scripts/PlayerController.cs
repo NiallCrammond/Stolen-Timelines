@@ -22,7 +22,11 @@ public class PlayerController : MonoBehaviour
     private float jumpForce; 
     private bool jumpPressed = false;
     public LayerMask groundLayer;
-    RaycastHit2D groundHit;
+    RaycastHit2D groundHit1;
+    RaycastHit2D groundHit2;
+    RaycastHit2D groundHit3;
+
+
 
     //Slide logic
     [SerializeField]
@@ -70,6 +74,9 @@ public class PlayerController : MonoBehaviour
     LayerMask wallLayer;
     [SerializeField]
     private Vector2 wallHitDirecton;
+    [SerializeField]
+    [Range(0, 100)]
+    private float airControlSpeed;
 
     //Player Slide variables
     [SerializeField]
@@ -178,8 +185,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() // for physics functions
     {
-            groundHit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-            wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
+            groundHit1 = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
+        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.5f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+
+        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.5f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+
+        wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
 
         if (!pauseMenu.isPaused)
@@ -187,21 +198,23 @@ public class PlayerController : MonoBehaviour
             flip();
             setJumpForce();
 
-            if (movePressed && (isGrounded(groundHit)))
+            if (movePressed && (isGrounded(groundHit1, groundHit2, groundHit3)))
             {
                 playerMovement.move(moveVec, speed, maxSpeed);
                // Debug.Log("Moving");
             }
 
-            else
+            else if(movePressed && (!isGrounded(groundHit1,groundHit2,groundHit3)))
             {
+                playerMovement.move(moveVec, airControlSpeed, maxSpeed);
+
                 // Debug.Log("stationary");
 
                 //Don't Move
                 //Idle animation
             }
 
-            if (isGrounded(groundHit) && !isWalled(wallHit))
+            if (isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
             {
                 if (jumpPressed)
                 {
@@ -210,13 +223,13 @@ public class PlayerController : MonoBehaviour
 
                 }
 
-                if (slidePressed && isGrounded(groundHit))
+                if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     playerSlide.prefromSlide(moveVec, slideForce);
                     // Debug.Log("Slide");
                 }
 
-                if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
+                if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
                 {
                     playerSlide.stopSlide();
                 }
@@ -224,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
             if (rewindPressed)
                 {
-                    playerRewind.rewindUsed(isGrounded(groundHit));
+                    playerRewind.rewindUsed(isGrounded(groundHit1, groundHit2, groundHit3));
                     Debug.Log("Q pressed");
                 }
 
@@ -237,7 +250,7 @@ public class PlayerController : MonoBehaviour
             if (isWalled(wallHit))
             {
 
-                if (!isGrounded(groundHit))
+                if (!isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     playerMovement.Walled();
                 }
@@ -250,13 +263,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (slidePressed && isGrounded(groundHit))
+            if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
             {
                 playerSlide.prefromSlide(moveVec, slideForce);
                 Debug.Log("Slide");
             }
 
-            if (!slidePressed && isGrounded(groundHit)) // constantly called, could be done better (switch statements maybe - default state)
+            if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
             {
                 playerSlide.stopSlide();
             }
@@ -350,9 +363,9 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
-    private bool isGrounded(RaycastHit2D groundHit)
+    private bool isGrounded(RaycastHit2D groundHit, RaycastHit2D gh2, RaycastHit2D gh3)
     {
-        if(groundHit.collider != null)
+        if(groundHit.collider != null || gh2.collider!= null || gh3.collider !=null)
         {
             return true;
         }

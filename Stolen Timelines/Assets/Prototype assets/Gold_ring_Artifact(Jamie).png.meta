@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gold_ring_Artifact(Jamie)_0: 5293978070268177804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
