@@ -19,8 +19,13 @@ public class PlayerController : MonoBehaviour
 
     //Jump logic
     [SerializeField]
-    private float jumpForce; 
+    [Range(0,100)]
+    private float jumpForce;
+    [SerializeField]
+    [Range(0, 1)]
+    private float jumpDelay;
     private bool jumpPressed = false;
+    private bool canjump = true;
     public LayerMask groundLayer;
     RaycastHit2D groundHit1;
     RaycastHit2D groundHit2;
@@ -29,21 +34,17 @@ public class PlayerController : MonoBehaviour
 
 
     //Slide logic
-    [SerializeField]
     private PlayerSlide playerSlide;
     private bool slidePressed = false;
 
-    [SerializeField]
     private PlayerRewind playerRewind;
     private bool rewindPressed = false;
 
     //Dash logic
-    [SerializeField]
     private PlayerDash playerDash;
     private bool dashPressed = false;
 
     //Menu logic
-    [SerializeField]
     private PauseMenu pauseMenu;
     private bool menuPressed = false;
 
@@ -58,8 +59,10 @@ public class PlayerController : MonoBehaviour
 
     //Player Movement variables
     [SerializeField]
+    [Range(0, 200)]
     private float speed= 5;
     [SerializeField]
+    [Range(0, 100)]
     private float maxSpeed = 10;
     private PlayerMovement playerMovement; // refernence to player movement script
     private bool movePressed = false; // check for input
@@ -72,7 +75,6 @@ public class PlayerController : MonoBehaviour
     RaycastHit2D wallHit;
     [SerializeField]
     LayerMask wallLayer;
-    [SerializeField]
     private Vector2 wallHitDirecton;
     [SerializeField]
     [Range(0, 100)]
@@ -80,13 +82,15 @@ public class PlayerController : MonoBehaviour
 
     //Player Slide variables
     [SerializeField]
+    [Range(0, 100)]
     private float slideForce = 5.0f;
 
     //Player fall through floor
     private GameObject currentPlatform;
-    [SerializeField]
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
+
+
 
     private void Awake()
     {
@@ -99,6 +103,8 @@ public class PlayerController : MonoBehaviour
         pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
+
+        
 
         if(topCollider == null)
         {
@@ -216,9 +222,11 @@ public class PlayerController : MonoBehaviour
 
             if (isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
             {
-                if (jumpPressed)
+                if (jumpPressed && canjump)
                 {
                     playerMovement.jump(jumpInput, jumpForce);
+                   
+                    StartCoroutine(disableJump());
                     // Debug.Log("Jump");
 
                 }
@@ -453,5 +461,16 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
+    IEnumerator disableJump()
+    {
+        canjump = false;
+        if(isGrounded(groundHit1,groundHit2,groundHit3)&& !canjump)
+        {
+            yield return new WaitForSeconds(jumpDelay);
+            canjump = true;
+
+        }
+
+    }
 }
 
