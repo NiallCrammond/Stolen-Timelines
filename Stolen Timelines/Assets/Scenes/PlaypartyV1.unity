@@ -11289,7 +11289,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 433, y: 220}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372212779
 MonoBehaviour:
@@ -16377,7 +16377,7 @@ MonoBehaviour:
   canDash: 0
   isDashing: 0
   dashingPower: 40
-  dashCooldown: 10
+  dashCooldown: 5
   tr: {fileID: 2044685233}
 --- !u!114 &2044685235
 MonoBehaviour:
@@ -16437,6 +16437,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerDash: {fileID: 0}
+  seconds: 0
   groundCheck: {fileID: 478247224}
   ceilingCheck: {fileID: 503382957}
   wallCheck: {fileID: 839211445}
