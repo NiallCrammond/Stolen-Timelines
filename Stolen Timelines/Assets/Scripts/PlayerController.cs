@@ -39,13 +39,15 @@ public class PlayerController : MonoBehaviour
 
     //Dash logic
     [SerializeField]
-    private PlayerDash playerDash;
+    public PlayerDash playerDash;
     private bool dashPressed = false;
+    public int seconds;
 
     //Menu logic
     [SerializeField]
     private PauseMenu pauseMenu;
     private bool menuPressed = false;
+    private UIController gameUI;
 
     //Transforms for grounded/ceiling check
     [SerializeField]
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour
         playerRewind = GetComponent<PlayerRewind>();
         playerDash = GetComponent<PlayerDash>();
         pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
+        gameUI = Object.FindFirstObjectByType<UIController>();
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
@@ -172,6 +175,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        gameUI.updateScore();
+
         if(moveVec.y <-0.5)
         {
             if(currentPlatform!= null)
@@ -245,6 +250,18 @@ public class PlayerController : MonoBehaviour
             {
                 playerDash?.performDash(moveVec, dashInput);
                 Debug.Log("Dash");
+            }
+            else if (!playerDash.canDash)
+            {
+                if (playerDash.dashCooldown > 0)
+                {
+                    playerDash.dashCooldown -= Time.deltaTime;
+                }
+                else if (playerDash.dashCooldown <= 0)
+                {
+                    playerDash.dashCooldown = 5.0f;
+                }
+                seconds  = Mathf.FloorToInt(playerDash.dashCooldown % 60);
             }
 
             if (isWalled(wallHit))
