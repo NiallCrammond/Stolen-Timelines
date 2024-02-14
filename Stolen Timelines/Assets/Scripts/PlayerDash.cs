@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerDash : MonoBehaviour
     public bool isDashing;
     public float dashingPower = 40.0f;
     private float dashingTime = 0.2f;
-    public float dashCooldown = 10.0f;
+    public float dashCooldown = 5.0f;
 
     [SerializeField]
     TrailRenderer tr;
@@ -26,7 +27,6 @@ public class PlayerDash : MonoBehaviour
     public void performDash(Vector2 inputVec, float dashInput)
     {
         StartCoroutine(Dash());
-
     }
 
     //dash coroutine
