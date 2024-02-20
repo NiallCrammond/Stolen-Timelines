@@ -8,6 +8,7 @@ TagManager:
   - UIController
   - OneWayPlatform
   - Trap
+  - Breakable
   layers:
   - Default
   - TransparentFX
