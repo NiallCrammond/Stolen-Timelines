@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+  
+    public enum playerState {Idle, Jumping, Running, WallSliding, Sliding};
+
+    public playerState state;
     [SerializeField]
 
     // Input variables
@@ -30,6 +34,13 @@ public class PlayerController : MonoBehaviour
     RaycastHit2D groundHit1;
     RaycastHit2D groundHit2;
     RaycastHit2D groundHit3;
+    float groundedTimer = 0;
+    [SerializeField]
+    [Range(0,1)]
+    float jumpThreshold = 0;
+    [SerializeField]
+    [Range(0, 10)]
+    private float airDrag;
 
 
 
@@ -94,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        state = playerState.Idle;
         input = new CustomInput(); 
         playerMovement = GetComponent<PlayerMovement>();
         playerSlide = GetComponent<PlayerSlide>();
@@ -187,6 +199,109 @@ public class PlayerController : MonoBehaviour
             }
         }
         menuPressed = false;
+
+
+
+        switch (state)
+        {
+            case playerState.Idle:
+                // If player mov
+                if(moveVec.x != 0f && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Running);
+                }
+
+                if(jumpPressed && canjump)
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                if(slidePressed && slidePressed && isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.Sliding);
+                }
+
+                if(isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.WallSliding);
+                }
+
+                break;
+            case playerState.Jumping:
+                
+                if(isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.WallSliding);
+                }
+
+                else if(isGrounded(groundHit1,groundHit2,groundHit3) && (rb.velocityX > 0.1 || rb.velocityY <0.1))
+                {
+
+                    stateTransition(playerState.Running);    
+                }
+
+                else if (isGrounded(groundHit1,groundHit2,groundHit3) && moveVec == new Vector2(0,0) && (rb.velocityX< 0.1 && rb.velocityX > -0.1) && (rb.velocityY < 0.1 && rb.velocityY > -0.1))
+                {
+                    stateTransition(playerState.Idle);
+                }
+                
+
+
+
+                break;
+            case playerState.Running:
+                if(jumpPressed)
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                else if(moveVec.x == 0 && rb.velocityX ==0 && isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                else if(slidePressed && isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.Sliding);
+                }
+                    
+
+                break;
+            case playerState.Sliding:
+
+                if (!slidePressed && isGrounded(groundHit1,groundHit2,groundHit3) && (rb.velocityX > 0.1 || rb.velocityX <-0.1))
+                {
+                    stateTransition(playerState.Running);
+                }
+
+                else if(!slidePressed && isGrounded(groundHit1,groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                else if(jumpPressed && isGrounded(groundHit1,groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                break;
+            case playerState.WallSliding:
+
+                if(!isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                else if(isGrounded(groundHit1,groundHit2,groundHit3))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                break;
+
+        }
+
+
     }
 
     private void FixedUpdate() // for physics functions
@@ -201,9 +316,25 @@ public class PlayerController : MonoBehaviour
 
         if (!pauseMenu.isPaused)
         {
+
+
             flip();
             setJumpForce();
+            jumpCheck();
 
+            if(isGrounded(groundHit1, groundHit2, groundHit3))
+            {
+                groundedTimer += Time.deltaTime;
+             //   rb.drag = 0;
+            }
+            else
+            {
+               // rb.drag = airDrag;
+                groundedTimer = 0;
+                rb.velocityX = airDrag * rb.velocityX;
+            }
+
+            
             if (movePressed && (isGrounded(groundHit1, groundHit2, groundHit3)))
             {
                 playerMovement.move(moveVec, speed, maxSpeed);
@@ -226,7 +357,7 @@ public class PlayerController : MonoBehaviour
                 {
                     playerMovement.jump(jumpInput, jumpForce);
                    
-                    StartCoroutine(disableJump());
+                    //StartCoroutine(disableJump());
                     // Debug.Log("Jump");
 
                 }
@@ -281,7 +412,34 @@ public class PlayerController : MonoBehaviour
             {
                 playerSlide.stopSlide();
             }
+            
+            switch (state)
+            {
+                case playerState.Idle:
+
+
+                    break;
+                case playerState.Jumping:
+
+                   
+                        break;
+                case playerState.Running:
+
+
+                    break;
+                case playerState.Sliding:
+
+
+                    break;
+                case playerState.WallSliding:
+
+
+                    break;
+
+            }
         }
+
+
     }
 
     private void OnMovePerformed(InputAction.CallbackContext val)
@@ -450,18 +608,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Trap"))
-    //    {
-    //        SceneManager.LoadScene("MainMenu");
-    //        scoreData.score = 0;
-    //    }
-    //}
-
-    IEnumerator disableJump()
+     IEnumerator disableJump()
     {
         canjump = false;
         if(isGrounded(groundHit1,groundHit2,groundHit3)&& !canjump)
@@ -471,6 +618,85 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
+
+    }
+    void jumpCheck()
+    {
+        if (isGrounded(groundHit1, groundHit2, groundHit3))
+        {
+            groundedTimer += Time.deltaTime;
+        }
+        else
+        {
+            groundedTimer = 0;
+        }
+
+       
+        if (groundedTimer >= jumpThreshold)
+        {
+            canjump = true;
+        }
+        else
+        {
+            canjump = false;
+        }
+    }
+
+    void stateTransition(playerState newState)
+    {
+        switch (state)
+        {
+            case playerState.Idle:
+
+
+                break;
+            case playerState.Jumping:
+
+
+                break;
+            case playerState.Running:
+
+
+                break;
+            case playerState.Sliding:
+
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+        }
+
+        switch (newState)
+        {
+            case playerState.Idle:
+
+
+                break;
+            case playerState.Jumping:
+             //   playerMovement.jump(jumpInput, jumpForce);
+
+
+                break;
+            case playerState.Running:
+
+
+                break;
+            case playerState.Sliding:
+
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+        }
+
+        state = newState;
     }
 }
 
