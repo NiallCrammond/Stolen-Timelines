@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
 
+    //Camera Interpolation variables
+    [SerializeField]
+    private GameObject followCamDir;
+
 
 
     private void Awake()
@@ -386,7 +390,16 @@ public class PlayerController : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;
-        }    
+        }
+
+        if (transform.localScale.x == 1)
+        {
+            followCamDir.transform.eulerAngles = new Vector3(0,0,0);
+        }
+        else if(transform.localScale.x == -1)
+        {
+            followCamDir.transform.eulerAngles = new Vector3(0,180,0);
+        }
     }
 
     private bool isGrounded(RaycastHit2D groundHit, RaycastHit2D gh2, RaycastHit2D gh3)
