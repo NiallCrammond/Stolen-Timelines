@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private float jumpForce;
     [SerializeField]
     [Range(0, 1)]
-    private float jumpDelay;
+    private float wallJumpDelay;
     private bool jumpPressed = false;
     private bool canjump = true;
     public LayerMask groundLayer;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     private bool rewindPressed = false;
 
     //Dash logic
-    private PlayerDash playerDash;
+    public PlayerDash playerDash;
     private bool dashPressed = false;
 
     //Menu logic
@@ -416,7 +416,7 @@ public class PlayerController : MonoBehaviour
                         playerMovement.jump(jumpInput, jumpForce);
 
                         //StartCoroutine(disableJump());
-                        // Debug.Log("Jump");
+                        Debug.Log("Jump");
                     }
                     break;
                 case playerState.Sliding:
@@ -898,7 +898,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (walledTimer >= jumpThreshold)
+        if (walledTimer >= wallJumpDelay)
         {
             canWallJump = true;
         }
@@ -912,7 +912,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator printState()
     {
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("The current state is: " + state);
+      //  Debug.Log("The current state is: " + state);
 
     }
 }

@@ -21,6 +21,6 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     public void updateScore()
     {
-        scoreText.text = "Score: " + gameController.scoreData.score.ToString() + "\n" + "Dash Cooldown: " + playerController.seconds.ToString();
+        scoreText.text = "Score: " + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.seconds.ToString();
     }
 }

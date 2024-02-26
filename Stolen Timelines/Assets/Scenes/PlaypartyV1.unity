@@ -16377,7 +16377,9 @@ MonoBehaviour:
   canDash: 0
   isDashing: 0
   dashingPower: 40
+  dashingTime: 1
   dashCooldown: 5
+  timeManipulatiom: 1
   tr: {fileID: 2044685233}
 --- !u!114 &2044685235
 MonoBehaviour:
@@ -16404,6 +16406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69969a35d98fd2c4ab7847bb85805ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSliding: 0
   regularColl: {fileID: 2044685240}
   slideColl: {fileID: 1536099777}
   regularSprite: {fileID: 2044685242}
@@ -16432,17 +16435,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0a675821028634d832b3d9bd819312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   jumpForce: 45
-  jumpDelay: 0.3
+  wallJumpDelay: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpThreshold: 0.3
+  airDrag: 0.96
   playerDash: {fileID: 0}
-  seconds: 0
   groundCheck: {fileID: 478247224}
   ceilingCheck: {fileID: 503382957}
   wallCheck: {fileID: 839211445}
-  speed: 130
+  speed: 70
   maxSpeed: 45
   wallJumpForce: {x: -30, y: 50}
   wallLayer:
