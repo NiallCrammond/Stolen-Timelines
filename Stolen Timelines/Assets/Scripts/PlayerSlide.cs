@@ -7,6 +7,7 @@ public class PlayerSlide : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public bool isSliding = false;
     public BoxCollider2D regularColl;
     public BoxCollider2D slideColl;
 
@@ -22,6 +23,9 @@ public class PlayerSlide : MonoBehaviour
     public void prefromSlide(Vector2 inputVec, float slideForce)
     {
 
+
+        isSliding = true;     
+       
         regularColl.enabled = false;
         slideColl.enabled = true;
 
@@ -35,11 +39,13 @@ public class PlayerSlide : MonoBehaviour
 
     public void stopSlide()
     {
+        isSliding = false;
         regularColl.enabled = true;
 
         regularSprite.enabled = true;
         slideSprite.enabled = false;
 
         slideColl.enabled = false;
+
     }
 }
