@@ -9,9 +9,15 @@ public class PlayerDash : MonoBehaviour
 
     public bool canDash;
     public bool isDashing;
+    [Range(0,100)]
     public float dashingPower = 40.0f;
-    private float dashingTime = 0.2f;
+    [Range(0,1)]
+    public float dashingTime = 1.0f;
+    [Range(0,10)]
     public float dashCooldown = 10.0f;
+
+    [Range(0, 1)]
+    public float timeManipulatiom = 1.0f;
 
     [SerializeField]
     TrailRenderer tr;
@@ -23,7 +29,7 @@ public class PlayerDash : MonoBehaviour
         canDash = true;
     }
 
-    public void performDash(Vector2 inputVec, float dashInput)
+    public void performDash()
     {
         StartCoroutine(Dash());
 
@@ -34,6 +40,7 @@ public class PlayerDash : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        Time.timeScale = 0.5f;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0.0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0.0f);
@@ -41,6 +48,7 @@ public class PlayerDash : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
+        Time.timeScale = 1.0f;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;

@@ -16033,7 +16033,9 @@ MonoBehaviour:
   canDash: 0
   isDashing: 0
   dashingPower: 40
-  dashCooldown: 10
+  dashingTime: 0.306
+  dashCooldown: 1.98
+  timeManipulatiom: 1
   tr: {fileID: 2044685233}
 --- !u!114 &2044685235
 MonoBehaviour:
@@ -16060,6 +16062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69969a35d98fd2c4ab7847bb85805ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSliding: 0
   regularColl: {fileID: 2044685240}
   slideColl: {fileID: 1536099777}
   regularSprite: {fileID: 2044685242}
@@ -16090,7 +16093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   jumpForce: 45
-  jumpDelay: 1
+  jumpDelay: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

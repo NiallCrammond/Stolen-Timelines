@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
   
-    public enum playerState {Idle, Jumping, Running, WallSliding, Sliding};
+    public enum playerState {Idle, Jumping, Running, WallSliding, Sliding, dashing};
 
     public playerState state;
     [SerializeField]
@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Range(0, 100)]
     private float airControlSpeed;
+    float walledTimer;
+    bool canWallJump = false;
 
     //Player Slide variables
     [SerializeField]
@@ -201,107 +203,9 @@ public class PlayerController : MonoBehaviour
         menuPressed = false;
 
 
+        handleStateTransition();
 
-        switch (state)
-        {
-            case playerState.Idle:
-                // If player mov
-                if(moveVec.x != 0f && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
-                {
-                    stateTransition(playerState.Running);
-                }
-
-                if(jumpPressed && canjump)
-                {
-                    stateTransition(playerState.Jumping);
-                }
-
-                if(slidePressed && slidePressed && isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.Sliding);
-                }
-
-                if(isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.WallSliding);
-                }
-
-                break;
-            case playerState.Jumping:
-                
-                if(isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
-                {
-                    stateTransition(playerState.WallSliding);
-                }
-
-                else if(isGrounded(groundHit1,groundHit2,groundHit3) && (rb.velocityX > 0.1 || rb.velocityY <0.1))
-                {
-
-                    stateTransition(playerState.Running);    
-                }
-
-                else if (isGrounded(groundHit1,groundHit2,groundHit3) && moveVec == new Vector2(0,0) && (rb.velocityX< 0.1 && rb.velocityX > -0.1) && (rb.velocityY < 0.1 && rb.velocityY > -0.1))
-                {
-                    stateTransition(playerState.Idle);
-                }
-                
-
-
-
-                break;
-            case playerState.Running:
-                if(jumpPressed)
-                {
-                    stateTransition(playerState.Jumping);
-                }
-
-                else if(moveVec.x == 0 && rb.velocityX ==0 && isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.Idle);
-                }
-
-                else if(slidePressed && isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.Sliding);
-                }
-                    
-
-                break;
-            case playerState.Sliding:
-
-                if (!slidePressed && isGrounded(groundHit1,groundHit2,groundHit3) && (rb.velocityX > 0.1 || rb.velocityX <-0.1))
-                {
-                    stateTransition(playerState.Running);
-                }
-
-                else if(!slidePressed && isGrounded(groundHit1,groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1))
-                {
-                    stateTransition(playerState.Idle);
-                }
-
-                else if(jumpPressed && isGrounded(groundHit1,groundHit2, groundHit3))
-                {
-                    stateTransition(playerState.Jumping);
-                }
-
-                break;
-            case playerState.WallSliding:
-
-                if(!isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.Jumping);
-                }
-
-                else if(isGrounded(groundHit1,groundHit2,groundHit3))
-                {
-                    stateTransition(playerState.Idle);
-                }
-
-                break;
-
-        }
-
-
+        StartCoroutine(printState());
     }
 
     private void FixedUpdate() // for physics functions
@@ -320,6 +224,7 @@ public class PlayerController : MonoBehaviour
 
             flip();
             setJumpForce();
+            wallJumpCheck();
             jumpCheck();
 
             if(isGrounded(groundHit1, groundHit2, groundHit3))
@@ -334,113 +239,463 @@ public class PlayerController : MonoBehaviour
                 rb.velocityX = airDrag * rb.velocityX;
             }
 
+
+            //if (movePressed && (isGrounded(groundHit1, groundHit2, groundHit3)))
+            //{
+            //    playerMovement.move(moveVec, speed, maxSpeed);
+            //   // Debug.Log("Moving");
+            //}
+
+            //else if(movePressed && (!isGrounded(groundHit1,groundHit2,groundHit3)))
+            //{
+            //    playerMovement.move(moveVec, airControlSpeed, maxSpeed);
+
+            //    // Debug.Log("stationary");
+
+            //    //Don't Move
+            //    //Idle animation
+            //}
+
+            //if (isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
+            //{
+            //    if (jumpPressed && canjump)
+            //    {
+
+            //        //StartCoroutine(disableJump());
+            //        // Debug.Log("Jump");
+
+            //        playerMovement.jump(jumpInput, jumpForce);
+            //    }
+
+            //    if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
+            //    {
+            //        playerSlide.prefromSlide(moveVec, slideForce);
+            //        // Debug.Log("Slide");
+            //    }
+
+            //    if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
+            //    {
+            //        playerSlide.stopSlide();
+            //    }
+            //}
+
+            //if (rewindPressed)
+            //    {
+            //        playerRewind.rewindUsed(isGrounded(groundHit1, groundHit2, groundHit3));
+            //        Debug.Log("Q pressed");
+            //    }
+
+            //if (dashPressed && playerDash.canDash)
+            //{
+            //    playerDash?.performDash(moveVec, dashInput);
+            //    Debug.Log("Dash");
+            //}
+
+            //if (isWalled(wallHit))
+            //{
+
+            //    if (!isGrounded(groundHit1, groundHit2, groundHit3))
+            //    {
+            //        playerMovement.Walled();
+            //    }
+            //    Debug.Log("walled");
+
+            //    if (jumpPressed)
+            //    {
+            //        playerMovement.wallJump(wallJumpForce);
+
+            //    }
+            //}
+
+            //if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
+            //{
+            //    playerSlide.prefromSlide(moveVec, slideForce);
+            //    Debug.Log("Slide");
+            //}
+
+            //if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
+            //{
+            //    playerSlide.stopSlide();
+            //}
+
+            //if(isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
+            //{
+
             
-            if (movePressed && (isGrounded(groundHit1, groundHit2, groundHit3)))
-            {
-                playerMovement.move(moveVec, speed, maxSpeed);
-               // Debug.Log("Moving");
-            }
+            //playerMovement.Walled();
+            //    if (jumpPressed)
+            //    {
+            //        playerMovement.wallJump(wallJumpForce);
 
-            else if(movePressed && (!isGrounded(groundHit1,groundHit2,groundHit3)))
-            {
-                playerMovement.move(moveVec, airControlSpeed, maxSpeed);
 
-                // Debug.Log("stationary");
+            //    }
+            //}
 
-                //Don't Move
-                //Idle animation
-            }
-
-            if (isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
-            {
-                if (jumpPressed && canjump)
-                {
-                    playerMovement.jump(jumpInput, jumpForce);
-                   
-                    //StartCoroutine(disableJump());
-                    // Debug.Log("Jump");
-
-                }
-
-                if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
-                {
-                    playerSlide.prefromSlide(moveVec, slideForce);
-                    // Debug.Log("Slide");
-                }
-
-                if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
-                {
-                    playerSlide.stopSlide();
-                }
-            }
-
-            if (rewindPressed)
-                {
-                    playerRewind.rewindUsed(isGrounded(groundHit1, groundHit2, groundHit3));
-                    Debug.Log("Q pressed");
-                }
-
-            if (dashPressed && playerDash.canDash)
-            {
-                playerDash?.performDash(moveVec, dashInput);
-                Debug.Log("Dash");
-            }
-
-            if (isWalled(wallHit))
-            {
-
-                if (!isGrounded(groundHit1, groundHit2, groundHit3))
-                {
-                    playerMovement.Walled();
-                }
-                Debug.Log("walled");
-
-                if (jumpPressed)
-                {
-                    playerMovement.wallJump(wallJumpForce);
-
-                }
-            }
-
-            if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
-            {
-                playerSlide.prefromSlide(moveVec, slideForce);
-                Debug.Log("Slide");
-            }
-
-            if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
-            {
-                playerSlide.stopSlide();
-            }
-            
             switch (state)
             {
                 case playerState.Idle:
+                    //Perform X-axis movement
+                    if (movePressed)
+                    {
+                        playerMovement.move(moveVec, speed, maxSpeed);
 
+                    }
+                   
+                    //JUMP
+                    if (jumpPressed && canjump)
+                    {
+                            playerMovement.jump(jumpInput, jumpForce);
+                      
+                    }
 
+                    //DASH
+                    if (dashPressed && playerDash.canDash)
+                    {
+                        playerDash.performDash();
+                        Debug.Log("Dash");
+                    }
+
+                    //SLIDE
+                    if(slidePressed)
+                    {
+                        playerSlide.prefromSlide(moveVec, slideForce);
+                    }
+
+                    else if (playerSlide.isSliding && !slidePressed)
+                    {
+                        playerSlide.stopSlide();
+                    }
                     break;
                 case playerState.Jumping:
 
-                   
-                        break;
-                case playerState.Running:
+                    if (movePressed)
+                    {
+                        playerMovement.move(moveVec, airControlSpeed, maxSpeed);
+                    }
+
+                    if (dashPressed && playerDash.canDash)
+                    {
+                        playerDash.performDash();
+
+                    }
+
+                    if(playerSlide.isSliding)
+                    {
+                        playerSlide.stopSlide();
+                    }
 
 
                     break;
+                case playerState.Running:
+                    
+                    if (movePressed)
+                    {
+                        playerMovement.move(moveVec, speed, maxSpeed);
+           
+                    }
+
+                    if (dashPressed && playerDash.canDash)
+                    {
+                        playerDash.performDash();
+
+                    }
+
+                    if (slidePressed)
+                    {
+                        playerSlide.prefromSlide(moveVec, slideForce);
+                    }
+
+                    else if(!slidePressed && playerSlide.isSliding)
+                    {
+                        playerSlide.stopSlide();
+                    }
+
+
+                    if (jumpPressed && canjump)
+                    {
+                        playerMovement.jump(jumpInput, jumpForce);
+
+                        //StartCoroutine(disableJump());
+                        // Debug.Log("Jump");
+                    }
+                    break;
                 case playerState.Sliding:
+
+                    if (slidePressed)
+                    {
+                        playerSlide.prefromSlide(moveVec, slideForce);
+                    }
+
+                    if (jumpPressed && canjump)
+                    {
+                        if (playerSlide.isSliding)
+                        {
+                            playerSlide.stopSlide();
+                        }
+
+                        //playerSlide.stopSlide();
+                        playerMovement.jump(jumpInput, jumpForce);
+
+                        //StartCoroutine(disableJump());
+                        // Debug.Log("Jump");
+                    }
 
 
                     break;
                 case playerState.WallSliding:
 
+               if(isWalled(wallHit))
+                    {
+                    playerMovement.Walled();
+
+                    }
+                    if (jumpPressed && canWallJump)
+                    {
+                        playerMovement.wallJump(wallJumpForce);
+                        groundedTimer = 0;
+
+                    }
+
+                    //if (movePressed)
+                    //{
+                    //    playerMovement.move(moveVec, speed, maxSpeed);
+                    //}
 
                     break;
+
+                case playerState.dashing:
+                    if(playerDash.canDash)
+                    {
+                        playerDash.performDash();
+                    }
+
+                    break;  
 
             }
         }
 
 
     }
+
+    void stateTransition(playerState newState)
+    {
+        switch (state)
+        {
+            case playerState.Idle:
+
+
+                break;
+            case playerState.Jumping:
+
+
+                break;
+            case playerState.Running:
+
+
+                break;
+            case playerState.Sliding:
+
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+        }
+
+        switch (newState)
+        {
+            case playerState.Idle:
+
+
+                break;
+            case playerState.Jumping:
+             //   playerMovement.jump(jumpInput, jumpForce);
+
+
+                break;
+            case playerState.Running:
+
+
+                break;
+            case playerState.Sliding:
+
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+        }
+
+        state = newState;
+    }
+
+    private void handleStateTransition()
+    {
+        switch (state)
+        {
+            case playerState.Idle:
+                // If player presses move and Velociy over threshold switch to running
+                if (moveVec.x != 0f && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Running);
+                }
+
+                // If player presses jump from idle and they are able to jump then switch to jump state
+                else if (jumpPressed && canjump)
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                //If player is on the ground and slide is pressed then activate slide
+                else if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Sliding);
+                }
+
+                // Probables won't enter this but here for safety
+                else if (isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.WallSliding);
+                }
+
+                if ((dashPressed && playerDash.canDash))
+                {
+                    stateTransition(playerState.dashing);
+                }
+
+                break;
+            case playerState.Jumping:
+
+                if ((dashPressed && playerDash.canDash) || playerDash.isDashing)
+                {
+                    stateTransition(playerState.dashing);
+                }
+
+                // if the player makes contact with the wall while in the air they will initiate wallSliding
+                if (isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.WallSliding);
+                }
+
+                // If the plauer is in contact with the ground and has a velocity they will be running
+                if (isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX > 0.1 || rb.velocityY < 0.1))
+                {
+
+                    stateTransition(playerState.Running);
+                }
+
+                //If the playere is on ground with negligable veloicty and there is no input from the player tyhen the player is idol
+                if (isGrounded(groundHit1, groundHit2, groundHit3) && moveVec == new Vector2(0, 0) && (rb.velocityX < 0.1 && rb.velocityX > -0.1) && (rb.velocityY < 0.1 && rb.velocityY > -0.1))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+
+
+                break;
+            case playerState.Running:
+
+                if ((dashPressed && playerDash.canDash)|| playerDash.isDashing)
+                {
+                    stateTransition(playerState.dashing);
+                }
+                //If the player can jump and input is pressed, switch to jumping state. or if the player is not in contact with anything
+                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                //If there is no player input and velocity is negligable and the player is on the ground
+                else if (moveVec.x == 0 && (rb.velocityX < 0.1 && rb.velocityX > -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                //If player is grounded and presses slide, they transition to slide
+                else if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Sliding);
+                }
+
+                // If can dash and dash presses transition to dash
+
+
+                break;
+            case playerState.Sliding:
+
+                //If slide relaesed while player at a velocity, go to running
+                if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX > 0.1 || rb.velocityX < -0.1))
+                {
+                    stateTransition(playerState.Running);
+                }
+
+                //if slide released when stationary, go idle
+                else if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                //If jump pressed when sliding, switch to jumping
+                else if ((jumpPressed && isGrounded(groundHit1, groundHit2, groundHit3)) || !isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+
+
+                break;
+            case playerState.WallSliding:
+
+                //// If player leaves wall they are now jumping
+                if (!isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                //if the player touches the ground while wallsliding they will switch to idle 
+                if (isGrounded(groundHit1, groundHit2, groundHit3))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+                break;
+            case playerState.dashing:
+
+                //If dashing stops on the ground with velocity then the player is running
+                if (!playerDash.isDashing && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX > 0.1 || rb.velocityX < -0.1))
+                {
+                    stateTransition(playerState.Running);
+                }
+
+                //If the players dash finishes in the air then player is jumping
+                else if (!playerDash.isDashing && !isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
+                {
+                    stateTransition(playerState.Jumping);
+                }
+
+                //If player dash finishes on a wall they will wallslide
+                else if (!playerDash.isDashing && !isGrounded(groundHit1, groundHit2, groundHit3) && isWalled(wallHit))
+                {
+                    stateTransition(playerState.WallSliding);
+                }
+
+                //If the players dash stops into a hault, they will be idol 
+                else if (!playerDash.isDashing && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1))
+                {
+                    stateTransition(playerState.Idle);
+                }
+
+              
+                break;
+
+        }
+
+    }
+
 
     private void OnMovePerformed(InputAction.CallbackContext val)
     {
@@ -608,19 +863,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-     IEnumerator disableJump()
-    {
-        canjump = false;
-        if(isGrounded(groundHit1,groundHit2,groundHit3)&& !canjump)
-        {
-            yield return new WaitForSeconds(jumpDelay);
-            canjump = true;
-
-        }
-
-
-
-    }
+    
     void jumpCheck()
     {
         if (isGrounded(groundHit1, groundHit2, groundHit3))
@@ -643,60 +886,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void stateTransition(playerState newState)
+    void wallJumpCheck()
     {
-        switch (state)
+        if (isWalled(wallHit))
         {
-            case playerState.Idle:
-
-
-                break;
-            case playerState.Jumping:
-
-
-                break;
-            case playerState.Running:
-
-
-                break;
-            case playerState.Sliding:
-
-
-                break;
-            case playerState.WallSliding:
-
-
-                break;
-
+            walledTimer += Time.deltaTime;
+        }
+        else
+        {
+            walledTimer = 0;
         }
 
-        switch (newState)
+
+        if (walledTimer >= jumpThreshold)
         {
-            case playerState.Idle:
-
-
-                break;
-            case playerState.Jumping:
-             //   playerMovement.jump(jumpInput, jumpForce);
-
-
-                break;
-            case playerState.Running:
-
-
-                break;
-            case playerState.Sliding:
-
-
-                break;
-            case playerState.WallSliding:
-
-
-                break;
-
+            canWallJump = true;
+        }
+        else
+        {
+            canWallJump = false;
         }
 
-        state = newState;
+    }
+ 
+    private IEnumerator printState()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("The current state is: " + state);
+
     }
 }
 
