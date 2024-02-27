@@ -9,6 +9,8 @@ TagManager:
   - OneWayPlatform
   - Trap
   - Breakable
+  - TopSplitter
+  - BottomSplitter
   layers:
   - Default
   - TransparentFX

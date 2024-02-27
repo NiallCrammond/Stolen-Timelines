@@ -2,55 +2,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class KneeSplitter : MonoBehaviour
 {
     private BoxCollider2D col;
-    public float positionY;
     private Vector3 originalPos;
     public float speed;
 
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
         originalPos = transform.position;
-        positionY = transform.position.y;
+        Debug.Log(originalPos);
     }
 
     private void Update()
     {
-        Crush();
+        //if (transform.localPosition == originalPos)
+        //{
+            Crush();
+            //Debug.Log(originalPos);
+        //}
     }
 
     public void Crush()
     {
         if (gameObject.tag == "TopSplitter")
         {
-          positionY -= speed;
+          transform.position -= new Vector3(0,speed,0) * Time.deltaTime;
         }
         if (gameObject.tag == "BottomSplitter")
         {
-          positionY += speed;
+          transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
         }
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (gameObject.CompareTag("TopSplitter") || gameObject.CompareTag("BottomSplitter"))
+        if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
-            while (transform.position != originalPos)
-            {
-                if (gameObject.tag == "TopSplitter")
-                {
-                    positionY += 1;
-                }
-                if (gameObject.tag == "BottomSplitter")
-                {
-                    positionY -= 1;
-                }
-            }
+            Debug.Log("Collision");
+            //while (transform.position != originalPos)
+            //{
+            //    if (gameObject.tag == "TopSplitter")
+            //    {
+            //        transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
+            //    }
+            //    if (gameObject.tag == "BottomSplitter")
+            //    {
+            //        transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
+            //    }
+            //}
+
+            transform.position = originalPos;
+
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
