@@ -16,13 +16,13 @@ public class BreakableWall : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && player.playerDash.isDashing)
-        {
-            Destroy(gameObject);
-        }
-        else
+        if (!player.playerDash.isDashing)
         {
             col.isTrigger = false;
+        }
+        else if (collision.CompareTag("Player") && player.playerDash.isDashing)
+        {
+            Destroy(gameObject);
         }
     }
 

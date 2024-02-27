@@ -1566,6 +1566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
+  quotaData: {fileID: 0}
+  uIController: {fileID: 0}
 --- !u!4 &210379771
 Transform:
   m_ObjectHideFlags: 0
@@ -3504,6 +3506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1424099992}
+  timerText: {fileID: 0}
 --- !u!1 &495661290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12015,12 +12018,6 @@ MonoBehaviour:
     m_Bits: 64
   jumpThreshold: 0.15
   airDrag: 0.97
-  wallJumpDelay: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  jumpThreshold: 0
-  airDrag: 0
   playerDash: {fileID: 1301309009}
   groundCheck: {fileID: 1834148092}
   ceilingCheck: {fileID: 695712309}
