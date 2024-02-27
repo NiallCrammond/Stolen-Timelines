@@ -8,7 +8,11 @@ TagManager:
   - UIController
   - OneWayPlatform
   - Trap
+<<<<<<< Updated upstream
+=======
   - Breakable
+  - AudioManager
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

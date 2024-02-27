@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -103,7 +104,8 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
 
-
+    private AudioManager audioManager;
+    
 
     private void Awake()
     {
@@ -118,7 +120,7 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
-        
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
 
         if(topCollider == null)
         {
@@ -240,96 +242,7 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            //if (movePressed && (isGrounded(groundHit1, groundHit2, groundHit3)))
-            //{
-            //    playerMovement.move(moveVec, speed, maxSpeed);
-            //   // Debug.Log("Moving");
-            //}
-
-            //else if(movePressed && (!isGrounded(groundHit1,groundHit2,groundHit3)))
-            //{
-            //    playerMovement.move(moveVec, airControlSpeed, maxSpeed);
-
-            //    // Debug.Log("stationary");
-
-            //    //Don't Move
-            //    //Idle animation
-            //}
-
-            //if (isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
-            //{
-            //    if (jumpPressed && canjump)
-            //    {
-
-            //        //StartCoroutine(disableJump());
-            //        // Debug.Log("Jump");
-
-            //        playerMovement.jump(jumpInput, jumpForce);
-            //    }
-
-            //    if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
-            //    {
-            //        playerSlide.prefromSlide(moveVec, slideForce);
-            //        // Debug.Log("Slide");
-            //    }
-
-            //    if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
-            //    {
-            //        playerSlide.stopSlide();
-            //    }
-            //}
-
-            //if (rewindPressed)
-            //    {
-            //        playerRewind.rewindUsed(isGrounded(groundHit1, groundHit2, groundHit3));
-            //        Debug.Log("Q pressed");
-            //    }
-
-            //if (dashPressed && playerDash.canDash)
-            //{
-            //    playerDash?.performDash(moveVec, dashInput);
-            //    Debug.Log("Dash");
-            //}
-
-            //if (isWalled(wallHit))
-            //{
-
-            //    if (!isGrounded(groundHit1, groundHit2, groundHit3))
-            //    {
-            //        playerMovement.Walled();
-            //    }
-            //    Debug.Log("walled");
-
-            //    if (jumpPressed)
-            //    {
-            //        playerMovement.wallJump(wallJumpForce);
-
-            //    }
-            //}
-
-            //if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
-            //{
-            //    playerSlide.prefromSlide(moveVec, slideForce);
-            //    Debug.Log("Slide");
-            //}
-
-            //if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3)) // constantly called, could be done better (switch statements maybe - default state)
-            //{
-            //    playerSlide.stopSlide();
-            //}
-
-            //if(isWalled(wallHit) && !isGrounded(groundHit1,groundHit2,groundHit3))
-            //{
-
-            
-            //playerMovement.Walled();
-            //    if (jumpPressed)
-            //    {
-            //        playerMovement.wallJump(wallJumpForce);
-
-
-            //    }
-            //}
+           
 
             switch (state)
             {
@@ -368,16 +281,19 @@ public class PlayerController : MonoBehaviour
                     break;
                 case playerState.Jumping:
 
+                    //Move in air with less control over player
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, airControlSpeed, maxSpeed);
                     }
 
+                    //DASH
                     if (dashPressed && playerDash.canDash)
                     {
                         playerDash.performDash();
 
                     }
+
 
                     if(playerSlide.isSliding)
                     {
@@ -391,6 +307,7 @@ public class PlayerController : MonoBehaviour
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, speed, maxSpeed);
+                      StartCoroutine(audioManager.randomFootSteps());
            
                     }
 
@@ -428,16 +345,8 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
-                        if (playerSlide.isSliding)
-                        {
-                            playerSlide.stopSlide();
-                        }
+                        playerMovement.jump(1, jumpForce);
 
-                        //playerSlide.stopSlide();
-                        playerMovement.jump(jumpInput, jumpForce);
-
-                        //StartCoroutine(disableJump());
-                        // Debug.Log("Jump");
                     }
 
 
@@ -455,11 +364,6 @@ public class PlayerController : MonoBehaviour
                         groundedTimer = 0;
 
                     }
-
-                    //if (movePressed)
-                    //{
-                    //    playerMovement.move(moveVec, speed, maxSpeed);
-                    //}
 
                     break;
 
@@ -494,7 +398,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Sliding:
-
+               // playerSlide.stopSlide();
 
                 break;
             case playerState.WallSliding:
