@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-
     public ScoreData scoreData;
 
 

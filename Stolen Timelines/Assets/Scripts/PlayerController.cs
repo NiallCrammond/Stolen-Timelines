@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     CircleCollider2D bottomCollider;
 
 
-    private AudioManager audioManager;
+    public AudioManager audioManager;
 
 
     private void Awake()
@@ -132,6 +132,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No bottom collider");
         }
+
+        audioManager.canPlay = true;
     }
 
     private void OnEnable()
@@ -218,6 +220,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case playerState.Running:
                 StartCoroutine(audioManager.randomFootSteps());
+               // Debug.Log("MAKE A SOUND");
 
                 break;
             case playerState.Sliding:

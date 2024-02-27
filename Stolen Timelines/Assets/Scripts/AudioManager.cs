@@ -3,7 +3,8 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 using System.Collections;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] footsteps;
 
-    bool canPlay = true;
+   public
+        bool canPlay = true;
+
+
 
     [Range(0, 1)]
     public float stepDelay;
 
     public static AudioManager instance;
+    public AudioMixerGroup mainMixer;
+    
     void Awake()
     {
         if (instance == null)
@@ -28,6 +34,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        
         DontDestroyOnLoad(gameObject);
         foreach (Sound s in footsteps)
         {
@@ -35,6 +42,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+      s.source.outputAudioMixerGroup = mainMixer;
         }
 
         foreach (Sound s in sounds)
@@ -43,6 +51,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = mainMixer;
 
         }
 
@@ -65,12 +74,14 @@ public class AudioManager : MonoBehaviour
     {
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
+        currentFootStep.source.Play();
         Debug.Log("Playing: " + currentFootStep.name);
 
     }
 
     public IEnumerator randomFootSteps()
     {
+
         if (canPlay)
         {
             playFootsteps();
