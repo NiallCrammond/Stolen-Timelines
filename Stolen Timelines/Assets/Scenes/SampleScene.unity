@@ -3784,6 +3784,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585131188}
   m_CullTransparentMesh: 1
+--- !u!1 &590746363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590746365}
+  - component: {fileID: 590746364}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &590746364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590746363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819d0300fb32453489dd5920f3c2618f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  footsteps:
+  - name: FootStep_1
+    clip: {fileID: 8300000, guid: b9f5049c70eaea947a1bd0831bc2ac53, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_2
+    clip: {fileID: 8300000, guid: 66f3599f39160ee458557d9c8bca3a85, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_3
+    clip: {fileID: 8300000, guid: 825f7eb19a7c81548a3cc6ea9406bb8c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_4
+    clip: {fileID: 8300000, guid: f17dedf6a823ba04bb779f95c7906770, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_5
+    clip: {fileID: 8300000, guid: ab35e3001ae2f76468ed247a74e830ed, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_6
+    clip: {fileID: 8300000, guid: 0dce184b391a34c45ab2c6e88a9eba46, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_7
+    clip: {fileID: 8300000, guid: 2be602c73c5b2344494a9d4c728190b6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_8
+    clip: {fileID: 8300000, guid: 35ff0b6420a32ad4b90124ff764b4ae7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootStep_9
+    clip: {fileID: 8300000, guid: 2b6022807f80a304fa9c5e44c4e06df8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  stepDelay: 0.2
+--- !u!4 &590746365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590746363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.747795, y: 6.010849, z: 0.33837327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596750215
 GameObject:
   m_ObjectHideFlags: 0
@@ -10163,7 +10260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0a675821028634d832b3d9bd819312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   jumpForce: 50
+<<<<<<< Updated upstream
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10171,6 +10270,15 @@ MonoBehaviour:
   playerRewind: {fileID: 1301309007}
   playerDash: {fileID: 1301309009}
   pauseMenu: {fileID: 1151147804}
+=======
+  wallJumpDelay: 0.05
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  jumpThreshold: 0.15
+  airDrag: 0.97
+  playerDash: {fileID: 1301309009}
+>>>>>>> Stashed changes
   groundCheck: {fileID: 1834148092}
   ceilingCheck: {fileID: 695712309}
   wallCheck: {fileID: 1195646562}
@@ -10180,9 +10288,14 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
+<<<<<<< Updated upstream
   wallHitDirecton: {x: 0, y: 0}
   slideForce: 5
   topCollider: {fileID: 0}
+=======
+  airControlSpeed: 50
+  slideForce: 5
+>>>>>>> Stashed changes
 --- !u!114 &1301309006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10195,6 +10308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69969a35d98fd2c4ab7847bb85805ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSliding: 0
   regularColl: {fileID: 1301309003}
   slideColl: {fileID: 495661292}
   regularSprite: {fileID: 1301309000}
@@ -10340,7 +10454,13 @@ MonoBehaviour:
   canDash: 0
   isDashing: 0
   dashingPower: 40
+<<<<<<< Updated upstream
   dashCooldown: 10
+=======
+  dashingTime: 1
+  dashCooldown: 5
+  timeManipulatiom: 1
+>>>>>>> Stashed changes
   tr: {fileID: 1301309008}
 --- !u!1 &1308992877
 GameObject:
@@ -16060,6 +16180,7 @@ SceneRoots:
   - {fileID: 1301309001}
   - {fileID: 1232943638}
   - {fileID: 201662589}
+<<<<<<< Updated upstream
   - {fileID: 210379771}
   - {fileID: 1794973119}
   - {fileID: 883182497}
@@ -16073,3 +16194,6 @@ SceneRoots:
   - {fileID: 378796777}
   - {fileID: 200212046}
   - {fileID: 1964718280}
+=======
+  - {fileID: 590746365}
+>>>>>>> Stashed changes
