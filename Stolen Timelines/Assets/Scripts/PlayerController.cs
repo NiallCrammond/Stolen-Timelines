@@ -205,6 +205,31 @@ public class PlayerController : MonoBehaviour
         menuPressed = false;
 
 
+        switch (state)
+        {
+            case playerState.Idle:
+
+
+                break;
+            case playerState.Jumping:
+
+
+                break;
+            case playerState.Running:
+                StartCoroutine(audioManager.randomFootSteps());
+
+                break;
+            case playerState.Sliding:
+            
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+        }
+
         handleStateTransition();
 
         StartCoroutine(printState());
@@ -307,7 +332,7 @@ public class PlayerController : MonoBehaviour
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, speed, maxSpeed);
-                      StartCoroutine(audioManager.randomFootSteps());
+                     // StartCoroutine(audioManager.randomFootSteps());
            
                     }
 

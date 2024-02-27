@@ -15,10 +15,24 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)]
     public float stepDelay;
 
+    public static AudioManager instance;
 
-    void Start()
+
+
+
+    void Awake()
     {
 
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
         foreach(Sound s in footsteps)
         {
            s.source = gameObject.AddComponent<AudioSource>();
