@@ -12,6 +12,7 @@ TagManager:
   - AudioManager
   - TopSplitter
   - BottomSplitter
+  - AnimationManager
   layers:
   - Default
   - TransparentFX

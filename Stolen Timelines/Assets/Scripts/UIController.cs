@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     GameController gameController;
     PlayerController playerController;
 
+    [SerializeField]
     private float timeLimit = 10f;
     private float timeTaken = 0f;
     private int timer = 0;

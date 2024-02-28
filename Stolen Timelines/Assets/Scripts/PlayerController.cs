@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
 
     public AudioManager audioManager;
+    public AnimationManager animationManager;
 
 
     private void Awake()
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
+        animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
 
         if (topCollider == null)
@@ -210,17 +212,22 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
-
+                animationManager.isRunning(playerMovement.rb.velocity.x);
+                animationManager.onLanding();
 
                 break;
             case playerState.Jumping:
+                animationManager.isJumping();
 
 
 
                 break;
             case playerState.Running:
                 StartCoroutine(audioManager.randomFootSteps());
-               // Debug.Log("MAKE A SOUND");
+                animationManager.onLanding();
+                animationManager.isRunning(playerMovement.rb.velocity.x);
+
+                // Debug.Log("MAKE A SOUND");
 
                 break;
             case playerState.Sliding:
@@ -282,8 +289,8 @@ public class PlayerController : MonoBehaviour
                     //JUMP
                     if (jumpPressed && canjump)
                     {
-                            playerMovement.jump(jumpInput, jumpForce);
-                      
+                        playerMovement.jump(jumpInput, jumpForce);
+                     
                     }
 
                     //DASH
