@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
 
     public AudioManager audioManager;
+    public AnimationManager animationManager;
 
     bool playJumpAudio= false;
     public bool playDashAudio = false;
@@ -127,8 +128,9 @@ public class PlayerController : MonoBehaviour
         bottomCollider = GetComponent<CircleCollider2D>();
 
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
+        animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
-        if(topCollider == null)
+        if (topCollider == null)
         {
             Debug.Log("No top collider");
         }
@@ -230,6 +232,8 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
+                animationManager.onLanding();
+                animationManager.isRunning(playerMovement.rb.velocity.x);
 
 
 
@@ -241,13 +245,18 @@ public class PlayerController : MonoBehaviour
                 audioManager.playJumpSound();
                     playJumpAudio = false;
                 }
+
+                animationManager.isJumping();
        
               
 
                 break;
             case playerState.Running:
                 StartCoroutine(audioManager.randomFootSteps());
-               // Debug.Log("MAKE A SOUND");
+                // Debug.Log("MAKE A SOUND");
+
+                animationManager.onLanding();
+                animationManager.isRunning(playerMovement.rb.velocity.x);
 
                 break;
             case playerState.Sliding:
