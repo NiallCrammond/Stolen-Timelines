@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
 
         scoreData.score += 10;
         scoreData.itemsCollected++;
-       Debug.Log("Score: " + scoreData.score);
+     //  Debug.Log("Score: " + scoreData.score);
 
 
     }
