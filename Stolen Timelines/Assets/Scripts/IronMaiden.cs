@@ -11,6 +11,7 @@ public class IronMaiden : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        col.isTrigger = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,7 +21,7 @@ public class IronMaiden : MonoBehaviour
         }
         if (isReady)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("BuildSubmissionV1");
         }
     }
 

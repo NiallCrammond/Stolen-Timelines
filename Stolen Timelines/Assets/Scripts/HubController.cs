@@ -46,7 +46,7 @@ public class HubController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("BuildSubmissionV1");
         }
     }
 

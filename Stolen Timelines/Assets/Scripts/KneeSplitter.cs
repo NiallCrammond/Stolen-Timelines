@@ -81,7 +81,8 @@ public class KneeSplitter : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SampleScene");
+            
+            SceneManager.LoadScene("BuildSubmissionV1");
         }
     }
 

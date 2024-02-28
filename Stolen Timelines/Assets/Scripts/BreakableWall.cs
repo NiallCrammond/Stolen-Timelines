@@ -13,6 +13,7 @@ public class BreakableWall : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        col.isTrigger = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
