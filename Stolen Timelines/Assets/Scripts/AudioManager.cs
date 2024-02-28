@@ -3,6 +3,8 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,12 +12,11 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] footsteps;
 
-<<<<<<< Updated upstream
-    bool canPlay= true;
-=======
     public Sound[] jumps;
 
     public Sound dash;
+
+    public Sound music;
 
    public bool canPlayFootsteps = true;
     public bool canPlayJumps = true;
@@ -23,50 +24,27 @@ public class AudioManager : MonoBehaviour
     public bool canPlayDash = true;
 
 
->>>>>>> Stashed changes
 
     [Range(0, 1)]
     public float stepDelay;
 
-<<<<<<< Updated upstream
-
-    void Start()
-=======
     public static AudioManager instance;
     public AudioMixerGroup mainMixer;
     public AudioMixerGroup musicMixer;
     public AudioMixerGroup sfxMixer;
 
     void Awake()
->>>>>>> Stashed changes
     {
-
-        foreach(Sound s in footsteps)
+        if (instance == null)
         {
-           s.source = gameObject.AddComponent<AudioSource>();
-           s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
+           instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
-        foreach(Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-
-        }
         
-<<<<<<< Updated upstream
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-=======
         DontDestroyOnLoad(gameObject);
         foreach (Sound s in footsteps)
         {
@@ -103,15 +81,20 @@ public class AudioManager : MonoBehaviour
         dash.source.pitch = dash.pitch;
         dash.source.outputAudioMixerGroup = sfxMixer;
 
+        music.source = gameObject.AddComponent<AudioSource>();
+        music.source.clip = music.clip;
+        music.source.volume = music.volume;
+        music.source.pitch = music.pitch;
+        music.source.outputAudioMixerGroup = musicMixer;
+
     }
 
     // Update is called once per frame
     
->>>>>>> Stashed changes
 
     public void playSound(string name)
     {
-      Sound s =  Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
 
     }
@@ -120,6 +103,7 @@ public class AudioManager : MonoBehaviour
     {
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
+        currentFootStep.source.Play();
         Debug.Log("Playing: " + currentFootStep.name);
 
     }
@@ -151,24 +135,17 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator randomFootSteps()
     {
-<<<<<<< Updated upstream
-        if(canPlay)
-        {
-        playFootsteps();
-            canPlay = false;
-=======
 
         if (canPlayFootsteps)
         {
             playFootsteps();
            canPlayFootsteps = false;
->>>>>>> Stashed changes
             yield return new WaitForSeconds(stepDelay);
             canPlayFootsteps = true;
         }
         else
         {
-            
+
         }
     }
 }
