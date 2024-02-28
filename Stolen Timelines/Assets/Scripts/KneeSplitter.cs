@@ -7,7 +7,13 @@ public class KneeSplitter : MonoBehaviour
 {
     private BoxCollider2D col;
     private Vector3 originalPos;
+    private Vector3 topHeight;
+    private float yPos;
+    public float topYPos;
     public float speed;
+    public float retractSpeed;
+    public bool crushing;
+    public bool retracting;
 
     private void Awake()
     {
@@ -17,20 +23,31 @@ public class KneeSplitter : MonoBehaviour
     private void Start()
     {
         originalPos = transform.position;
+        topHeight = originalPos + new Vector3(0, topYPos, 0);
         Debug.Log(originalPos);
+        crushing = true;
+        retracting = false;
     }
 
     private void Update()
     {
-        //if (transform.localPosition == originalPos)
-        //{
+        if (crushing)
+        {
             Crush();
-            //Debug.Log(originalPos);
-        //}
+        }
+
+        if (retracting)
+        {
+            SplitterRetract();
+        }
+
+ 
     }
 
     public void Crush()
     {
+        yPos = transform.position.y;
+
         if (gameObject.tag == "TopSplitter")
         {
           transform.position -= new Vector3(0,speed,0) * Time.deltaTime;
@@ -39,6 +56,15 @@ public class KneeSplitter : MonoBehaviour
         {
           transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
         }
+        if (gameObject.tag == "SoloSplitter")
+        {
+            transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
+            if (yPos > topHeight.y)
+            {
+                crushing = false;
+                retracting = true;
+            }
+        }
 
     }
 
@@ -46,20 +72,10 @@ public class KneeSplitter : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
-           // Debug.Log("Collision");
-            //while (transform.position != originalPos)
-            //{
-            //    if (gameObject.tag == "TopSplitter")
-            //    {
-            //        transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
-            //    }
-            //    if (gameObject.tag == "BottomSplitter")
-            //    {
-            //        transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
-            //    }
-            //}
+            crushing = false;
+            retracting = true;
 
-            transform.position = originalPos;
+            //transform.position = originalPos;
 
         }
 
@@ -69,4 +85,28 @@ public class KneeSplitter : MonoBehaviour
         }
     }
 
+    private void SplitterRetract()
+    {
+        if (transform.position != originalPos)
+        {
+            if (gameObject.tag == "TopSplitter")
+            {
+                transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
+                if (transform.position.y >= originalPos.y)
+                {
+                    crushing = true;
+                    retracting = false;
+                }
+            }
+            if (gameObject.tag == "BottomSplitter" || gameObject.tag == "SoloSplitter")
+            {
+                transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
+                if (transform.position.y <= originalPos.y)
+                {
+                    crushing = true;
+                    retracting = false;
+                }
+            }
+        }
+    }
 }
