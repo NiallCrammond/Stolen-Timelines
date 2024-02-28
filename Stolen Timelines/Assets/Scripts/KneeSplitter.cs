@@ -46,7 +46,7 @@ public class KneeSplitter : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
-            Debug.Log("Collision");
+           // Debug.Log("Collision");
             //while (transform.position != originalPos)
             //{
             //    if (gameObject.tag == "TopSplitter")

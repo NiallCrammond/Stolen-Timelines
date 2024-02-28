@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private float jumpForce;
     [SerializeField]
     [Range(0, 1)]
-    private float wallJumpDelay;
+    private float jumpDelay;
     private bool jumpPressed = false;
     private bool canjump = true;
     public LayerMask groundLayer;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool rewindPressed = false;
 
     //Dash logic
-    public PlayerDash playerDash;
+   public PlayerDash playerDash;
     private bool dashPressed = false;
 
     //Menu logic
@@ -105,8 +105,12 @@ public class PlayerController : MonoBehaviour
     CircleCollider2D bottomCollider;
 
 
+
     public AudioManager audioManager;
-    public AnimationManager animationManager;
+
+    bool playJumpAudio= false;
+    public bool playDashAudio = false;
+
 
 
     private void Awake()
@@ -121,11 +125,10 @@ public class PlayerController : MonoBehaviour
         pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
+
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
-        animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
-
-        if (topCollider == null)
+        if(topCollider == null)
         {
             Debug.Log("No top collider");
         }
@@ -135,7 +138,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("No bottom collider");
         }
 
-        audioManager.canPlay = true;
+
+        audioManager.canPlayFootsteps = true;
+        audioManager.canPlayJumps = true;
+        audioManager.canPlayDash = true;
+
+
+        playerDash.isDashing = false;
+        playerDash.canDash = true;
+
     }
 
     private void OnEnable()
@@ -187,6 +198,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() // for NON physics functions
     {
+      
         if (menuPressed)
         {
             if (pauseMenu.isPaused)
@@ -199,35 +211,43 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (moveVec.y < -0.5)
+        if(moveVec.y <-0.5)
         {
-            if (currentPlatform != null)
+            if(currentPlatform!= null)
             {
 
-                StartCoroutine(activateOneWay());
+            StartCoroutine(activateOneWay());
             }
         }
         menuPressed = false;
 
+
+      
+         handleStateTransition();
+
+
+
         switch (state)
         {
             case playerState.Idle:
-                animationManager.isRunning(playerMovement.rb.velocity.x);
-                animationManager.onLanding();
+
+
 
                 break;
             case playerState.Jumping:
-                animationManager.isJumping();
 
-
+                if(playJumpAudio)
+                {
+                audioManager.playJumpSound();
+                    playJumpAudio = false;
+                }
+       
+              
 
                 break;
             case playerState.Running:
                 StartCoroutine(audioManager.randomFootSteps());
-                animationManager.onLanding();
-                animationManager.isRunning(playerMovement.rb.velocity.x);
-
-                // Debug.Log("MAKE A SOUND");
+               // Debug.Log("MAKE A SOUND");
 
                 break;
             case playerState.Sliding:
@@ -238,10 +258,16 @@ public class PlayerController : MonoBehaviour
 
 
                 break;
-        } 
-                handleStateTransition();
 
-                StartCoroutine(printState());
+            case playerState.dashing:
+
+
+               
+                
+                break;
+        } 
+
+
     }
 
     private void FixedUpdate() // for physics functions
@@ -265,6 +291,7 @@ public class PlayerController : MonoBehaviour
 
             if(isGrounded(groundHit1, groundHit2, groundHit3))
             {
+                
                 groundedTimer += Time.deltaTime;
              //   rb.drag = 0;
             }
@@ -275,6 +302,8 @@ public class PlayerController : MonoBehaviour
                 rb.velocityX = airDrag * rb.velocityX;
             }
 
+
+           
 
             switch (state)
             {
@@ -289,19 +318,25 @@ public class PlayerController : MonoBehaviour
                     //JUMP
                     if (jumpPressed && canjump)
                     {
+                        playJumpAudio = true;
                         playerMovement.jump(jumpInput, jumpForce);
-                     
+                  
                     }
 
                     //DASH
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                     
                         playerDash.performDash();
-                        Debug.Log("Dash");
+                        audioManager.playDashSound();
+
+
+                        // Debug.Log("Dash");
                     }
 
                     //SLIDE
-                    if(slidePressed)
+                    if (slidePressed)
                     {
                         playerSlide.prefromSlide(moveVec, slideForce);
                     }
@@ -313,18 +348,28 @@ public class PlayerController : MonoBehaviour
                     break;
                 case playerState.Jumping:
 
+                    //Move in air with less control over player
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, airControlSpeed, maxSpeed);
                     }
 
+                    //DASH
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                        if (playDashAudio == true)
+                        {
+                            Debug.Log("call dash audio from: " + state);
+                        }
                         playerDash.performDash();
+                        audioManager.playDashSound();
+
 
                     }
 
-                    if(playerSlide.isSliding)
+
+                    if (playerSlide.isSliding)
                     {
                         playerSlide.stopSlide();
                     }
@@ -336,12 +381,19 @@ public class PlayerController : MonoBehaviour
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, speed, maxSpeed);
+                      StartCoroutine(audioManager.randomFootSteps());
            
                     }
 
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                        if (playDashAudio == true)
+                        {
+                            Debug.Log("call dash audio from: " + state);
+                        }
                         playerDash.performDash();
+                        audioManager.playDashSound();
 
                     }
 
@@ -358,10 +410,11 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
+                     
+                        playJumpAudio = true;
+
                         playerMovement.jump(jumpInput, jumpForce);
 
-                        //StartCoroutine(disableJump());
-                        Debug.Log("Jump");
                     }
                     break;
                 case playerState.Sliding:
@@ -373,12 +426,18 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
+
+                        playerMovement.jump(1, jumpForce);
+
                         if (playerSlide.isSliding)
                         {
                             playerSlide.stopSlide();
                         }
 
-                        playerMovement.jump(jumpInput, jumpForce);
+                        playJumpAudio = true;
+
+                        
+
 
                     }
 
@@ -393,18 +452,21 @@ public class PlayerController : MonoBehaviour
                     }
                     if (jumpPressed && canWallJump)
                     {
+                        playJumpAudio = true;
+
                         playerMovement.wallJump(wallJumpForce);
-                        groundedTimer = 0;
+                     groundedTimer = 0;
 
                     }
 
                     break;
 
                 case playerState.dashing:
-                    if(playerDash.canDash)
-                    {
-                        playerDash.performDash();
-                    }
+                    //if(playerDash.canDash)
+                    //{
+                    //    //playDashAudio = true;
+                    //    playerDash.performDash();
+                    //}
 
                     break;  
 
@@ -423,7 +485,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Jumping:
-
+ 
 
                 break;
             case playerState.Running:
@@ -431,12 +493,16 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Sliding:
-                playerSlide.stopSlide();
+               // playerSlide.stopSlide();
 
                 break;
             case playerState.WallSliding:
 
 
+                break;
+
+            case playerState.dashing:
+            // playDashAudio = false; 
                 break;
 
         }
@@ -444,26 +510,38 @@ public class PlayerController : MonoBehaviour
         switch (newState)
         {
             case playerState.Idle:
-
-
+                audioManager.canPlayJumps = true;
+            audioManager.canPlayDash = true;
                 break;
             case playerState.Jumping:
+
+            audioManager.canPlayDash = true;
 
 
 
                 break;
             case playerState.Running:
-
+              audioManager.canPlayJumps = true;
+            audioManager.canPlayDash = true;
 
                 break;
             case playerState.Sliding:
-
+               audioManager.canPlayJumps = true;
+               audioManager.canPlayDash = true;
 
                 break;
             case playerState.WallSliding:
-
+                audioManager.canPlayJumps = true;
+           audioManager.canPlayDash = true;
 
                 break;
+
+            case playerState.dashing:
+                audioManager.canPlayJumps = true;
+               // playDashAudio = true;
+
+                break;
+
 
         }
 
@@ -835,7 +913,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (walledTimer >= wallJumpDelay)
+        if (walledTimer >= jumpThreshold)
         {
             canWallJump = true;
         }
@@ -849,7 +927,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator printState()
     {
         yield return new WaitForSeconds(0.1f);
-      //  Debug.Log("The current state is: " + state);
+        Debug.Log("The current state is: " + state);
 
     }
 }

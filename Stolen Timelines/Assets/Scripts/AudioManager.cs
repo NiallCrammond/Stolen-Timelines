@@ -12,8 +12,16 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] footsteps;
 
-   public
-        bool canPlay = true;
+    public Sound[] jumps;
+
+    public Sound dash;
+
+    public Sound music;
+
+   public bool canPlayFootsteps = true;
+    public bool canPlayJumps = true;
+
+    public bool canPlayDash = true;
 
 
 
@@ -22,7 +30,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
     public AudioMixerGroup mainMixer;
-    
+    public AudioMixerGroup musicMixer;
+    public AudioMixerGroup sfxMixer;
+
     void Awake()
     {
         if (instance == null)
@@ -42,7 +52,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-      s.source.outputAudioMixerGroup = mainMixer;
+      s.source.outputAudioMixerGroup = sfxMixer;
         }
 
         foreach (Sound s in sounds)
@@ -51,17 +61,36 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            s.source.outputAudioMixerGroup = mainMixer;
+            s.source.outputAudioMixerGroup = sfxMixer;
 
         }
+
+        foreach (Sound s in jumps)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = sfxMixer;
+
+        }
+
+        dash.source = gameObject.AddComponent<AudioSource>();
+        dash.source.clip = dash.clip;
+        dash.source.volume = dash.volume;
+        dash.source.pitch = dash.pitch;
+        dash.source.outputAudioMixerGroup = sfxMixer;
+
+        music.source = gameObject.AddComponent<AudioSource>();
+        music.source.clip = music.clip;
+        music.source.volume = music.volume;
+        music.source.pitch = music.pitch;
+        music.source.outputAudioMixerGroup = musicMixer;
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 
     public void playSound(string name)
     {
@@ -79,15 +108,40 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void playJumpSound()
+    {
+
+        if(canPlayJumps)
+        {
+            canPlayJumps = false;
+        Sound jumpSound = jumps[Random.Range(0, jumps.Length)];
+        jumpSound.source.Play();
+        Debug.Log("Jump Sound Played: " + jumpSound.name);
+        }
+    }
+
+    public void playDashSound()
+    {
+       if(canPlayDash)
+        {
+
+            canPlayDash = false;
+        dash.source.Play();
+       Debug.Log("Dash Played");
+        }
+        
+
+    }
+
     public IEnumerator randomFootSteps()
     {
 
-        if (canPlay)
+        if (canPlayFootsteps)
         {
             playFootsteps();
-            canPlay = false;
+           canPlayFootsteps = false;
             yield return new WaitForSeconds(stepDelay);
-            canPlay = true;
+            canPlayFootsteps = true;
         }
         else
         {

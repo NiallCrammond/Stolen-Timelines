@@ -17,7 +17,7 @@ public class PlayerDash : MonoBehaviour
     public float dashCooldown = 10.0f;
 
     [Range(0, 1)]
-    public float timeManipulatiom = 1.0f;
+    public float timeManipulation = 1.0f;
 
     [SerializeField]
     TrailRenderer tr;
@@ -40,7 +40,7 @@ public class PlayerDash : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        Time.timeScale = 0.5f;
+        Time.timeScale = timeManipulation;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0.0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0.0f);
