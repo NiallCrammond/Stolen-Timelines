@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool rewindPressed = false;
 
     //Dash logic
-    private PlayerDash playerDash;
+   public PlayerDash playerDash;
     private bool dashPressed = false;
 
     //Menu logic
@@ -104,17 +104,14 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
 
-<<<<<<< Updated upstream
-    private AudioManager audioManager;
-    
-=======
+
 
     public AudioManager audioManager;
 
     bool playJumpAudio= false;
     public bool playDashAudio = false;
 
->>>>>>> Stashed changes
+
 
     private void Awake()
     {
@@ -140,8 +137,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No bottom collider");
         }
-<<<<<<< Updated upstream
-=======
+
 
         audioManager.canPlayFootsteps = true;
         audioManager.canPlayJumps = true;
@@ -150,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
         playerDash.isDashing = false;
         playerDash.canDash = true;
->>>>>>> Stashed changes
+
     }
 
     private void OnEnable()
@@ -225,23 +221,18 @@ public class PlayerController : MonoBehaviour
         }
         menuPressed = false;
 
-<<<<<<< Updated upstream
-=======
+
       
-                handleStateTransition();
+         handleStateTransition();
 
 
 
         switch (state)
         {
             case playerState.Idle:
->>>>>>> Stashed changes
 
-        handleStateTransition();
 
-<<<<<<< Updated upstream
-        StartCoroutine(printState());
-=======
+
                 break;
             case playerState.Jumping:
 
@@ -276,8 +267,7 @@ public class PlayerController : MonoBehaviour
                 break;
         } 
 
-                StartCoroutine(printState());
->>>>>>> Stashed changes
+
     }
 
     private void FixedUpdate() // for physics functions
@@ -378,12 +368,8 @@ public class PlayerController : MonoBehaviour
 
                     }
 
-<<<<<<< Updated upstream
 
-                    if(playerSlide.isSliding)
-=======
                     if (playerSlide.isSliding)
->>>>>>> Stashed changes
                     {
                         playerSlide.stopSlide();
                     }
@@ -429,11 +415,6 @@ public class PlayerController : MonoBehaviour
 
                         playerMovement.jump(jumpInput, jumpForce);
 
-<<<<<<< Updated upstream
-                        //StartCoroutine(disableJump());
-                        // Debug.Log("Jump");
-=======
->>>>>>> Stashed changes
                     }
                     break;
                 case playerState.Sliding:
@@ -445,9 +426,9 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
-<<<<<<< Updated upstream
+
                         playerMovement.jump(1, jumpForce);
-=======
+
                         if (playerSlide.isSliding)
                         {
                             playerSlide.stopSlide();
@@ -455,9 +436,8 @@ public class PlayerController : MonoBehaviour
 
                         playJumpAudio = true;
 
-                        playerMovement.jump(jumpInput, jumpForce);
                         
->>>>>>> Stashed changes
+
 
                     }
 
@@ -534,11 +514,9 @@ public class PlayerController : MonoBehaviour
             audioManager.canPlayDash = true;
                 break;
             case playerState.Jumping:
-<<<<<<< Updated upstream
-             //   playerMovement.jump(jumpInput, jumpForce);
-=======
+
             audioManager.canPlayDash = true;
->>>>>>> Stashed changes
+
 
 
                 break;

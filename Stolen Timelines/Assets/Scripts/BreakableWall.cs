@@ -8,7 +8,7 @@ public class BreakableWall : MonoBehaviour
     private BoxCollider2D col;
 
     [SerializeField]
-    PlayerController player;
+    public PlayerController player;
 
     private void Awake()
     {

@@ -2150,6 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293568962}
   - component: {fileID: 293568961}
+  - component: {fileID: 293568963}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: AudioManager
@@ -2216,9 +2217,41 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  canPlay: 1
+  jumps:
+  - name: Jump_1
+    clip: {fileID: 8300000, guid: cc06355a9e80208439953c6d6fe60f3c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump_2
+    clip: {fileID: 8300000, guid: fa4707875d552d2488810f3cc0a0cafe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump_3
+    clip: {fileID: 8300000, guid: a9f9705f838ef9342819eca1a3d98ecd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  dash:
+    name: Dash
+    clip: {fileID: 8300000, guid: b6ad79ef149e1c24facc88658324d440, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  music:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  canPlayFootsteps: 1
+  canPlayJumps: 1
+  canPlayDash: 1
   stepDelay: 0.3
-  mainMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  mainMixer: {fileID: 24300002, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
+  musicMixer: {fileID: -1842772654057147524, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
+  sfxMixer: {fileID: 6558029105389458523, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
 --- !u!4 &293568962
 Transform:
   m_ObjectHideFlags: 0
@@ -2234,6 +2267,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &293568963
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293568960}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1842772654057147524, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 928498b8665be714a90b823ceeb0bdcc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &332112845
 GameObject:
   m_ObjectHideFlags: 0
@@ -12012,7 +12141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   jumpForce: 50
-  wallJumpDelay: 0.05
+  jumpDelay: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -12031,6 +12160,7 @@ MonoBehaviour:
   airControlSpeed: 50
   slideForce: 5
   audioManager: {fileID: 0}
+  playDashAudio: 0
 --- !u!114 &1301309006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12191,7 +12321,7 @@ MonoBehaviour:
   dashingPower: 40
   dashingTime: 1
   dashCooldown: 5
-  timeManipulatiom: 1
+  timeManipulation: 1
   tr: {fileID: 1301309008}
 --- !u!1 &1308992877
 GameObject:
