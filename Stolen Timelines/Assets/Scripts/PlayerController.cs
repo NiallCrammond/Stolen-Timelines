@@ -104,8 +104,17 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
 
+<<<<<<< Updated upstream
     private AudioManager audioManager;
     
+=======
+
+    public AudioManager audioManager;
+
+    bool playJumpAudio= false;
+    public bool playDashAudio = false;
+
+>>>>>>> Stashed changes
 
     private void Awake()
     {
@@ -131,6 +140,17 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No bottom collider");
         }
+<<<<<<< Updated upstream
+=======
+
+        audioManager.canPlayFootsteps = true;
+        audioManager.canPlayJumps = true;
+        audioManager.canPlayDash = true;
+
+
+        playerDash.isDashing = false;
+        playerDash.canDash = true;
+>>>>>>> Stashed changes
     }
 
     private void OnEnable()
@@ -182,6 +202,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() // for NON physics functions
     {
+      
         if (menuPressed)
         {
             if (pauseMenu.isPaused)
@@ -204,10 +225,59 @@ public class PlayerController : MonoBehaviour
         }
         menuPressed = false;
 
+<<<<<<< Updated upstream
+=======
+      
+                handleStateTransition();
+
+
+
+        switch (state)
+        {
+            case playerState.Idle:
+>>>>>>> Stashed changes
 
         handleStateTransition();
 
+<<<<<<< Updated upstream
         StartCoroutine(printState());
+=======
+                break;
+            case playerState.Jumping:
+
+                if(playJumpAudio)
+                {
+                audioManager.playJumpSound();
+                    playJumpAudio = false;
+                }
+       
+              
+
+                break;
+            case playerState.Running:
+                StartCoroutine(audioManager.randomFootSteps());
+               // Debug.Log("MAKE A SOUND");
+
+                break;
+            case playerState.Sliding:
+
+
+                break;
+            case playerState.WallSliding:
+
+
+                break;
+
+            case playerState.dashing:
+
+
+               
+                
+                break;
+        } 
+
+                StartCoroutine(printState());
+>>>>>>> Stashed changes
     }
 
     private void FixedUpdate() // for physics functions
@@ -231,6 +301,7 @@ public class PlayerController : MonoBehaviour
 
             if(isGrounded(groundHit1, groundHit2, groundHit3))
             {
+                
                 groundedTimer += Time.deltaTime;
              //   rb.drag = 0;
             }
@@ -257,19 +328,25 @@ public class PlayerController : MonoBehaviour
                     //JUMP
                     if (jumpPressed && canjump)
                     {
-                            playerMovement.jump(jumpInput, jumpForce);
-                      
+                        playJumpAudio = true;
+                        playerMovement.jump(jumpInput, jumpForce);
+                  
                     }
 
                     //DASH
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                     
                         playerDash.performDash();
-                        Debug.Log("Dash");
+                        audioManager.playDashSound();
+
+
+                        // Debug.Log("Dash");
                     }
 
                     //SLIDE
-                    if(slidePressed)
+                    if (slidePressed)
                     {
                         playerSlide.prefromSlide(moveVec, slideForce);
                     }
@@ -290,12 +367,23 @@ public class PlayerController : MonoBehaviour
                     //DASH
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                        if (playDashAudio == true)
+                        {
+                            Debug.Log("call dash audio from: " + state);
+                        }
                         playerDash.performDash();
+                        audioManager.playDashSound();
+
 
                     }
 
+<<<<<<< Updated upstream
 
                     if(playerSlide.isSliding)
+=======
+                    if (playerSlide.isSliding)
+>>>>>>> Stashed changes
                     {
                         playerSlide.stopSlide();
                     }
@@ -313,7 +401,13 @@ public class PlayerController : MonoBehaviour
 
                     if (dashPressed && playerDash.canDash)
                     {
+                        playDashAudio = true;
+                        if (playDashAudio == true)
+                        {
+                            Debug.Log("call dash audio from: " + state);
+                        }
                         playerDash.performDash();
+                        audioManager.playDashSound();
 
                     }
 
@@ -330,10 +424,16 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
+                     
+                        playJumpAudio = true;
+
                         playerMovement.jump(jumpInput, jumpForce);
 
+<<<<<<< Updated upstream
                         //StartCoroutine(disableJump());
                         // Debug.Log("Jump");
+=======
+>>>>>>> Stashed changes
                     }
                     break;
                 case playerState.Sliding:
@@ -345,7 +445,19 @@ public class PlayerController : MonoBehaviour
 
                     if (jumpPressed && canjump)
                     {
+<<<<<<< Updated upstream
                         playerMovement.jump(1, jumpForce);
+=======
+                        if (playerSlide.isSliding)
+                        {
+                            playerSlide.stopSlide();
+                        }
+
+                        playJumpAudio = true;
+
+                        playerMovement.jump(jumpInput, jumpForce);
+                        
+>>>>>>> Stashed changes
 
                     }
 
@@ -360,18 +472,21 @@ public class PlayerController : MonoBehaviour
                     }
                     if (jumpPressed && canWallJump)
                     {
+                        playJumpAudio = true;
+
                         playerMovement.wallJump(wallJumpForce);
-                        groundedTimer = 0;
+                     groundedTimer = 0;
 
                     }
 
                     break;
 
                 case playerState.dashing:
-                    if(playerDash.canDash)
-                    {
-                        playerDash.performDash();
-                    }
+                    //if(playerDash.canDash)
+                    //{
+                    //    //playDashAudio = true;
+                    //    playerDash.performDash();
+                    //}
 
                     break;  
 
@@ -390,7 +505,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Jumping:
-
+ 
 
                 break;
             case playerState.Running:
@@ -406,31 +521,49 @@ public class PlayerController : MonoBehaviour
 
                 break;
 
+            case playerState.dashing:
+            // playDashAudio = false; 
+                break;
+
         }
 
         switch (newState)
         {
             case playerState.Idle:
-
-
+                audioManager.canPlayJumps = true;
+            audioManager.canPlayDash = true;
                 break;
             case playerState.Jumping:
+<<<<<<< Updated upstream
              //   playerMovement.jump(jumpInput, jumpForce);
+=======
+            audioManager.canPlayDash = true;
+>>>>>>> Stashed changes
 
 
                 break;
             case playerState.Running:
-
+              audioManager.canPlayJumps = true;
+            audioManager.canPlayDash = true;
 
                 break;
             case playerState.Sliding:
-
+               audioManager.canPlayJumps = true;
+               audioManager.canPlayDash = true;
 
                 break;
             case playerState.WallSliding:
-
+                audioManager.canPlayJumps = true;
+           audioManager.canPlayDash = true;
 
                 break;
+
+            case playerState.dashing:
+                audioManager.canPlayJumps = true;
+               // playDashAudio = true;
+
+                break;
+
 
         }
 

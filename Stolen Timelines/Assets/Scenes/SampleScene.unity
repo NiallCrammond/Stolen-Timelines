@@ -2060,6 +2060,211 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &293568960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293568962}
+  - component: {fileID: 293568961}
+  - component: {fileID: 293568963}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293568961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293568960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819d0300fb32453489dd5920f3c2618f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  footsteps:
+  - name: FootSteps_1
+    clip: {fileID: 8300000, guid: fe2bce799f732f749adbf49b0238a06d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_2
+    clip: {fileID: 8300000, guid: 5b6e4210d17c09f438ee3924cf47b8f2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_3
+    clip: {fileID: 8300000, guid: ba3fd06ebffd77243b5bf89cb708e119, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_4
+    clip: {fileID: 8300000, guid: efbbff58dcd3a5c4bacea8a51e065486, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_5
+    clip: {fileID: 8300000, guid: dd318058d9a9f394c82e606af55cd971, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_6
+    clip: {fileID: 8300000, guid: ea621a6770526f04f98b2c5201a173ee, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  jumps:
+  - name: Jump_1
+    clip: {fileID: 8300000, guid: cc06355a9e80208439953c6d6fe60f3c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump_2
+    clip: {fileID: 8300000, guid: fa4707875d552d2488810f3cc0a0cafe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump_3
+    clip: {fileID: 8300000, guid: a9f9705f838ef9342819eca1a3d98ecd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  dash:
+    name: Dash
+    clip: {fileID: 8300000, guid: b6ad79ef149e1c24facc88658324d440, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  canPlayFootsteps: 1
+  canPlayJumps: 1
+  canPlayDash: 1
+  stepDelay: 0.3
+  mainMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  musicMixer: {fileID: 8872811412671493803, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  sfxMixer: {fileID: 8098542180361587729, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+--- !u!4 &293568962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293568960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2811353, y: 0.7084042, z: -0.30493617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &293568963
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293568960}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8872811412671493803, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 928498b8665be714a90b823ceeb0bdcc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.477
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+>>>>>>> Stashed changes
 --- !u!1 &332112845
 GameObject:
   m_ObjectHideFlags: 0
@@ -10048,6 +10253,7 @@ GameObject:
   - component: {fileID: 1301309007}
   - component: {fileID: 1301309009}
   - component: {fileID: 1301309008}
+  - component: {fileID: 1301309010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10295,6 +10501,11 @@ MonoBehaviour:
 =======
   airControlSpeed: 50
   slideForce: 5
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  audioManager: {fileID: 0}
+  playDashAudio: 0
 >>>>>>> Stashed changes
 --- !u!114 &1301309006
 MonoBehaviour:
@@ -10455,13 +10666,41 @@ MonoBehaviour:
   isDashing: 0
   dashingPower: 40
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   dashCooldown: 10
 =======
   dashingTime: 1
   dashCooldown: 5
   timeManipulatiom: 1
 >>>>>>> Stashed changes
+=======
+  dashingTime: 0.5
+  dashCooldown: 5
+  timeManipulation: 1
+>>>>>>> Stashed changes
   tr: {fileID: 1301309008}
+--- !u!95 &1301309010
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301308998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61354fe1e370be4458be74c2da5700ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1308992877
 GameObject:
   m_ObjectHideFlags: 0
