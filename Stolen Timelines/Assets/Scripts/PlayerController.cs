@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private float jumpForce;
     [SerializeField]
     [Range(0, 1)]
-    private float jumpDelay;
+    private float WalljumpDelay;
     private bool jumpPressed = false;
     private bool canjump = true;
     public LayerMask groundLayer;
@@ -913,7 +913,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (walledTimer >= jumpThreshold)
+        if (walledTimer >= WalljumpDelay)
         {
             canWallJump = true;
         }

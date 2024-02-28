@@ -2249,9 +2249,9 @@ MonoBehaviour:
   canPlayJumps: 1
   canPlayDash: 1
   stepDelay: 0.3
-  mainMixer: {fileID: 24300002, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
-  musicMixer: {fileID: -1842772654057147524, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
-  sfxMixer: {fileID: 6558029105389458523, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
+  mainMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  musicMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  sfxMixer: {fileID: -8074087127624257577, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
 --- !u!4 &293568962
 Transform:
   m_ObjectHideFlags: 0
@@ -2276,7 +2276,7 @@ AudioSource:
   m_GameObject: {fileID: 293568960}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1842772654057147524, guid: 088cc9c12a197784892e0f05bde8473a, type: 2}
+  OutputAudioMixerGroup: {fileID: -5829262359202737220, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
   m_audioClip: {fileID: 8300000, guid: 928498b8665be714a90b823ceeb0bdcc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -11418,7 +11418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735a0bdc7275fba47b8182b75a910981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  audioMixer: {fileID: 0}
   resDropDown: {fileID: 844303308}
   volumeSlider: {fileID: 1387266674}
 --- !u!1 &1261519383
@@ -12141,11 +12141,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   jumpForce: 50
-  jumpDelay: 0
+  WalljumpDelay: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpThreshold: 0.15
+  jumpThreshold: 0.2
   airDrag: 0.97
   playerDash: {fileID: 1301309009}
   groundCheck: {fileID: 1834148092}
