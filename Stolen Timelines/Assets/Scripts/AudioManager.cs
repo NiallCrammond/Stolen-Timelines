@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
             canPlayJumps = false;
         Sound jumpSound = jumps[Random.Range(0, jumps.Length)];
         jumpSound.source.Play();
-        Debug.Log("Jump Sound Played: " + jumpSound.name);
+        //Debug.Log("Jump Sound Played: " + jumpSound.name);
         }
     }
 
