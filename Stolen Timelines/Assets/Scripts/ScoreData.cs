@@ -8,7 +8,4 @@ public class ScoreData : ScriptableObject
 {
     public int score;
     public int itemsCollected;
-
-
-
 }

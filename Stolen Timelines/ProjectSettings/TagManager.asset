@@ -4,12 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - OneWayPlatform
-  - UIController
   - PauseMenu
+  - UIController
+  - OneWayPlatform
   - Trap
   - Breakable
   - AudioManager
+  - TopSplitter
+  - BottomSplitter
+  - AnimationManager
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Wall
   - 
   - 
   - 
@@ -44,6 +47,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: SkyBox
+    uniqueID: 404377755
+    locked: 0
+  - name: Background
+    uniqueID: 634631733
+    locked: 0
+  - name: Foreground
+    uniqueID: 4026143343
+    locked: 0
+  - name: Player
+    uniqueID: 2276285929
+    locked: 0
+  - name: UI
+    uniqueID: 2726911041
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

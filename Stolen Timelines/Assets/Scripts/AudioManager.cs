@@ -3,6 +3,8 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,57 +12,89 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] footsteps;
 
-    bool canPlay= true;
+    public Sound[] jumps;
+
+    public Sound dash;
+
+    public Sound music;
+
+   public bool canPlayFootsteps = true;
+    public bool canPlayJumps = true;
+
+    public bool canPlayDash = true;
+
+
 
     [Range(0, 1)]
     public float stepDelay;
 
     public static AudioManager instance;
-
-
-
+    public AudioMixerGroup mainMixer;
+    public AudioMixerGroup musicMixer;
+    public AudioMixerGroup sfxMixer;
 
     void Awake()
     {
-
         if (instance == null)
         {
-            instance = this;
+           instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
 
+        
         DontDestroyOnLoad(gameObject);
-        foreach(Sound s in footsteps)
-        {
-           s.source = gameObject.AddComponent<AudioSource>();
-           s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-        }
-
-        foreach(Sound s in sounds)
+        foreach (Sound s in footsteps)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+      s.source.outputAudioMixerGroup = sfxMixer;
+        }
+
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = sfxMixer;
 
         }
-        
+
+        foreach (Sound s in jumps)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = sfxMixer;
+
+        }
+
+        dash.source = gameObject.AddComponent<AudioSource>();
+        dash.source.clip = dash.clip;
+        dash.source.volume = dash.volume;
+        dash.source.pitch = dash.pitch;
+        dash.source.outputAudioMixerGroup = sfxMixer;
+
+        music.source = gameObject.AddComponent<AudioSource>();
+        music.source.clip = music.clip;
+        music.source.volume = music.volume;
+        music.source.pitch = music.pitch;
+        music.source.outputAudioMixerGroup = musicMixer;
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void playSound(string name)
     {
-      Sound s =  Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
 
     }
@@ -69,22 +103,49 @@ public class AudioManager : MonoBehaviour
     {
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
+        currentFootStep.source.Play();
         Debug.Log("Playing: " + currentFootStep.name);
+
+    }
+
+    public void playJumpSound()
+    {
+
+        if(canPlayJumps)
+        {
+            canPlayJumps = false;
+        Sound jumpSound = jumps[Random.Range(0, jumps.Length)];
+        jumpSound.source.Play();
+        Debug.Log("Jump Sound Played: " + jumpSound.name);
+        }
+    }
+
+    public void playDashSound()
+    {
+       if(canPlayDash)
+        {
+
+            canPlayDash = false;
+        dash.source.Play();
+       Debug.Log("Dash Played");
+        }
+        
 
     }
 
     public IEnumerator randomFootSteps()
     {
-        if(canPlay)
+
+        if (canPlayFootsteps)
         {
-        playFootsteps();
-            canPlay = false;
+            playFootsteps();
+           canPlayFootsteps = false;
             yield return new WaitForSeconds(stepDelay);
-            canPlay = true;
+            canPlayFootsteps = true;
         }
         else
         {
-            
+
         }
     }
 }

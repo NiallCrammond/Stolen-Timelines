@@ -8,14 +8,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 333711f9c344aab4fb7df52065a3b1aa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestLevel.unity
     guid: a2be8ee0ae708ed4caf051e4762571a1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlaypartyV1.unity
     guid: 47dc34b70784f8b47a9f013d89e9934a
+  - enabled: 1
+    path: Assets/Scenes/HUB.unity
+    guid: 203ef5d24b902454fadb7c688e718a07
+  - enabled: 1
+    path: Assets/Scenes/BuildSubmissionV1.unity
+    guid: 589d2460cc825a9449f9f7273c06cadd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

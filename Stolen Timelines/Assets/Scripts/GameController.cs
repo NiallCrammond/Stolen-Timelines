@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-
     public ScoreData scoreData;
+    public QuotaData quotaData;
+    public UIController uIController;
 
+    
 
     private void Awake()
     {
@@ -33,10 +36,8 @@ public class GameController : MonoBehaviour
 
         scoreData.score += 10;
         scoreData.itemsCollected++;
-       Debug.Log("Score: " + scoreData.score);
+     //  Debug.Log("Score: " + scoreData.score);
 
 
     }
-
-
 }

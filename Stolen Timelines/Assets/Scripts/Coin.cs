@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
         {
             onCoinCollect.Invoke();
             collected = true;
-            Debug.Log("Collected");
+           // Debug.Log("Collected");
             Destroy(gameObject);
         }
     }

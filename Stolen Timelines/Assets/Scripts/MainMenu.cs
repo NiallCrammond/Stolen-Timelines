@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public void playGame()
     {
-        SceneManager.LoadScene("PlaypartyV1");
+        SceneManager.LoadScene("BuildSubmissionV1");
 
     }
 

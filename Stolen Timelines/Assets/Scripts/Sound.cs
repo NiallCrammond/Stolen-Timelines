@@ -9,11 +9,11 @@ public class Sound
 
     public AudioClip clip;
 
-    [Range(0,1)]
+    [Range(0, 1)]
     public float volume;
-    [Range(0,3)]
+    [Range(0, 3)]
     public float pitch;
- 
+
     public AudioSource source;
 
 }
