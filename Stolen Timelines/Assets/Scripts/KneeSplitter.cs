@@ -41,7 +41,6 @@ public class KneeSplitter : MonoBehaviour
             SplitterRetract();
         }
 
- 
     }
 
     public void Crush()
@@ -70,6 +69,8 @@ public class KneeSplitter : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Physics2D.IgnoreLayerCollision(9, 6);
+
         if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
             crushing = false;
