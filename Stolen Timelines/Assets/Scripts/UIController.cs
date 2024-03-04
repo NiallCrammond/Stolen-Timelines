@@ -51,4 +51,10 @@ public class UIController : MonoBehaviour
     {
         timerText.text = "Timer: " + timer.ToString();
     }
+
+   public void addTime(float time)
+    {
+        Debug.Log("Time added");
+        timeLimit += (int)time;
+    }
 }

@@ -10,10 +10,13 @@ public class SettingsMenu : MonoBehaviour
 
     public AudioMixer audioMixer;
 
+
     Resolution[] resoultions;
     
     public TMP_Dropdown resDropDown;
-    public Slider volumeSlider;
+    public Slider masterVolumeSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     private void Start()
     {
@@ -40,15 +43,37 @@ public class SettingsMenu : MonoBehaviour
         resDropDown.value = currentRes;
         resDropDown.RefreshShownValue();
 
-        float currentVolume= 0;
-        audioMixer.GetFloat("volume", out currentVolume);
-        volumeSlider.value = currentVolume;
+        float currentMasterVolume= 0;
+        audioMixer.GetFloat("masterVolume", out currentMasterVolume);
+        masterVolumeSlider.value = currentMasterVolume;
+
+        float currentMusicVolume = 0;
+        audioMixer.GetFloat("musicVolume", out currentMusicVolume);
+        musicSlider.value = currentMusicVolume;
+
+        float currentSFXVolume = 0;
+        audioMixer.GetFloat("sfxVolume", out currentSFXVolume);
+        sfxSlider.value = currentSFXVolume;
     }
     public void SetVolume(float vol)
     {
         audioMixer.SetFloat("volume", vol);
     }
 
+    public void setMasterVolume(float vol)
+    {
+        audioMixer.SetFloat("masterVolume", vol);
+    }
+
+    public void setMusicVolume(float vol)
+    {
+        audioMixer.SetFloat("musicVolume", vol);
+    }
+
+    public void setSFXVolume(float vol)
+    {
+        audioMixer.SetFloat("sfxVolume", vol);
+    }
     public void setQuality(int qualIndex)
     {
         QualitySettings.SetQualityLevel(qualIndex);

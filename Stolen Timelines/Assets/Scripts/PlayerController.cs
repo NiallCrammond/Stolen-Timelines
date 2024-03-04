@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
   
-    public enum playerState {Idle, Jumping, Running, WallSliding, Sliding, dashing};
+    public enum playerState {Idle, Jumping, Running, WallSliding, Sliding, dashing, rewind};
 
     public playerState state;
     [SerializeField]
@@ -274,6 +274,10 @@ public class PlayerController : MonoBehaviour
                
                 
                 break;
+
+            case playerState.rewind:
+                
+                break;
         } 
 
 
@@ -282,9 +286,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() // for physics functions
     {
             groundHit1 = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.5f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
-        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.5f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
         wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
@@ -354,6 +358,11 @@ public class PlayerController : MonoBehaviour
                     {
                         playerSlide.stopSlide();
                     }
+
+                    if (rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
                     break;
                 case playerState.Jumping:
 
@@ -383,6 +392,10 @@ public class PlayerController : MonoBehaviour
                         playerSlide.stopSlide();
                     }
 
+                    if (rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
 
                     break;
                 case playerState.Running:
@@ -425,6 +438,11 @@ public class PlayerController : MonoBehaviour
                         playerMovement.jump(jumpInput, jumpForce);
 
                     }
+
+                    if (rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
                     break;
                 case playerState.Sliding:
 
@@ -450,6 +468,11 @@ public class PlayerController : MonoBehaviour
 
                     }
 
+                    if (rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
+
 
                     break;
                 case playerState.WallSliding:
@@ -468,7 +491,19 @@ public class PlayerController : MonoBehaviour
 
                     }
 
-                    break;
+                    if(rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1,groundHit2,groundHit3);
+                    }
+
+                    if (movePressed)
+                    {
+                        playerMovement.move(moveVec, speed, maxSpeed);
+                    }
+
+
+
+                        break;
 
                 case playerState.dashing:
                     //if(playerDash.canDash)
@@ -476,8 +511,15 @@ public class PlayerController : MonoBehaviour
                     //    //playDashAudio = true;
                     //    playerDash.performDash();
                     //}
+                    if (rewindPressed)
+                    {
+                        playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
+                    break;
 
-                    break;  
+                case playerState.rewind:
+
+                    break;
 
             }
         }
@@ -512,6 +554,9 @@ public class PlayerController : MonoBehaviour
 
             case playerState.dashing:
             // playDashAudio = false; 
+                break;
+
+            case playerState.rewind:
                 break;
 
         }
@@ -549,6 +594,10 @@ public class PlayerController : MonoBehaviour
                 audioManager.canPlayJumps = true;
                // playDashAudio = true;
 
+                break;
+
+
+            case playerState.rewind:
                 break;
 
 
@@ -591,6 +640,11 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.dashing);
                 }
 
+                if (playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
+                }
+
                 break;
             case playerState.Jumping:
 
@@ -618,6 +672,11 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.Idle);
                 }
 
+
+                if (playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
+                }
 
 
                 break;
@@ -648,6 +707,11 @@ public class PlayerController : MonoBehaviour
                 // If can dash and dash presses transition to dash
 
 
+                if (playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
+                }
+
                 break;
             case playerState.Sliding:
 
@@ -669,6 +733,11 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.Jumping);
                 }
 
+                if (playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
+                }
+
 
 
                 break;
@@ -684,6 +753,12 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     stateTransition(playerState.Idle);
+                }
+
+
+                if (playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
                 }
 
                 break;
@@ -713,7 +788,19 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.Idle);
                 }
 
+                if(playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.rewind);
+                }
+                
               
+                break;
+
+            case playerState.rewind:
+                if(!playerRewind.isRewinding)
+                {
+                    stateTransition(playerState.Idle);
+                }
                 break;
 
         }
