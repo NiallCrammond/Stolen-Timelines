@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IronMaiden : MonoBehaviour
 {
+    public PlayerController player;
     private BoxCollider2D col;
     public bool isReady;
 
@@ -21,7 +22,7 @@ public class IronMaiden : MonoBehaviour
         }
         if (isReady)
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+            player.health -= 100;
         }
     }
 

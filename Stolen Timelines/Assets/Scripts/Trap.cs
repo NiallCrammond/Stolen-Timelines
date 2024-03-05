@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Trap : MonoBehaviour
 {
+    public PlayerController player;
     private BoxCollider2D col;
     [SerializeField]
     private string sceneName;
@@ -17,7 +18,7 @@ public class Trap : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+            player.health -= 100;
         }
     }
 

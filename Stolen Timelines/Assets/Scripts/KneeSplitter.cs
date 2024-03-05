@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class KneeSplitter : MonoBehaviour
 {
+    public PlayerController player;
     private BoxCollider2D col;
     private Vector3 originalPos;
     private Vector3 topHeight;
@@ -69,7 +70,6 @@ public class KneeSplitter : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Physics2D.IgnoreLayerCollision(9, 6);
 
         if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
@@ -82,8 +82,8 @@ public class KneeSplitter : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-            SceneManager.LoadScene("BuildSubmissionV1");
+
+            player.health -= 100;
         }
     }
 
