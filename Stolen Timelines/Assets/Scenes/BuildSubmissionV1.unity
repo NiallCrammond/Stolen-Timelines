@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 163320131}
   - component: {fileID: 163320130}
   - component: {fileID: 163320132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (4)
   m_TagString: BottomSplitter
   m_Icon: {fileID: 0}
@@ -4855,7 +4855,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 18.932, y: -20.550117, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -5622,7 +5622,7 @@ GameObject:
   - component: {fileID: 248769487}
   - component: {fileID: 248769486}
   - component: {fileID: 248769488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (2)
   m_TagString: BottomSplitter
   m_Icon: {fileID: 0}
@@ -5639,7 +5639,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.5209, y: -20.550117, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -7363,7 +7363,7 @@ GameObject:
   - component: {fileID: 319758295}
   - component: {fileID: 319758294}
   - component: {fileID: 319758296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (5)
   m_TagString: TopSplitter
   m_Icon: {fileID: 0}
@@ -7380,7 +7380,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 18.932, y: -6.5501156, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -7541,7 +7541,7 @@ GameObject:
   - component: {fileID: 322580532}
   - component: {fileID: 322580531}
   - component: {fileID: 322580533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (3)
   m_TagString: TopSplitter
   m_Icon: {fileID: 0}
@@ -7558,7 +7558,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 4.5567, y: -6.5501156, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -15734,7 +15734,7 @@ GameObject:
   - component: {fileID: 665874100}
   - component: {fileID: 665874099}
   - component: {fileID: 665874101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0
   m_TagString: BottomSplitter
   m_Icon: {fileID: 0}
@@ -15751,7 +15751,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -14.130934, y: -20.550117, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -25986,7 +25986,7 @@ GameObject:
   - component: {fileID: 1277827452}
   - component: {fileID: 1277827451}
   - component: {fileID: 1277827453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (1)
   m_TagString: TopSplitter
   m_Icon: {fileID: 0}
@@ -26003,7 +26003,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -14.098333, y: -6.5501156, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.18166077, z: 0.71716}
+  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -29009,7 +29009,7 @@ GameObject:
   - component: {fileID: 1443258205}
   - component: {fileID: 1443258206}
   - component: {fileID: 1443258207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPIKE_LARGE 3_0 (7)
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -29026,7 +29026,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0, w: -1}
   m_LocalPosition: {x: 164.6, y: 23.449884, z: 2.2756953}
-  m_LocalScale: {x: 1, y: 0.7408, z: 1}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
