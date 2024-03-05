@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class KneeSplitter : MonoBehaviour
 {
+    public PlayerController player;
     private BoxCollider2D col;
     private Vector3 originalPos;
     private Vector3 topHeight;
@@ -41,7 +42,6 @@ public class KneeSplitter : MonoBehaviour
             SplitterRetract();
         }
 
- 
     }
 
     public void Crush()
@@ -70,6 +70,7 @@ public class KneeSplitter : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if ((collision.gameObject.CompareTag("TopSplitter")) || (collision.gameObject.CompareTag("BottomSplitter")))
         {
             crushing = false;
@@ -81,8 +82,8 @@ public class KneeSplitter : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-            SceneManager.LoadScene("BuildSubmissionV1");
+
+            player.health -= 100;
         }
     }
 

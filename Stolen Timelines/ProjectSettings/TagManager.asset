@@ -13,6 +13,7 @@ TagManager:
   - TopSplitter
   - BottomSplitter
   - AnimationManager
+  - SoloSplitter
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Ground
   - Player
   - Wall
-  - 
+  - KneeSplitter
   - 
   - 
   - 

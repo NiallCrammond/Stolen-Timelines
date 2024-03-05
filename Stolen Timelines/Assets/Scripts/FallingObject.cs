@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class FallingObject : MonoBehaviour
 {
-    private BoxCollider2D col;
+    public PlayerController player;
+    private EdgeCollider2D col;
     private Vector3 position;
 
     private void Awake()
     {
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<EdgeCollider2D>();
         position = transform.position;
     }
 
@@ -18,7 +19,9 @@ public class FallingObject : MonoBehaviour
     {
       if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+            player.health -= 20;
+            gameObject.SetActive(false);
+            Invoke(nameof(Repeat), Random.Range(2, 5));
         }
         else
         {

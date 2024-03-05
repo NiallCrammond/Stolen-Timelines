@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour
     bool playJumpAudio= false;
     public bool playDashAudio = false;
 
+    public int health;
+
 
 
     private void Awake()
@@ -148,6 +150,8 @@ public class PlayerController : MonoBehaviour
 
         playerDash.isDashing = false;
         playerDash.canDash = true;
+
+        health = 100;
 
     }
 
@@ -280,6 +284,10 @@ public class PlayerController : MonoBehaviour
                 break;
         } 
 
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("BuildSubmissionV1");
+        }
 
     }
 
