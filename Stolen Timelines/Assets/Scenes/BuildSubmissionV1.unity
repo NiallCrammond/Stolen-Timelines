@@ -9922,14 +9922,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  initialJumpForce: 0
+  jumpForce: 50
   WalljumpDelay: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   jumpThreshold: 0.2
   airDrag: 0.97
-  maximumJumpForce: 0
   playerDash: {fileID: 400597804}
   groundCheck: {fileID: 803506313}
   ceilingCheck: {fileID: 1024433644}

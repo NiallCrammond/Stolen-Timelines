@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
      
     }
 
-    public void jump(float initialJumpForce, float heldForce)
+    public void jump(float jumpInput, float jumpForce)
     {
-        rb.AddForceY(initialJumpForce +heldForce,  ForceMode2D.Impulse);
+        rb.AddForceY(jumpInput * jumpForce,  ForceMode2D.Impulse);
       //  Debug.Log("Jump");
     }
 
