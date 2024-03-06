@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private LevelManager levelManager;
+    private void Awake()
+    {
+        levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+        
+    }
 
     public void playGame()
     {
-        SceneManager.LoadScene("BuildSubmissionV1");
+      //  StartCoroutine(levelManager.loadLevel(1));
+        
+        // SceneManager.LoadScene("BuildSubmissionV1");
+
 
     }
 

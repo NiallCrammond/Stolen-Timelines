@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
      
     }
 
-    public void jump(float jumpInput, float jumpForce)
+    public void jump(float initialJumpForce, float heldForce)
     {
-        rb.AddForceY(jumpForce* jumpInput, ForceMode2D.Impulse);
+        rb.AddForceY(initialJumpForce +heldForce,  ForceMode2D.Impulse);
       //  Debug.Log("Jump");
     }
 
