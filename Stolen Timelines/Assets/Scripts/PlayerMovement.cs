@@ -37,5 +37,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocityY = -2.0f;
     }
 
+    public void extendJump(float jumpInput, float extendForce)
+    {
+        rb.AddForce(Vector2.up * jumpInput * extendForce, ForceMode2D.Force);
+       
+    }
+
 
 }

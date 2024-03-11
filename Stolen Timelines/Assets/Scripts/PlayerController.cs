@@ -42,12 +42,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Range(0, 10)]
     private float airDrag;
+    [Range(0, 100)]
+    public float extendJumpForce;
+    public float allowExtend;
+    private float extendTimer;
+    private bool canExtend = true;
 
 
 
     //Slide logic
     private PlayerSlide playerSlide;
     private bool slidePressed = false;
+
 
     private PlayerRewind playerRewind;
     private bool rewindPressed = false;
@@ -106,11 +112,11 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public AudioManager audioManager;
-    public AnimationManager animationManager;
+    private AudioManager audioManager;
+    private AnimationManager animationManager;
 
     bool playJumpAudio= false;
-    public bool playDashAudio = false;
+    bool playDashAudio = false;
 
     public int health;
 
@@ -251,7 +257,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 animationManager.isJumping();
-       
+                extendTimer += Time.deltaTime;
               
 
                 break;
@@ -405,13 +411,18 @@ public class PlayerController : MonoBehaviour
                         playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
                     }
 
+                    if ((extendTimer < allowExtend) && jumpPressed && canExtend) 
+                    {
+                        playerMovement.extendJump(jumpInput, extendJumpForce);
+                    }
+
                     break;
                 case playerState.Running:
                     
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, speed, maxSpeed);
-                      StartCoroutine(audioManager.randomFootSteps());
+                     // StartCoroutine(audioManager.randomFootSteps());
            
                     }
 
@@ -459,26 +470,18 @@ public class PlayerController : MonoBehaviour
                         playerSlide.prefromSlide(moveVec, slideForce);
                     }
 
-                    if (jumpPressed && canjump)
-                    {
-
-                        playerMovement.jump(1, jumpForce);
-
-                        if (playerSlide.isSliding)
-                        {
-                            playerSlide.stopSlide();
-                        }
-
-                        playJumpAudio = true;
-
-                        
-
-
-                    }
+      
 
                     if (rewindPressed)
                     {
                         playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
+                    }
+
+                    if (movePressed)
+                    {
+                        playerMovement.move(moveVec, slideForce, maxSpeed);
+                       // StartCoroutine(audioManager.randomFootSteps());
+
                     }
 
 
@@ -544,11 +547,11 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Jumping:
- 
+                canExtend = true;
 
                 break;
             case playerState.Running:
-
+                
 
                 break;
             case playerState.Sliding:
@@ -556,7 +559,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.WallSliding:
-
+                canExtend = false;
 
                 break;
 
@@ -576,6 +579,8 @@ public class PlayerController : MonoBehaviour
             audioManager.canPlayDash = true;
                 break;
             case playerState.Jumping:
+
+                extendTimer = 0.0f; 
 
             audioManager.canPlayDash = true;
 
@@ -724,22 +729,22 @@ public class PlayerController : MonoBehaviour
             case playerState.Sliding:
 
                 //If slide relaesed while player at a velocity, go to running
-                if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX > 0.1 || rb.velocityX < -0.1))
+                if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && !ceilingHit())
                 {
                     stateTransition(playerState.Running);
                 }
 
                 //if slide released when stationary, go idle
-                else if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1))
+                else if (!slidePressed && isGrounded(groundHit1, groundHit2, groundHit3) && (rb.velocityX < 0.1 && rb.velocityX > -0.1) && !ceilingHit())
                 {
                     stateTransition(playerState.Idle);
                 }
 
                 //If jump pressed when sliding, switch to jumping
-                else if ((jumpPressed && isGrounded(groundHit1, groundHit2, groundHit3)) || !isGrounded(groundHit1, groundHit2, groundHit3))
-                {
-                    stateTransition(playerState.Jumping);
-                }
+                //else if ((jumpPressed && isGrounded(groundHit1, groundHit2, groundHit3)) || !isGrounded(groundHit1, groundHit2, groundHit3) && !ceilingHit())
+                //{
+                //    stateTransition(playerState.Jumping);
+                //}
 
                 if (playerRewind.isRewinding)
                 {
@@ -754,6 +759,7 @@ public class PlayerController : MonoBehaviour
                 //// If player leaves wall they are now jumping
                 if (!isWalled(wallHit) && !isGrounded(groundHit1, groundHit2, groundHit3))
                 {
+                  
                     stateTransition(playerState.Jumping);
                 }
 
@@ -1026,6 +1032,18 @@ public class PlayerController : MonoBehaviour
             canWallJump = false;
         }
 
+    }
+
+    bool ceilingHit()
+    {
+        if(Physics2D.Raycast(ceilingCheck.position,Vector2.up, 0.5f))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
  
     private IEnumerator printState()

@@ -28,8 +28,20 @@ public class LevelManager : MonoBehaviour
     public IEnumerator loadLevel(string sceneID, float transitionTime)
 
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneID);
+        asyncLoad.allowSceneActivation = false;
+
         animator.SetTrigger("Start");
+
         yield return new WaitForSeconds(transitionTime);
+
+        asyncLoad.allowSceneActivation = true;
+
+        while(!asyncLoad.isDone)
+        {
+            yield return null;
+        }
         SceneManager.LoadScene(sceneID);
     }
 }

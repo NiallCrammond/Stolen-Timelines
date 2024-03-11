@@ -31,10 +31,10 @@ public class GameController : MonoBehaviour
        
 
     }
-    public void increaseScore()
+    public void increaseScore(int value)
     {
 
-        scoreData.score += 10;
+        scoreData.score += value;
         scoreData.itemsCollected++;
      //  Debug.Log("Score: " + scoreData.score);
 

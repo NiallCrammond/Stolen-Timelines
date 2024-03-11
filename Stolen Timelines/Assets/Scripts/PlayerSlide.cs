@@ -32,7 +32,6 @@ public class PlayerSlide : MonoBehaviour
         regularSprite.enabled = false;
         slideSprite.enabled = true;
 
-        rb.AddForce(inputVec * slideForce);
 
         //StartCoroutine("stopSlide");
     }
