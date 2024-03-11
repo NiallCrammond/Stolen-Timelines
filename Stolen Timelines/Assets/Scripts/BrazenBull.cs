@@ -27,7 +27,10 @@ public class BrazenBull : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isReady = false;
+        if (collision.CompareTag("Player"))
+        {
+            isReady = false;
+        }
     }
 
     public IEnumerator TakeDamage()
