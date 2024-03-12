@@ -44,7 +44,14 @@ public class BrazenBull : MonoBehaviour
             }
             else
             {
-                player.health -= damageDealt;
+                if (!player.playerSlide.isSliding)
+                {
+                    player.health -= damageDealt;
+                }
+                else
+                {
+                    player.health -= damageDealt * 2;
+                }
             }
         }
     }
