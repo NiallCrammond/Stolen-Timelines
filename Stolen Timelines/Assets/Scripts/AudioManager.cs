@@ -23,6 +23,14 @@ public class AudioManager : MonoBehaviour
 
     public bool canPlayDash = true;
 
+    [Range(0, 1)]
+    public float footStepVolume;
+    [Range(0, 1)]
+    public float jumpVolume;
+
+
+
+
 
 
     [Range(0, 1)]
@@ -50,7 +58,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = footStepVolume;
             s.source.pitch = s.pitch;
       s.source.outputAudioMixerGroup = sfxMixer;
         }
@@ -69,7 +77,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = jumpVolume;
             s.source.pitch = s.pitch;
             s.source.outputAudioMixerGroup = sfxMixer;
 
@@ -89,8 +97,27 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        foreach (Sound s in footsteps)
+        {
+ 
+            s.source.volume = footStepVolume;
+
+        }
+
+        foreach (Sound s in jumps)
+        {
+
+            s.source.volume = jumpVolume;
+
+        }
+
+
+    }
+
     // Update is called once per frame
-    
+
 
     public void playSound(string name)
     {

@@ -507,10 +507,7 @@ public class PlayerController : MonoBehaviour
                         playerRewind.rewindUsed(groundHit1,groundHit2,groundHit3);
                     }
 
-                    if (movePressed)
-                    {
-                        playerMovement.move(moveVec, speed, maxSpeed);
-                    }
+             
 
 
 

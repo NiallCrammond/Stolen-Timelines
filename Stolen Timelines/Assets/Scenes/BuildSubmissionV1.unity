@@ -21435,6 +21435,8 @@ MonoBehaviour:
   canPlayFootsteps: 1
   canPlayJumps: 1
   canPlayDash: 1
+  footStepVolume: 0
+  jumpVolume: 0
   stepDelay: 0.3
   mainMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
   musicMixer: {fileID: -5829262359202737220, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
@@ -26376,6 +26378,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3226159237671658981, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
+      propertyPath: 'animator.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2030604618}
     - target: {fileID: 3466376443336941433, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.547983
@@ -40561,6 +40567,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030333868}
   m_CullTransparentMesh: 1
+--- !u!95 &2030604618 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3673748389234989038, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
+  m_PrefabInstance: {fileID: 1296730653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2041834303
 PrefabInstance:
   m_ObjectHideFlags: 0
