@@ -2048,6 +2048,7 @@ GameObject:
   - component: {fileID: 91712480}
   - component: {fileID: 91712481}
   - component: {fileID: 91712482}
+  - component: {fileID: 91712483}
   m_Layer: 0
   m_Name: IM_CLOSE_STATIC_0 (2)
   m_TagString: Trap
@@ -2182,6 +2183,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.74, y: 8.37}
   m_EdgeRadius: 0
+--- !u!95 &91712483
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91712478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23eb6ecaeba7c19438b1f1c7077833e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &95491385
 GameObject:
   m_ObjectHideFlags: 0
@@ -9933,6 +9956,7 @@ MonoBehaviour:
   airDrag: 0.97
   extendJumpForce: 80
   allowExtend: 0.3
+  playerSlide: {fileID: 0}
   playerDash: {fileID: 400597804}
   groundCheck: {fileID: 803506313}
   ceilingCheck: {fileID: 1024433644}
@@ -15234,6 +15258,7 @@ GameObject:
   - component: {fileID: 652464363}
   - component: {fileID: 652464364}
   - component: {fileID: 652464365}
+  - component: {fileID: 652464366}
   m_Layer: 0
   m_Name: IM_CLOSE_STATIC_0
   m_TagString: Untagged
@@ -15368,6 +15393,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.74, y: 8.37}
   m_EdgeRadius: 0
+--- !u!95 &652464366
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652464361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23eb6ecaeba7c19438b1f1c7077833e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &654555614
 GameObject:
   m_ObjectHideFlags: 0
@@ -22939,6 +22986,7 @@ GameObject:
   - component: {fileID: 1079933161}
   - component: {fileID: 1079933162}
   - component: {fileID: 1079933163}
+  - component: {fileID: 1079933164}
   m_Layer: 0
   m_Name: IM_CLOSE_STATIC_0 (1)
   m_TagString: Trap
@@ -23073,6 +23121,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.74, y: 8.37}
   m_EdgeRadius: 0
+--- !u!95 &1079933164
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079933159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23eb6ecaeba7c19438b1f1c7077833e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1085730106
 GameObject:
   m_ObjectHideFlags: 0

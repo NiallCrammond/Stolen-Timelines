@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Slide logic
-    private PlayerSlide playerSlide;
+    public PlayerSlide playerSlide;
     private bool slidePressed = false;
 
 

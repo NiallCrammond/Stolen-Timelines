@@ -7,11 +7,13 @@ public class IronMaiden : MonoBehaviour
 {
     public PlayerController player;
     private BoxCollider2D col;
+    private Animator animator;
     public bool isReady;
 
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
         col.isTrigger = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,5 +31,6 @@ public class IronMaiden : MonoBehaviour
     private void makeReady()
     {
         isReady = true;
+        animator.SetBool("IsOpen", true);
     }
 }
