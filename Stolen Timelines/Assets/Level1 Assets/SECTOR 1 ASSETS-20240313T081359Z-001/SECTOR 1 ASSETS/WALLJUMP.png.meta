@@ -1,0 +1,437 @@
+fileFormatVersion: 2
+guid: 94808f14ee32a4a4a8b875a859944fff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4156495589920712790
+    second: WALLJUMP_0
+  - first:
+      213: 1402023842036791086
+    second: WALLJUMP_1
+  - first:
+      213: -1146987741013489961
+    second: WALLJUMP_2
+  - first:
+      213: -950963072392702622
+    second: WALLJUMP_3
+  - first:
+      213: -3861079533465231413
+    second: WALLJUMP_4
+  - first:
+      213: -8156648714160501220
+    second: WALLJUMP_5
+  - first:
+      213: 2226107589950015176
+    second: WALLJUMP_6
+  - first:
+      213: -1926832573428792173
+    second: WALLJUMP_7
+  - first:
+      213: 7346727934125390621
+    second: WALLJUMP_8
+  - first:
+      213: -2515569700798383261
+    second: WALLJUMP_9
+  - first:
+      213: -8639615309796174993
+    second: WALLJUMP_10
+  - first:
+      213: 6685727137072993382
+    second: WALLJUMP_11
+  - first:
+      213: 4011802149012297834
+    second: WALLJUMP_12
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WALLJUMP_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1277
+        width: 132
+        height: 1969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa75c4478492156c0800000000000000
+      internalID: -4156495589920712790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_1
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 1491
+        width: 251
+        height: 1296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e273b3f814df47310800000000000000
+      internalID: 1402023842036791086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_2
+      rect:
+        serializedVersion: 2
+        x: 5966
+        y: 1289
+        width: 250
+        height: 1497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d6c92ff9b41510f0800000000000000
+      internalID: -1146987741013489961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_3
+      rect:
+        serializedVersion: 2
+        x: 6907
+        y: 1991
+        width: 308
+        height: 655
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265d483cf108dc2f0800000000000000
+      internalID: -950963072392702622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_4
+      rect:
+        serializedVersion: 2
+        x: 7213
+        y: 1999
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf16460f90ba6ac0800000000000000
+      internalID: -3861079533465231413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_5
+      rect:
+        serializedVersion: 2
+        x: 7231
+        y: 1999
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e01d2d533cdce80800000000000000
+      internalID: -8156648714160501220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_6
+      rect:
+        serializedVersion: 2
+        x: 7639
+        y: 1286
+        width: 249
+        height: 1390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c685c20f09b4ee10800000000000000
+      internalID: 2226107589950015176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_7
+      rect:
+        serializedVersion: 2
+        x: 3165
+        y: 705
+        width: 56
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3940027bbf38245e0800000000000000
+      internalID: -1926832573428792173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_8
+      rect:
+        serializedVersion: 2
+        x: 3643
+        y: 283
+        width: 54
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1bbbf6a122d4f560800000000000000
+      internalID: 7346727934125390621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_9
+      rect:
+        serializedVersion: 2
+        x: 4690
+        y: 279
+        width: 54
+        height: 1030
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b3d286fa6e61dd0800000000000000
+      internalID: -2515569700798383261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_10
+      rect:
+        serializedVersion: 2
+        x: 5166
+        y: 705
+        width: 56
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63929f76abe91880800000000000000
+      internalID: -8639615309796174993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_11
+      rect:
+        serializedVersion: 2
+        x: 9229
+        y: 706
+        width: 56
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664dc6e986978cc50800000000000000
+      internalID: 6685727137072993382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WALLJUMP_12
+      rect:
+        serializedVersion: 2
+        x: 9722
+        y: 245
+        width: 257
+        height: 1478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68d6019cc8cca730800000000000000
+      internalID: 4011802149012297834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WALLJUMP_0: -4156495589920712790
+      WALLJUMP_1: 1402023842036791086
+      WALLJUMP_10: -8639615309796174993
+      WALLJUMP_11: 6685727137072993382
+      WALLJUMP_12: 4011802149012297834
+      WALLJUMP_2: -1146987741013489961
+      WALLJUMP_3: -950963072392702622
+      WALLJUMP_4: -3861079533465231413
+      WALLJUMP_5: -8156648714160501220
+      WALLJUMP_6: 2226107589950015176
+      WALLJUMP_7: -1926832573428792173
+      WALLJUMP_8: 7346727934125390621
+      WALLJUMP_9: -2515569700798383261
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
