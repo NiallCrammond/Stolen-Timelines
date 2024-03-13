@@ -25,6 +25,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(loadLevel(sceneNames[1], animator[0], "Start", 1));
     }
 
+    public void loadHub()
+    {
+        StartCoroutine(loadLevel(sceneNames[2], animator[0], "Start", 1));
+    }
+
 
     public IEnumerator loadLevel(string sceneID,Animator anim, string trigger ,float transitionTime)
 

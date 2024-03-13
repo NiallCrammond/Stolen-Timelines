@@ -118,9 +118,17 @@ public class PlayerController : MonoBehaviour
     bool playDashAudio = false;
 
     public int health;
+    public float deathTime;
+    private bool isDeathReady = true;
 
+    public LayerMask ceilingCheckLayer;
 
+    bool extractPressed = false;
+    bool canExtract = false;
+    public float extractTime;
+    bool isExtracting = false;
 
+    public ScoreData score;
     private void Awake()
     {
         state = playerState.Idle;
@@ -182,6 +190,9 @@ public class PlayerController : MonoBehaviour
         input.Player.Menu.started += OnMenuPerformed;
         input.Player.Menu.canceled += OnMenuCanceled;
 
+        input.Player.Extract.performed += OnExtractPerformed;
+        input.Player.Extract.canceled += OnExtractCanceled;
+
     }
 
     private void OnDisable()
@@ -205,6 +216,9 @@ public class PlayerController : MonoBehaviour
 
         input.Player.Menu.started -= OnMenuPerformed;
         input.Player.Menu.canceled -= OnMenuCanceled;
+
+        input.Player.Extract.performed -= OnExtractPerformed;
+        input.Player.Extract.canceled -= OnExtractCanceled;
 
     }
 
@@ -293,7 +307,15 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+
+            StartCoroutine(death());
+          //  SceneManager.LoadScene("BuildSubmissionV1");
+        }
+
+
+        if(extractPressed)
+        {
+
         }
 
     }
@@ -629,7 +651,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 // If player presses jump from idle and they are able to jump then switch to jump state
-                else if (jumpPressed && canjump)
+                else if (jumpPressed && canjump && (rb.velocityY > 2 || rb.velocityY <-2))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -698,7 +720,7 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.dashing);
                 }
                 //If the player can jump and input is pressed, switch to jumping state. or if the player is not in contact with anything
-                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)))
+                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)) && (rb.velocityY > 2 || rb.velocityY < -2))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -894,6 +916,19 @@ public class PlayerController : MonoBehaviour
         menuPressed = false;
     }
 
+    private void OnExtractPerformed(InputAction.CallbackContext val)
+    {
+        Debug.Log("ExractPressed");
+        extractPressed = true;
+    }
+
+    private void OnExtractCanceled(InputAction.CallbackContext val)
+    {
+        Debug.Log("ExractReleased");
+
+        extractPressed = false;
+    }
+
     private void flip()
     {
    
@@ -965,6 +1000,8 @@ public class PlayerController : MonoBehaviour
         {
             currentPlatform = collision.gameObject;
         }
+
+      
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -974,6 +1011,20 @@ public class PlayerController : MonoBehaviour
             currentPlatform = null;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Extract")&& extractPressed)
+        {
+            Debug.Log("We have attempted to start coroutine");
+            StartCoroutine(extract());
+        }
+    }
+
+
+
+
+
 
     private IEnumerator activateOneWay()
     {
@@ -1034,7 +1085,7 @@ public class PlayerController : MonoBehaviour
 
     bool ceilingHit()
     {
-        if(Physics2D.Raycast(ceilingCheck.position,Vector2.up, 0.5f))
+        if(Physics2D.Raycast(ceilingCheck.position,Vector2.up, 0.5f, ceilingCheckLayer))
         {
             return true;
         }
@@ -1050,5 +1101,48 @@ public class PlayerController : MonoBehaviour
         Debug.Log("The current state is: " + state);
 
     }
+
+ IEnumerator death()
+    {
+
+        if(isDeathReady)
+        {
+         isDeathReady = false;
+        input.Disable();
+            rb.bodyType = RigidbodyType2D.Static;
+            //Play death animation
+            score.score = 0;
+            score.itemsCollected = 0;
+        yield return new WaitForSeconds(deathTime);
+
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadGameLevel();
+            isDeathReady = true;
+            Debug.Log("Death isa ready");
+        }
+    }
+
+    IEnumerator extract()
+    {
+        Debug.Log("Coroutine Entered");
+        if(!isExtracting)
+        {
+            Debug.Log("Passed Coroutine if statement");
+            isExtracting = true;
+            input.Disable();
+            rb.bodyType = RigidbodyType2D.Static;
+
+
+            yield return new WaitForSeconds(extractTime);
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
+            isExtracting = false;
+            Debug.Log("extracted successfully");
+
+
+        }
+
+    }
+
+
+
 }
 

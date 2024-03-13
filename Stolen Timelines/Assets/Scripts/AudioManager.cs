@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
         currentFootStep.source.Play();
-       // Debug.Log("Playing: " + currentFootStep.name);
+      //  Debug.Log("Playing: " + currentFootStep.name);
 
     }
 
@@ -154,7 +154,7 @@ public class AudioManager : MonoBehaviour
 
             canPlayDash = false;
         dash.source.Play();
-        //Debug.Log("Dash Played");
+       Debug.Log("Dash Played");
         }
         
 
