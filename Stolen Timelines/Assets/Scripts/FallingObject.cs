@@ -8,11 +8,13 @@ public class FallingObject : MonoBehaviour
     public PlayerController player;
     private EdgeCollider2D col;
     private Vector3 position;
+    private Quaternion rotation;
 
     private void Awake()
     {
         col = GetComponent<EdgeCollider2D>();
         position = transform.position;
+        rotation = transform.rotation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,6 +35,7 @@ public class FallingObject : MonoBehaviour
     void Repeat()
     {
         gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
         gameObject.SetActive(true);
     }
 

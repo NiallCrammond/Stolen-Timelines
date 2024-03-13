@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +27,8 @@ public class IronMaiden : MonoBehaviour
         {
             collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
             player.health -= 100;
+            animator.SetBool("IsClosed", true);
+            Invoke(nameof(HidePlayer), 0.2f);
         }
     }
 
@@ -33,5 +36,10 @@ public class IronMaiden : MonoBehaviour
     {
         isReady = true;
         animator.SetBool("IsOpen", true);
+    }
+
+    private void HidePlayer()
+    {
+        player.GetComponent<Renderer>().enabled = false;
     }
 }
