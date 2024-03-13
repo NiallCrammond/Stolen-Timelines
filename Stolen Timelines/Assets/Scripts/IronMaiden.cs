@@ -24,6 +24,7 @@ public class IronMaiden : MonoBehaviour
         }
         if (isReady)
         {
+            collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
             player.health -= 100;
         }
     }

@@ -245,10 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626694800161ae747854b30ca9d6dad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3673748389234989038}
+  animator:
+  - {fileID: 0}
   sceneNames:
   - MainMenu
   - BuildSubmissionV1
+  - HUB
 --- !u!1 &8318711824752133183
 GameObject:
   m_ObjectHideFlags: 0
