@@ -649,7 +649,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 // If player presses jump from idle and they are able to jump then switch to jump state
-                else if (jumpPressed && canjump)
+                else if (jumpPressed && canjump && (rb.velocityY > 2 || rb.velocityY <-2))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -718,7 +718,7 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.dashing);
                 }
                 //If the player can jump and input is pressed, switch to jumping state. or if the player is not in contact with anything
-                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)))
+                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)) && (rb.velocityY > 2 || rb.velocityY < -2))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -1012,7 +1012,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap")&& extractPressed)
+        if (collision.gameObject.CompareTag("Extract")&& extractPressed)
         {
             Debug.Log("We have attempted to start coroutine");
             StartCoroutine(extract());
