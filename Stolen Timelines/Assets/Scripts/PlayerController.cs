@@ -110,10 +110,9 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D topCollider;
     CircleCollider2D bottomCollider;
 
-
-
+    //Audio + Anim Managers
     private AudioManager audioManager;
-    private AnimationManager animationManager;
+    private Animator animator;
 
     bool playJumpAudio= false;
     bool playDashAudio = false;
@@ -135,8 +134,9 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
+        animator = GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
-        animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
+        //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
         if (topCollider == null)
         {
@@ -242,13 +242,12 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
-                animationManager.onLanding();
-                animationManager.isRunning(playerMovement.rb.velocity.x);
-
+                animator.Play("PlayerIdle");
 
 
                 break;
             case playerState.Jumping:
+                animator.Play("PlayerJump");
 
                 if(playJumpAudio)
                 {
@@ -256,17 +255,19 @@ public class PlayerController : MonoBehaviour
                     playJumpAudio = false;
                 }
 
-                animationManager.isJumping();
+                //animationManager.isJumping();
                 extendTimer += Time.deltaTime;
               
 
                 break;
             case playerState.Running:
+                animator.Play("PlayerRun");
+
                 StartCoroutine(audioManager.randomFootSteps());
                 // Debug.Log("MAKE A SOUND");
 
-                animationManager.onLanding();
-                animationManager.isRunning(playerMovement.rb.velocity.x);
+                //animationManager.onLanding();
+                //animationManager.isRunning(playerMovement.rb.velocity.x);
 
                 break;
             case playerState.Sliding:
@@ -392,7 +393,7 @@ public class PlayerController : MonoBehaviour
                         playDashAudio = true;
                         if (playDashAudio == true)
                         {
-                            Debug.Log("call dash audio from: " + state);
+                           // Debug.Log("call dash audio from: " + state);
                         }
                         playerDash.performDash();
                         audioManager.playDashSound();
@@ -431,7 +432,7 @@ public class PlayerController : MonoBehaviour
                         playDashAudio = true;
                         if (playDashAudio == true)
                         {
-                            Debug.Log("call dash audio from: " + state);
+                           // Debug.Log("call dash audio from: " + state);
                         }
                         playerDash.performDash();
                         audioManager.playDashSound();

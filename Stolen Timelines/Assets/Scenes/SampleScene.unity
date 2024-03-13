@@ -2284,6 +2284,8 @@ MonoBehaviour:
   canPlayFootsteps: 1
   canPlayJumps: 1
   canPlayDash: 1
+  footStepVolume: 0
+  jumpVolume: 0
   stepDelay: 0.3
   mainMixer: {fileID: 24300002, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
   musicMixer: {fileID: -5829262359202737220, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
@@ -12013,7 +12015,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26.5, y: -2.85, z: 0}
-  m_LocalScale: {x: 1, y: 2.53, z: 1}
+  m_LocalScale: {x: 1.7875, y: 2.53, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1834148092}
@@ -12140,8 +12142,7 @@ MonoBehaviour:
   airDrag: 0.97
   extendJumpForce: 0
   allowExtend: 0
-  extendTimer: 0
-  canExtend: 1
+  playerSlide: {fileID: 0}
   playerDash: {fileID: 1301309009}
   groundCheck: {fileID: 1834148092}
   ceilingCheck: {fileID: 695712309}
@@ -12154,9 +12155,6 @@ MonoBehaviour:
     m_Bits: 256
   airControlSpeed: 50
   slideForce: 60
-  audioManager: {fileID: 0}
-  animationManager: {fileID: 0}
-  playDashAudio: 0
   health: 0
 --- !u!114 &1301309006
 MonoBehaviour:
@@ -12343,7 +12341,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 82b145216c549284aac5686c7d8fe095, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

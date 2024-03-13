@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+
+        QuotaData quotaData = new QuotaData();
+        ScoreData scoreData = new ScoreData();
         
     }
 

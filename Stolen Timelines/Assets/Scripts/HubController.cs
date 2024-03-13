@@ -15,17 +15,57 @@ public class HubController : MonoBehaviour
     TextMeshProUGUI quotaText;
     [SerializeField]
     TextMeshProUGUI daysText;
+    [SerializeField]
+    TextMeshProUGUI titleText;
 
-    private void Start()
+    private float timer;
+
+    private void Awake()
     {
         quotaData.daysLeft -= 1;
+        timer = 8f;
+
+        scoreText.text = "Total Value Collected: ...";
+        quotaText.text = "Quota Remaining: ...";
+        daysText.text = "Days Remaining: ...";
+
+        int currentDay = 3 - quotaData.daysLeft;
+        titleText.text = "Daily Report - Day " + currentDay.ToString();
     }
 
     void Update()
     {
-        scoreText.text = "Score: " + scoreData.score.ToString();
-        quotaText.text = "Quota: " + quotaData.quotaRemain.ToString();
-        daysText.text = "Days left: " + quotaData.daysLeft.ToString();
+        timer -= Time.deltaTime;
+
+
+        if(timer >= 6f)
+        {
+            scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
+
+        }
+        else if (timer >= 5f)
+        {
+            scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
+
+        }
+        else if (timer > 4f)
+        {
+            scoreText.text = "Total Value Collected: Sold";
+
+        }
+
+        if (timer < 4f)
+        {
+            sellScore();
+            quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
+        }
+
+        if (timer < 2f)
+        {
+            daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+
+        }
+       
 
         if (quotaData.quotaRemain <= 0)
         {
