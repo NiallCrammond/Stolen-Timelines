@@ -80,6 +80,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Extract"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d973478-7c86-40f7-ba8b-6251dc1beaec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e4663b4-582f-4dca-903b-105bd8a937ca"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Extract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e989aadc-a35c-4b8c-ba04-e1adf3b62663"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Extract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +303,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Rewind = m_Player.FindAction("Rewind", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_Extract = m_Player.FindAction("Extract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +371,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rewind;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_Extract;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -349,6 +382,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Rewind => m_Wrapper.m_Player_Rewind;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @Extract => m_Wrapper.m_Player_Extract;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -376,6 +410,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @Extract.started += instance.OnExtract;
+            @Extract.performed += instance.OnExtract;
+            @Extract.canceled += instance.OnExtract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -398,6 +435,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @Extract.started -= instance.OnExtract;
+            @Extract.performed -= instance.OnExtract;
+            @Extract.canceled -= instance.OnExtract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -423,5 +463,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnRewind(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnExtract(InputAction.CallbackContext context);
     }
 }

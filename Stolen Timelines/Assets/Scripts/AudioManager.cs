@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
         currentFootStep.source.Play();
-        Debug.Log("Playing: " + currentFootStep.name);
+      //  Debug.Log("Playing: " + currentFootStep.name);
 
     }
 

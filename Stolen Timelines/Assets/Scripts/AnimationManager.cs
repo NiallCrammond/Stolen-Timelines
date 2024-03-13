@@ -9,12 +9,19 @@ public class AnimationManager : MonoBehaviour
 
     void Awake()
     {
-        
+        animator.SetFloat("Speed", 0f);
     }
 
     public void isRunning(float moveSpeed)
     {
         animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+
+        Debug.Log(Mathf.Abs(moveSpeed));
+
+        if (Mathf.Abs(moveSpeed) <= 0f)
+        {
+            animator.Play("PlayerIdle");
+        }
     }
 
     public void isJumping()
