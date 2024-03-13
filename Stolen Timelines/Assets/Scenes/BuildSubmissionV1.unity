@@ -22629,7 +22629,7 @@ GameObject:
   - component: {fileID: 1046550718}
   m_Layer: 10
   m_Name: Extraction Point
-  m_TagString: Trap
+  m_TagString: Extract
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

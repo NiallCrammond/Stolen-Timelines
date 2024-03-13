@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
     public float extractTime;
     bool isExtracting = false;
 
+    public ScoreData score;
     private void Awake()
     {
         state = playerState.Idle;
@@ -1108,7 +1109,9 @@ public class PlayerController : MonoBehaviour
          isDeathReady = false;
         input.Disable();
             rb.bodyType = RigidbodyType2D.Static;
-        //Play death animation
+            //Play death animation
+            score.score = 0;
+            score.itemsCollected = 0;
         yield return new WaitForSeconds(deathTime);
 
         GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadGameLevel();
