@@ -7,6 +7,7 @@ public class KneeSplitter : MonoBehaviour
 {
     public PlayerController player;
     private BoxCollider2D col;
+    private Rigidbody2D rb;
     private Vector3 originalPos;
     private Vector3 topHeight;
     private float yPos;
@@ -19,6 +20,7 @@ public class KneeSplitter : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        rb = GetComponent<Rigidbody2D>();  
     }
 
     private void Start()
@@ -82,7 +84,7 @@ public class KneeSplitter : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
             player.health -= 100;
         }
     }
