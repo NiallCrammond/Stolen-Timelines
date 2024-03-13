@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
 
         QuotaData quotaData = new QuotaData();
-        ScoreData scoreData = new ScoreData();
+        ScoreData scoreData = new ScoreData();              
         
     }
 
