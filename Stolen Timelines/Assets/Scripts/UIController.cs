@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField]
@@ -19,6 +20,8 @@ public class UIController : MonoBehaviour
     private float timeLimit = 60f;
     private float timeTaken = 0f;
     private int timer = 0;
+    private Image healthBar;
+    private Image sliderBar; 
 
 
     void Awake()
@@ -26,6 +29,8 @@ public class UIController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         scoreText.text = "Score: " + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();
+
+
     }
 
     private void FixedUpdate()
@@ -44,12 +49,22 @@ public class UIController : MonoBehaviour
 
     public void updateScore()
     {
-        scoreText.text = "Score: " + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.seconds.ToString();
+        scoreText.text = "$" + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.seconds.ToString();
     }
 
     public void updateTimer()
     {
         timerText.text = "Timer: " + timer.ToString();
+    }
+
+    public void updateHealthBar(int health)
+    {
+        healthBar.fillAmount = health / 100f;
+    }
+
+    public void updateSliderBar(int sliderCD)
+    {
+        sliderBar.fillAmount = sliderCD / 100f;
     }
 
    public void addTime(float time)
