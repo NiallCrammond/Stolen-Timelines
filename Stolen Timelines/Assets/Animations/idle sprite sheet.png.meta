@@ -596,7 +596,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      idle sprite sheet_0: -7186401031418387979
+      idle sprite sheet_1: 5033510561411969996
+      idle sprite sheet_10: -774006960876895190
+      idle sprite sheet_11: 7968041334888817339
+      idle sprite sheet_12: 12963032494452183
+      idle sprite sheet_13: 2654748397176065842
+      idle sprite sheet_14: 8477884165961191862
+      idle sprite sheet_15: 1795948148180756964
+      idle sprite sheet_16: -1255491544576388771
+      idle sprite sheet_17: 2561419798392325316
+      idle sprite sheet_2: -3639405759308959864
+      idle sprite sheet_3: 4926938850744285300
+      idle sprite sheet_4: -1650862705619691649
+      idle sprite sheet_5: 1298823278992666907
+      idle sprite sheet_6: 3970475384923408510
+      idle sprite sheet_7: -1292045847705973494
+      idle sprite sheet_8: 715193952826901724
+      idle sprite sheet_9: 3299453414792408789
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

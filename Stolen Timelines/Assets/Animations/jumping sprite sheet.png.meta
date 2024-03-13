@@ -500,7 +500,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jumping sprite sheet_0: 4638939787673735700
+      jumping sprite sheet_1: 5558350244216851685
+      jumping sprite sheet_10: 6680012296663855496
+      jumping sprite sheet_11: -4407092811936507671
+      jumping sprite sheet_12: 1975322703611318664
+      jumping sprite sheet_13: -6234205383949657488
+      jumping sprite sheet_2: -7490691636826209996
+      jumping sprite sheet_3: 6066587012173054828
+      jumping sprite sheet_4: 3034349014035084693
+      jumping sprite sheet_5: 9025687733666887494
+      jumping sprite sheet_6: 6196496069240666166
+      jumping sprite sheet_7: -3799088094799332718
+      jumping sprite sheet_8: -5401141924727533848
+      jumping sprite sheet_9: -6644280436056124831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
