@@ -114,6 +114,9 @@ public class PlayerController : MonoBehaviour
     private AudioManager audioManager;
     private Animator animator;
 
+    //UI controller
+    private UIController uiController;
+
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
@@ -129,6 +132,8 @@ public class PlayerController : MonoBehaviour
     bool isExtracting = false;
 
     public ScoreData score;
+
+
     private void Awake()
     {
         state = playerState.Idle;
@@ -144,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
+        uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
         if (topCollider == null)
@@ -317,6 +323,9 @@ public class PlayerController : MonoBehaviour
         {
 
         }
+
+        uiController.updateHealthBar(health);
+        uiController.updateDashBar(playerDash.dashCooldownTimer, playerDash.dashCooldown);
 
     }
 

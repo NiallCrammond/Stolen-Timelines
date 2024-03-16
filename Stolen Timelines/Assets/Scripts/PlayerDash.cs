@@ -15,6 +15,8 @@ public class PlayerDash : MonoBehaviour
     public float dashingTime = 1.0f;
     [Range(0,10)]
     public float dashCooldown = 10.0f;
+    [HideInInspector]
+    public float dashCooldownTimer = 0.0f;
 
     [Range(0, 1)]
     public float timeManipulation = 1.0f;
@@ -27,12 +29,12 @@ public class PlayerDash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         pm = GetComponent<PlayerMovement>();
         canDash = true;
+        dashCooldownTimer = dashCooldown;
     }
 
     public void performDash()
     {
         StartCoroutine(Dash());
-
     }
 
     //dash coroutine
@@ -50,7 +52,12 @@ public class PlayerDash : MonoBehaviour
         rb.gravityScale = originalGravity;
         Time.timeScale = 1.0f;
         isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
+        dashCooldownTimer = 0f;
+        while (dashCooldown > dashCooldownTimer)
+        {
+            dashCooldownTimer += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
         canDash = true;
 
     }

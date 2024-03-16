@@ -19,9 +19,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private float timeLimit = 60f;
     private float timeTaken = 0f;
-    private int timer = 0;
+    private float timer = 0;
+    [SerializeField]
     private Image healthBar;
-    private Image sliderBar; 
+    [SerializeField]
+    private Image dashBar; 
 
 
     void Awake()
@@ -36,7 +38,7 @@ public class UIController : MonoBehaviour
     private void FixedUpdate()
     {
         timeTaken += Time.deltaTime;
-        timer = Mathf.RoundToInt(timeLimit - timeTaken);
+        timer = (timeLimit - timeTaken);
 
         updateTimer();
 
@@ -54,7 +56,7 @@ public class UIController : MonoBehaviour
 
     public void updateTimer()
     {
-        timerText.text = "Timer: " + timer.ToString();
+        timerText.text = "Timer: " + timer.ToString("F3");
     }
 
     public void updateHealthBar(int health)
@@ -62,9 +64,9 @@ public class UIController : MonoBehaviour
         healthBar.fillAmount = health / 100f;
     }
 
-    public void updateSliderBar(int sliderCD)
+    public void updateDashBar(float dashCDTimer, float dashCD)
     {
-        sliderBar.fillAmount = sliderCD / 100f;
+        dashBar.fillAmount = (dashCDTimer / dashCD);
     }
 
    public void addTime(float time)
