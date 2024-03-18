@@ -2460,6 +2460,14 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5553332947652394445, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 410828789}
+    - target: {fileID: 5553332947652394445, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: loadMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8978698081309327752, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -4952,6 +4960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  decelerationSpeed: 130
 --- !u!114 &400597808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4965,35 +4974,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  jumpForce: 42
-  WalljumpDelay: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  ceilingCheckLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  jumpForce: 42
+  WalljumpDelay: 0.05
   jumpThreshold: 0.2
-  airDrag: 0.97
+  airDrag: 0.94
   extendJumpForce: 80
   allowExtend: 0.3
   playerSlide: {fileID: 0}
   playerDash: {fileID: 400597804}
-  groundCheck: {fileID: 803506313}
-  ceilingCheck: {fileID: 1024433644}
-  wallCheck: {fileID: 1326429562}
   speed: 150
   maxSpeed: 50
   wallJumpForce: {x: -30, y: 50}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
   airControlSpeed: 50
   slideForce: 50
   health: 0
   deathTime: 1
-  ceilingCheckLayer:
-    serializedVersion: 2
-    m_Bits: 0
   extractTime: 2
+  groundAcceleration: 200
+  airAcceleration: 130
   score: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
+  groundCheck: {fileID: 803506313}
+  ceilingCheck: {fileID: 1024433644}
+  wallCheck: {fileID: 1326429562}
+  exitWallForce: 3
 --- !u!58 &400597809
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5521,6 +5533,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410828789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3226159237671658981, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
+  m_PrefabInstance: {fileID: 1296730653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626694800161ae747854b30ca9d6dad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &414509592
 PrefabInstance:
   m_ObjectHideFlags: 0

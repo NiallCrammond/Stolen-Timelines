@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public enum playerState {Idle, Jumping, Running, WallSliding, Sliding, dashing, rewind};
 
     public playerState state;
+    public LayerMask groundLayer;
+    public LayerMask wallLayer;
+    public LayerMask ceilingCheckLayer;
+
     [SerializeField]
 
     // Input variables
@@ -31,7 +36,6 @@ public class PlayerController : MonoBehaviour
     private float WalljumpDelay;
     private bool jumpPressed = false;
     private bool canjump = true;
-    public LayerMask groundLayer;
     RaycastHit2D groundHit1;
     RaycastHit2D groundHit2;
     RaycastHit2D groundHit3;
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private float airDrag;
     [Range(0, 100)]
     public float extendJumpForce;
+    [Range(0,1)]
     public float allowExtend;
     private float extendTimer;
     private bool canExtend = true;
@@ -51,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Slide logic
+    [HideInInspector]
     public PlayerSlide playerSlide;
     private bool slidePressed = false;
 
@@ -59,21 +65,13 @@ public class PlayerController : MonoBehaviour
     private bool rewindPressed = false;
 
     //Dash logic
-   public PlayerDash playerDash;
+    [HideInInspector]
+    public PlayerDash playerDash;
     private bool dashPressed = false;
 
     //Menu logic
     private PauseMenu pauseMenu;
     private bool menuPressed = false;
-
-    //Transforms for grounded/ceiling check
-    [SerializeField]
-    private Transform groundCheck;
-    [SerializeField]
-    private Transform ceilingCheck;
-    [SerializeField]
-    private Transform wallCheck;
-    
 
     //Player Movement variables
     [SerializeField]
@@ -91,8 +89,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector2 wallJumpForce = Vector2.zero;
     RaycastHit2D wallHit;
-    [SerializeField]
-    LayerMask wallLayer;
+   
     private Vector2 wallHitDirecton;
     [SerializeField]
     [Range(0, 100)]
@@ -120,19 +117,36 @@ public class PlayerController : MonoBehaviour
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
+    [Range(0,100)]
     public int health;
+    [Range(0,5)]
     public float deathTime;
     private bool isDeathReady = true;
 
-    public LayerMask ceilingCheckLayer;
 
     bool extractPressed = false;
     bool canExtract = false;
+    [Range(0,5)]
     public float extractTime;
     bool isExtracting = false;
 
-    public ScoreData score;
+    [Range(0,300)]
+   public float groundAcceleration;
+    [Range(0,300)]
+    public float airAcceleration;
 
+
+    public ScoreData score;
+    [SerializeField]
+    private Transform groundCheck;
+    [SerializeField]
+    private Transform ceilingCheck;
+    [SerializeField]
+    private Transform wallCheck;
+
+    [SerializeField]
+    [Range(0,10)]
+    private float exitWallForce;
 
     private void Awake()
     {
@@ -143,7 +157,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerRewind = GetComponent<PlayerRewind>();
         playerDash = GetComponent<PlayerDash>();
-        pauseMenu = Object.FindFirstObjectByType<PauseMenu>();
+        pauseMenu = GameObject.FindFirstObjectByType<PauseMenu>();
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
@@ -370,7 +384,7 @@ public class PlayerController : MonoBehaviour
                     //Perform X-axis movement
                     if (movePressed)
                     {
-                        playerMovement.move(moveVec, speed, maxSpeed);
+                        playerMovement.move(moveVec, maxSpeed, groundAcceleration);
 
                     }
                    
@@ -415,7 +429,7 @@ public class PlayerController : MonoBehaviour
                     //Move in air with less control over player
                     if (movePressed)
                     {
-                        playerMovement.move(moveVec, airControlSpeed, maxSpeed);
+                        playerMovement.move(moveVec,maxSpeed , airAcceleration);
                     }
 
                     //DASH
@@ -453,9 +467,13 @@ public class PlayerController : MonoBehaviour
                     
                     if (movePressed)
                     {
-                        playerMovement.move(moveVec, speed, maxSpeed);
+                        playerMovement.move(moveVec, maxSpeed, groundAcceleration);
                      // StartCoroutine(audioManager.randomFootSteps());
            
+                    }
+                    else
+                    {
+                        playerMovement.slowPlayer();
                     }
 
                     if (dashPressed && playerDash.canDash)
@@ -539,6 +557,10 @@ public class PlayerController : MonoBehaviour
                         playerRewind.rewindUsed(groundHit1,groundHit2,groundHit3);
                     }
 
+                    if(moveVec.y < -0.2)
+                    {
+                        playerMovement.exitWall(exitWallForce);
+                    }
              
 
 
@@ -660,7 +682,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 // If player presses jump from idle and they are able to jump then switch to jump state
-                else if (jumpPressed && canjump && (rb.velocityY > 2 || rb.velocityY <-2))
+                else if (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -1116,15 +1138,15 @@ public class PlayerController : MonoBehaviour
 
         if(isDeathReady)
         {
-         isDeathReady = false;
-        input.Disable();
+            isDeathReady = false;
+            input.Disable();
             rb.bodyType = RigidbodyType2D.Static;
             //Play death animation
             score.score = 0;
             score.itemsCollected = 0;
         yield return new WaitForSeconds(deathTime);
 
-        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadGameLevel();
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
             isDeathReady = true;
             Debug.Log("Death isa ready");
         }
