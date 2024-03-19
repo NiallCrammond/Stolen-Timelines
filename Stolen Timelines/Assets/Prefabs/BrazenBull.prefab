@@ -145,6 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  timeBetweenDamage: 2
   damageDealt: 20
   isReady: 0

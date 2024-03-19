@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class KneeSplitter : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class KneeSplitter : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 originalPos;
     private Vector3 topHeight;
+    private Quaternion originalRotation;
     private float yPos;
+    private float xPos;
     public float topYPos;
     public float speed;
     public float retractSpeed;
@@ -26,7 +29,9 @@ public class KneeSplitter : MonoBehaviour
     private void Start()
     {
         originalPos = transform.position;
+        originalRotation = transform.rotation;
         topHeight = originalPos + new Vector3(0, topYPos, 0);
+        xPos = transform.position.x;
         Debug.Log(originalPos);
         crushing = true;
         retracting = false;
@@ -34,8 +39,11 @@ public class KneeSplitter : MonoBehaviour
 
     private void Update()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         if (crushing)
         {
+            //Invoke(nameof(Crush), 1.0f);
             Crush();
         }
 
@@ -95,18 +103,22 @@ public class KneeSplitter : MonoBehaviour
         {
             if (gameObject.tag == "TopSplitter")
             {
-                transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
+                transform.position += new Vector3(0, retractSpeed, 0) * Time.deltaTime;
                 if (transform.position.y >= originalPos.y)
                 {
+                    transform.SetPositionAndRotation(originalPos, originalRotation);
                     crushing = true;
                     retracting = false;
                 }
             }
             if (gameObject.tag == "BottomSplitter" || gameObject.tag == "SoloSplitter")
             {
-                transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
+                transform.position -= new Vector3(0, retractSpeed, 0) * Time.deltaTime;
                 if (transform.position.y <= originalPos.y)
                 {
+                    transform.SetPositionAndRotation(originalPos, originalRotation);
+                    //transform.position = originalPos;
+                    //transform.rotation = originalRotation;
                     crushing = true;
                     retracting = false;
                 }

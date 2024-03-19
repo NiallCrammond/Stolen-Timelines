@@ -7,29 +7,47 @@ public class FallingObject : MonoBehaviour
 {
     public PlayerController player;
     private EdgeCollider2D col;
+    private BoxCollider2D playerDetect;
+    private Rigidbody2D rb;
     private Vector3 position;
     private Quaternion rotation;
 
     private void Awake()
     {
+        gameObject.SetActive(false);
         col = GetComponent<EdgeCollider2D>();
+        playerDetect = GetComponent<BoxCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
+        //playerDetect.isTrigger = true;
         position = transform.position;
         rotation = transform.rotation;
+        //rb.isKinematic = true;
+        Invoke(nameof(Repeat), Random.Range(3, 7));
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //  if (collision.gameObject.CompareTag("Player"))
+    //        {
+    //         rb.isKinematic = false;
+    //        }
+
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.gameObject.CompareTag("Player"))
-        {
-            player.health -= 20;
-            gameObject.SetActive(false);
-            Invoke(nameof(Repeat), Random.Range(2, 5));
-        }
+        if (collision.gameObject.CompareTag("Player"))
+            {
+                player.health -= 20;
+                gameObject.SetActive(false);
+                Invoke(nameof(Repeat), Random.Range(3, 7));
+            }
         else
-        {
-            gameObject.SetActive(false);
-            Invoke(nameof(Repeat), Random.Range(2,5));
-        }
+            {
+                gameObject.SetActive(false);
+                Invoke(nameof(Repeat), Random.Range(3,7));
+            }
+
     }
 
     void Repeat()
