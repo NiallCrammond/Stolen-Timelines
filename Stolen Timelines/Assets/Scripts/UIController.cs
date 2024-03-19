@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 public class UIController : MonoBehaviour
 {
     [SerializeField]
@@ -23,7 +24,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Image healthBar;
     [SerializeField]
-    private Image dashBar; 
+    private Image dashBar;
+
+    bool timeUp;
 
 
     void Awake()
@@ -31,21 +34,29 @@ public class UIController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         scoreText.text = "Score: " + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();
-
+        timeUp = false;
 
     }
 
     private void FixedUpdate()
     {
+        if(!timeUp)
+        {
+
         timeTaken += Time.deltaTime;
-        timer = (timeLimit - timeTaken);
 
         updateTimer();
+        timer = (timeLimit - timeTaken);
+        }
 
         if (timeTaken >= timeLimit)
         {
-            timeTaken = 0;
-            SceneManager.LoadScene("Hub");
+            timeUp = true;
+            Mathf.RoundToInt(timer);
+           gameController.scoreData.score = 0;
+            gameController.scoreData.itemsCollected = 0;
+            gameController.isTimeUp = true;
+            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
         }
     }
 
