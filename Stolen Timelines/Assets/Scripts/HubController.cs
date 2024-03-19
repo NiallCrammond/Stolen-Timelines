@@ -17,11 +17,18 @@ public class HubController : MonoBehaviour
     TextMeshProUGUI daysText;
     [SerializeField]
     TextMeshProUGUI titleText;
+    [SerializeField]
+    TextMeshProUGUI deathText;
+    GameController gc;
+
 
     private float timer;
 
     private void Awake()
     {
+   
+
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         quotaData.daysLeft -= 1;
         timer = 8f;
 
@@ -29,8 +36,23 @@ public class HubController : MonoBehaviour
         quotaText.text = "Quota Remaining: ...";
         daysText.text = "Days Remaining: ...";
 
+
         int currentDay = 3 - quotaData.daysLeft;
         titleText.text = "Daily Report - Day " + currentDay.ToString();
+    }
+
+    private void Start()
+    {
+        if (!gc.isPlayerDead && !gc.isTimeUp)
+        {
+            deathText.enabled = false;
+        }
+        else if (!gc.isPlayerDead && gc.isTimeUp)
+        {
+            deathText.text = "Extract before time runs out";
+        }
+
+
     }
 
     void Update()
@@ -38,41 +60,135 @@ public class HubController : MonoBehaviour
         timer -= Time.deltaTime;
 
 
-        if(timer >= 6f)
-        {
-            scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
 
+        if (!gc.isPlayerDead)
+        {
+            if (!gc.isTimeUp)
+            {
+
+                if (timer >= 6f)
+                {
+                    scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
+
+                }
+                else if (timer >= 5f)
+                {
+                    scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
+
+                }
+                else if (timer > 4f)
+                {
+                    scoreText.text = "Total Value Collected: Sold";
+
+                }
+
+                if (timer < 4f)
+                {
+                    sellScore();
+                    quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
+                }
+
+                if (timer < 2f)
+                {
+                    daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+
+                }
+
+
+                if (quotaData.quotaRemain <= 0)
+                {
+                    quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
+                    quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+
+                    quotaData.daysLeft = 3;
+                }
+            }
+
+            else
+            {
+                if (timer >= 6f)
+                {
+                    scoreText.text = "You were Transported back with nothing";
+
+                }
+                else if (timer >= 5f)
+                {
+                    scoreText.text = "Extract before the time runs put";
+
+                }
+                else if (timer > 4f)
+                {
+                    scoreText.text = "Get good noob";
+
+                }
+
+                if (timer < 4f)
+                {
+                    sellScore();
+                    quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
+                }
+
+                if (timer < 2f)
+                {
+                    daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+
+                }
+
+
+                if (quotaData.quotaRemain <= 0)
+                {
+                    quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
+                    quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+
+                    quotaData.daysLeft = 3;
+                }
+            
+            
+            }
         }
-        else if (timer >= 5f)
+
+
+
+        else if (gc.isPlayerDead)
         {
-            scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
 
-        }
-        else if (timer > 4f)
-        {
-            scoreText.text = "Total Value Collected: Sold";
 
-        }
+            if (timer >= 6f)
+            {
+                scoreText.text = "Total Value Collected: " + "You have nothing to sell";
 
-        if (timer < 4f)
-        {
-            sellScore();
-            quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
-        }
+            }
+            else if (timer >= 5f)
+            {
+                scoreText.text = "Total Value Collected: " +  "...";
 
-        if (timer < 2f)
-        {
-            daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+            }
+            else if (timer > 4f)
+            {
+                scoreText.text = "Total Value Collected: " + "Do better noob";
 
-        }
-       
+            }
 
-        if (quotaData.quotaRemain <= 0)
-        {
-            quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-            quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+            if (timer < 4f)
+            {
+                sellScore();
+                quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
+            }
 
-            quotaData.daysLeft = 3;
+            if (timer < 2f)
+            {
+                daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+
+            }
+
+
+            if (quotaData.quotaRemain <= 0)
+            {
+                quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
+                quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+
+                quotaData.daysLeft = 3;
+            }
         }
 
     }

@@ -1683,6 +1683,9 @@ MonoBehaviour:
   scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
   quotaData: {fileID: 11400000, guid: 76f3d3a57a1921647967f17d3c8c2846, type: 2}
   uIController: {fileID: 0}
+  pc: {fileID: 0}
+  isTimeUp: 0
+  isPlayerDead: 0
 --- !u!4 &87967831
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,6 +2603,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2019495320}
+    - target: {fileID: 3856864822146707846, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
+      propertyPath: timeLimit
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5294792352190692719, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: m_margin.z
       value: 38.899433
