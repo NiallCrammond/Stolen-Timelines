@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
    public  TextMeshProUGUI extractText;
 
     public playerState state;
+    [Header("LayerMask")]
     public LayerMask groundLayer;
     public LayerMask wallLayer;
     public LayerMask ceilingCheckLayer;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private float dashInput = 0; // read dash input
     private float menuInput = 0; // read menu input
 
+
+    [Header("Jump")]
     //Jump logic
     [SerializeField]
     [Range(0,100)]
@@ -56,6 +59,12 @@ public class PlayerController : MonoBehaviour
     public float allowExtend;
     private float extendTimer;
     private bool canExtend = true;
+    //Coyote Time
+    private float lastOnGround;
+    bool allowCoyote = true;
+    [Range(0, 0.5f)]
+    public float coyoteTime;
+
 
     float lastExitedWall = 0;
 
@@ -78,6 +87,7 @@ public class PlayerController : MonoBehaviour
     private bool menuPressed = false;
 
     //Player Movement variables
+    [Header("Movement")]
     [SerializeField]
     [Range(0, 200)]
     private float speed= 5;
@@ -88,12 +98,16 @@ public class PlayerController : MonoBehaviour
     private bool movePressed = false; // check for input
     private bool isFlipped = false;
     private Rigidbody2D rb;
+    [Range(0, 300)]
+    public float groundAcceleration;
+    [Range(0, 300)]
+    public float airAcceleration;
 
     //Wall Jump Variables
+    [Header("WallJump")]
     [SerializeField]
     private Vector2 wallJumpForce = Vector2.zero;
     RaycastHit2D wallHit;
-   
     private Vector2 wallHitDirecton;
     [SerializeField]
     [Range(0, 100)]
@@ -121,6 +135,7 @@ public class PlayerController : MonoBehaviour
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
+    [Header("Health")]
     [Range(0,100)]
     public int health;
     [Range(0,5)]
@@ -134,10 +149,7 @@ public class PlayerController : MonoBehaviour
     public float extractTime;
     bool isExtracting = false;
 
-    [Range(0,300)]
-   public float groundAcceleration;
-    [Range(0,300)]
-    public float airAcceleration;
+
 
 
     public ScoreData score;
@@ -151,6 +163,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Range(0,10)]
     private float exitWallForce;
+ 
 
     private void Awake()
     {
@@ -300,6 +313,11 @@ public class PlayerController : MonoBehaviour
                 //animationManager.isJumping();
                 extendTimer += Time.deltaTime;
               
+                if(isGrounded(groundHit1, groundHit2,groundHit3))
+                {
+                    allowCoyote = false;
+                }
+
 
                 break;
             case playerState.Running:
@@ -370,10 +388,12 @@ public class PlayerController : MonoBehaviour
             wallJumpCheck();
             jumpCheck();
 
-            if(isGrounded(groundHit1, groundHit2, groundHit3))
+            if(isGrounded(groundHit1, groundHit2, groundHit3) && state != playerState.Jumping)
             {
                 
                 groundedTimer += Time.deltaTime;
+                lastOnGround = 0;
+                allowCoyote = true;
              //   rb.drag = 0;
             }
             else
@@ -381,6 +401,7 @@ public class PlayerController : MonoBehaviour
                // rb.drag = airDrag;
                 groundedTimer = 0;
                 rb.velocityX = airDrag * rb.velocityX;
+                lastOnGround += Time.deltaTime;
             }
 
 
@@ -399,6 +420,7 @@ public class PlayerController : MonoBehaviour
                     //JUMP
                     if (jumpPressed && canjump)
                     {
+                        allowCoyote = false;
                         playJumpAudio = true;
                         playerMovement.jump(jumpInput, jumpForce);
                   
@@ -452,6 +474,12 @@ public class PlayerController : MonoBehaviour
                         audioManager.playDashSound();
 
 
+                    }
+
+                    if(lastOnGround< coyoteTime && jumpPressed &&allowCoyote)
+                    {
+                        allowCoyote = false;
+                        playerMovement.jump(jumpInput, jumpForce);
                     }
 
 
@@ -511,7 +539,7 @@ public class PlayerController : MonoBehaviour
                     {
                      
                         playJumpAudio = true;
-
+                        allowCoyote = false;
                         playerMovement.jump(jumpInput, jumpForce);
 
                     }
@@ -712,7 +740,7 @@ public class PlayerController : MonoBehaviour
                     stateTransition(playerState.WallSliding);
                 }
 
-                if ((dashPressed && playerDash.canDash))
+                if (playerDash.isDashing)
                 {
                     stateTransition(playerState.dashing);
                 }

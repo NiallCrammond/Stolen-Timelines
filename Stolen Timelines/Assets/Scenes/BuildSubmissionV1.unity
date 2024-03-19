@@ -2605,7 +2605,7 @@ PrefabInstance:
       objectReference: {fileID: 2019495320}
     - target: {fileID: 3856864822146707846, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: timeLimit
-      value: 5
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5294792352190692719, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: m_margin.z
@@ -5300,6 +5300,7 @@ MonoBehaviour:
   ceilingCheck: {fileID: 1024433644}
   wallCheck: {fileID: 1326429562}
   exitWallForce: 8
+  coyoteTime: 0.1
 --- !u!58 &400597809
 CircleCollider2D:
   m_ObjectHideFlags: 0

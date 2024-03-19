@@ -195,6 +195,7 @@ public class HubController : MonoBehaviour
 
     public void goAgain()
     {
+        gc.isTimeUp = false;
         if (quotaData.daysLeft <= 0 && quotaData.quotaRemain > 0)
         {
             quotaData = new QuotaData();
