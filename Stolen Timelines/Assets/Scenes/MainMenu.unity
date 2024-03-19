@@ -916,6 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e82e3fd564b86428f1b36c85172c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quotaData: {fileID: 0}
+  scoreData: {fileID: 0}
 --- !u!1 &446124207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,6 +2763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e82e3fd564b86428f1b36c85172c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quotaData: {fileID: 11400000, guid: 76f3d3a57a1921647967f17d3c8c2846, type: 2}
+  scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
 --- !u!1 &1097048215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3429,8 @@ MonoBehaviour:
   scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
   quotaData: {fileID: 11400000, guid: 76f3d3a57a1921647967f17d3c8c2846, type: 2}
   uIController: {fileID: 0}
+  pc: {fileID: 0}
+  isPlayerDead: 0
 --- !u!4 &1353039085
 Transform:
   m_ObjectHideFlags: 0
