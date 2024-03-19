@@ -2590,8 +2590,8 @@ Transform:
   m_GameObject: {fileID: 163320126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.932, y: -20.550117, z: 2.2756953}
-  m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
+  m_LocalPosition: {x: 17.75, y: -20.6, z: 2.2756953}
+  m_LocalScale: {x: 0.71716, y: 0.70000005, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009196413}
@@ -3275,8 +3275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 400597808}
   topYPos: 0
-  speed: 1.5
-  retractSpeed: 1.2
+  speed: 10
+  retractSpeed: 1
   crushing: 0
   retracting: 0
 --- !u!61 &248769488
@@ -3816,7 +3816,7 @@ Transform:
   m_GameObject: {fileID: 319758290}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 18.932, y: -6.5501156, z: 2.2756953}
+  m_LocalPosition: {x: 17.97, y: -6.16, z: 2.2756953}
   m_LocalScale: {x: 0.71716, y: 0.7, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4224,8 +4224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 400597808}
   topYPos: 0
-  speed: 1.5
-  retractSpeed: 1.2
+  speed: 10
+  retractSpeed: 1
   crushing: 0
   retracting: 0
 --- !u!61 &322580533
@@ -4302,7 +4302,7 @@ Transform:
   m_GameObject: {fileID: 330733041}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -205.51001, y: 27.81, z: -1.75}
+  m_LocalPosition: {x: -277.71, y: 50.21, z: -1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5176,7 +5176,7 @@ Transform:
   m_GameObject: {fileID: 400597801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -218.1, y: 26.8, z: 0}
+  m_LocalPosition: {x: -290.3, y: 49.2, z: 0}
   m_LocalScale: {x: 1, y: 2.53, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5552,6 +5552,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -5749,6 +5753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -7363,6 +7371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -7740,6 +7752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -8332,6 +8348,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -10874,6 +10894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -12288,6 +12312,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -12842,6 +12870,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -13212,6 +13244,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -16300,6 +16336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -16800,6 +16840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -17153,6 +17197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -17219,6 +17267,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -18297,6 +18349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -18898,6 +18954,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -19212,7 +19272,7 @@ Transform:
   m_GameObject: {fileID: 1909833920}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -205.51001, y: 27.81, z: -1.75}
+  m_LocalPosition: {x: -277.71, y: 50.21, z: -1.75}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -20064,6 +20124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -20738,6 +20802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
@@ -20837,6 +20905,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2088708961}
     m_Modifications:
+    - target: {fileID: 1817514973210437708, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2262018661120219386, guid: 8b3cccb6667765141b3f8e905e7a9482, type: 3}
       propertyPath: player
       value: 
