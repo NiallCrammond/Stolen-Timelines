@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
   
     public enum playerState {Idle, Jumping, Running, WallSliding, Sliding, dashing, rewind};
+
+   public  TextMeshProUGUI extractText;
 
     public playerState state;
     public LayerMask groundLayer;
@@ -53,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private float extendTimer;
     private bool canExtend = true;
 
-
+    float lastExitedWall = 0;
 
     //Slide logic
     [HideInInspector]
@@ -185,6 +189,8 @@ public class PlayerController : MonoBehaviour
         playerDash.isDashing = false;
         playerDash.canDash = true;
 
+        extractText.enabled = false;
+
         health = 100;
 
     }
@@ -244,6 +250,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update() // for NON physics functions
     {
+
+        lastExitedWall += Time.deltaTime;
       
         if (menuPressed)
         {
@@ -534,6 +542,10 @@ public class PlayerController : MonoBehaviour
 
                     }
 
+                   
+                        playerMovement.slowPlayer();
+                    
+
 
                     break;
                 case playerState.WallSliding:
@@ -557,9 +569,10 @@ public class PlayerController : MonoBehaviour
                         playerRewind.rewindUsed(groundHit1,groundHit2,groundHit3);
                     }
 
-                    if(moveVec.y < -0.2)
+                    if(moveVec.y < -0.2 && lastExitedWall > 1)
                     {
-                        playerMovement.exitWall(exitWallForce);
+                        lastExitedWall = 0;
+                        playerMovement.exitWall(exitWallForce, gameObject.transform.localScale.x);
                     }
              
 
@@ -1045,10 +1058,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Extract"))
+        {
+        extractText.enabled = true;
+        }
+
         if (collision.gameObject.CompareTag("Extract")&& extractPressed)
         {
             Debug.Log("We have attempted to start coroutine");
             StartCoroutine(extract());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Extract"))
+        {
+            extractText.enabled=false;
         }
     }
 

@@ -43,15 +43,15 @@ public class SettingsMenu : MonoBehaviour
         resDropDown.value = currentRes;
         resDropDown.RefreshShownValue();
 
-        float currentMasterVolume= 0;
+        float currentMasterVolume= 1;
         audioMixer.GetFloat("masterVolume", out currentMasterVolume);
         masterVolumeSlider.value = currentMasterVolume;
 
-        float currentMusicVolume = 0;
+        float currentMusicVolume = 1;
         audioMixer.GetFloat("musicVolume", out currentMusicVolume);
         musicSlider.value = currentMusicVolume;
 
-        float currentSFXVolume = 0;
+        float currentSFXVolume = 1;
         audioMixer.GetFloat("sfxVolume", out currentSFXVolume);
         sfxSlider.value = currentSFXVolume;
     }

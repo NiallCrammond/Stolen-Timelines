@@ -70,10 +70,10 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    public void exitWall(float exitForce)
+    public void exitWall(float exitForce, float direction)
     {
         Debug.Log("CALL WALL EXIT");
-        rb.AddForceX(exitForce, ForceMode2D.Impulse);
+        rb.AddForceX(-direction*exitForce, ForceMode2D.Impulse);
     }
 
 
