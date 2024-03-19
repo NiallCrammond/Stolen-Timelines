@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public UIController uIController;
     public PlayerController pc = null;
 
+    public bool isTimeUp = false;
     public bool isPlayerDead = false;
     
 
