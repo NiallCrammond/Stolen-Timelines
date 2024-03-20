@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
 
     public void playGame()
     {
-        quotaData.quotaRemain = 200;
+        quotaData.quotaRemain = 50;
         quotaData.quotaLevel = 1;
         quotaData.daysLeft = 3;
         scoreData.score = 0;

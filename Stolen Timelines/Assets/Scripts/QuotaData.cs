@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class QuotaData : ScriptableObject
 {
-    public int quotaRemain = 100;
+    public int quotaRemain = 50;
     public float quotaLevel = 1;
     public int daysLeft = 3;
 }

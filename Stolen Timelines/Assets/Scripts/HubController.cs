@@ -98,7 +98,7 @@ public class HubController : MonoBehaviour
                 if (quotaData.quotaRemain <= 0)
                 {
                     quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-                    quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+                    quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
 
                     quotaData.daysLeft = 3;
                 }
@@ -185,7 +185,7 @@ public class HubController : MonoBehaviour
             if (quotaData.quotaRemain <= 0)
             {
                 quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-                quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
+                quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
 
                 quotaData.daysLeft = 3;
             }
