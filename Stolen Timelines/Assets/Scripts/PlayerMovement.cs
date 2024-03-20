@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = setVelocity;
 
-        Debug.Log(rb.velocity);
+      //  Debug.Log(rb.velocity);
 
 
         //rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity), rb.velocityY);
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void extendJump(float jumpInput, float extendForce)
     {
-        rb.AddForce(Vector2.up * jumpInput * extendForce, ForceMode2D.Force);
+        rb.AddForce(Vector2.up * jumpInput * extendForce, ForceMode2D.Impulse);
        
     }
 

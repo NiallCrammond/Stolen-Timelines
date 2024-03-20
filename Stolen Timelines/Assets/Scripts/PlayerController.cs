@@ -500,14 +500,22 @@ public class PlayerController : MonoBehaviour
 
                     break;
                 case playerState.Running:
-                    
+
+                    if (jumpPressed && canjump)
+                    {
+                     
+                        playJumpAudio = true;
+                        allowCoyote = false;
+                        playerMovement.jump(jumpInput, jumpForce);
+
+                    }
                     if (movePressed)
                     {
                         playerMovement.move(moveVec, maxSpeed, groundAcceleration);
-                     // StartCoroutine(audioManager.randomFootSteps());
-           
+                        // StartCoroutine(audioManager.randomFootSteps());
+
                     }
-                    else
+                    else if (rb.velocityX != 0) 
                     {
                         playerMovement.slowPlayer();
                     }
@@ -535,14 +543,6 @@ public class PlayerController : MonoBehaviour
                     }
 
 
-                    if (jumpPressed && canjump)
-                    {
-                     
-                        playJumpAudio = true;
-                        allowCoyote = false;
-                        playerMovement.jump(jumpInput, jumpForce);
-
-                    }
 
                     if (rewindPressed)
                     {
@@ -723,7 +723,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 // If player presses jump from idle and they are able to jump then switch to jump state
-                else if (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit))
+                else if ((!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)) && (rb.velocityY > 2 || rb.velocityY < -2))
                 {
                     stateTransition(playerState.Jumping);
                 }
@@ -787,24 +787,24 @@ public class PlayerController : MonoBehaviour
                 break;
             case playerState.Running:
 
-                if ((dashPressed && playerDash.canDash)|| playerDash.isDashing)
+                if (playerDash.isDashing)
                 {
                     stateTransition(playerState.dashing);
                 }
                 //If the player can jump and input is pressed, switch to jumping state. or if the player is not in contact with anything
-                if ((jumpPressed && canjump) || (!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)) && (rb.velocityY > 2 || rb.velocityY < -2))
+                if ((!isGrounded(groundHit1, groundHit2, groundHit3) && !isWalled(wallHit)) && (rb.velocityY > 2 || rb.velocityY < -2))
                 {
                     stateTransition(playerState.Jumping);
                 }
 
                 //If there is no player input and velocity is negligable and the player is on the ground
-                else if (moveVec.x == 0 && (rb.velocityX < 0.1 && rb.velocityX > -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                else if (rb.velocityX < 0.1 && rb.velocityX > -0.1 && isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     stateTransition(playerState.Idle);
                 }
 
                 //If player is grounded and presses slide, they transition to slide
-                else if (slidePressed && isGrounded(groundHit1, groundHit2, groundHit3))
+                else if (playerSlide.isSliding)
                 {
                     stateTransition(playerState.Sliding);
                 }

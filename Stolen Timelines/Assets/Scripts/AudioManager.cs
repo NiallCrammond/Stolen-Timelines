@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
 
         Sound currentFootStep = footsteps[Random.Range(0, footsteps.Length)];
         currentFootStep.source.Play();
-      //  Debug.Log("Playing: " + currentFootStep.name);
+      Debug.Log("Playing: " + currentFootStep.name);
 
     }
 
@@ -143,7 +143,7 @@ public class AudioManager : MonoBehaviour
             canPlayJumps = false;
         Sound jumpSound = jumps[Random.Range(0, jumps.Length)];
         jumpSound.source.Play();
-        //Debug.Log("Jump Sound Played: " + jumpSound.name);
+        Debug.Log("Jump Sound Played: " + jumpSound.name);
         }
     }
 

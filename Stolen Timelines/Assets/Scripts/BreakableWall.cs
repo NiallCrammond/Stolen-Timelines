@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class BreakableWall : MonoBehaviour
 {
     private BoxCollider2D col;
-
-    [SerializeField]
-    public PlayerController player;
+    private PlayerController player;
+    private SpriteRenderer spriteRenderer;
+    public Sprite broken;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
         col.isTrigger = true;
     }
@@ -23,7 +25,8 @@ public class BreakableWall : MonoBehaviour
         }
         else if (collision.CompareTag("Player") && player.playerDash.isDashing)
         {
-            Destroy(gameObject);
+            spriteRenderer.sprite = broken;
+            col.enabled = false;
         }
     }
 
