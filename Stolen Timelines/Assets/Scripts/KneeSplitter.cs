@@ -92,6 +92,7 @@ public class KneeSplitter : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            GetComponent<KneeSplitter>().enabled = false;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             player.health -= 100;
         }
