@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BROKE_WALL_SHORT1_0: 1874190250526469825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
