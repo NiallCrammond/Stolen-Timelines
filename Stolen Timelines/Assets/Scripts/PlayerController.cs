@@ -340,7 +340,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case playerState.dashing:
-
+                if(playDashAudio)
+                {
+                    playDashAudio = false;
+                    audioManager.playDashSound();
+                }
 
                
                 
@@ -432,7 +436,7 @@ public class PlayerController : MonoBehaviour
                         playDashAudio = true;
                      
                         playerDash.performDash();
-                        audioManager.playDashSound();
+                        //audioManager.playDashSound();
 
 
                         // Debug.Log("Dash");
@@ -471,7 +475,7 @@ public class PlayerController : MonoBehaviour
                            // Debug.Log("call dash audio from: " + state);
                         }
                         playerDash.performDash();
-                        audioManager.playDashSound();
+                      //  audioManager.playDashSound();
 
 
                     }
@@ -523,13 +527,7 @@ public class PlayerController : MonoBehaviour
                     if (dashPressed && playerDash.canDash)
                     {
                         playDashAudio = true;
-                        if (playDashAudio == true)
-                        {
-                           // Debug.Log("call dash audio from: " + state);
-                        }
                         playerDash.performDash();
-                        audioManager.playDashSound();
-
                     }
 
                     if (slidePressed)
@@ -609,11 +607,7 @@ public class PlayerController : MonoBehaviour
                         break;
 
                 case playerState.dashing:
-                    //if(playerDash.canDash)
-                    //{
-                    //    //playDashAudio = true;
-                    //    playerDash.performDash();
-                    //}
+          
                     if (rewindPressed)
                     {
                         playerRewind.rewindUsed(groundHit1, groundHit2, groundHit3);
@@ -647,7 +641,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Sliding:
-               // playerSlide.stopSlide();
+               
 
                 break;
             case playerState.WallSliding:
@@ -656,7 +650,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case playerState.dashing:
-            // playDashAudio = false; 
+
                 break;
 
             case playerState.rewind:
