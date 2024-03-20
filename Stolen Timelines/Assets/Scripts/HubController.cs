@@ -19,6 +19,7 @@ public class HubController : MonoBehaviour
     TextMeshProUGUI titleText;
     [SerializeField]
     TextMeshProUGUI deathText;
+
     GameController gc;
 
 
@@ -27,7 +28,6 @@ public class HubController : MonoBehaviour
     private void Awake()
     {
    
-
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         quotaData.daysLeft -= 1;
         timer = 8f;
@@ -198,7 +198,9 @@ public class HubController : MonoBehaviour
         gc.isTimeUp = false;
         if (quotaData.daysLeft <= 0 && quotaData.quotaRemain > 0)
         {
-            quotaData = new QuotaData();
+            quotaData.quotaLevel = 1;
+            quotaData.quotaRemain = 50;
+            quotaData.daysLeft = 3;
             SceneManager.LoadScene("MainMenu");
         }
         else
