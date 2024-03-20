@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FallingObject : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
     private EdgeCollider2D col;
     private BoxCollider2D playerDetect;
     private Rigidbody2D rb;
@@ -14,6 +14,7 @@ public class FallingObject : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gameObject.SetActive(false);
         col = GetComponent<EdgeCollider2D>();
         playerDetect = GetComponent<BoxCollider2D>();

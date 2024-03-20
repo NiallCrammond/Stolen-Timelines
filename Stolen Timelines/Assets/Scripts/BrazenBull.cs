@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class BrazenBull : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
     private BoxCollider2D col;
     public int damageDealt;
     public bool isReady;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
     void Start()
     {
         col = GetComponent<BoxCollider2D>();

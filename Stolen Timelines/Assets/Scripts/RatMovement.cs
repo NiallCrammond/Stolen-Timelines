@@ -5,15 +5,15 @@ using UnityEngine.UIElements;
 
 public class RatMovement : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
     public Transform[] ratPath;
     public float speed;
     public int destination;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+      player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

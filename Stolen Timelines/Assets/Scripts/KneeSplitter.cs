@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class KneeSplitter : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
     private BoxCollider2D col;
     private Rigidbody2D rb;
     private Vector3 originalPos;
@@ -23,7 +23,8 @@ public class KneeSplitter : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();  
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Start()

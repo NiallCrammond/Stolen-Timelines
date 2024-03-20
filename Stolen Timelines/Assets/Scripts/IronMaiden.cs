@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class IronMaiden : MonoBehaviour
 {
-    public PlayerController player;
+    private PlayerController player;
     private BoxCollider2D col;
     private Animator animator;
     public bool isReady;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         col.isTrigger = true;
