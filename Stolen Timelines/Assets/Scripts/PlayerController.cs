@@ -378,6 +378,7 @@ public class PlayerController : MonoBehaviour
 
         uiController.updateHealthBar(health);
         uiController.updateDashBar(playerDash.dashCooldownTimer, playerDash.dashCooldown);
+        uiController.updateRewindIcon(playerRewind.lastRewind, playerRewind.useCooldown);
 
     }
 

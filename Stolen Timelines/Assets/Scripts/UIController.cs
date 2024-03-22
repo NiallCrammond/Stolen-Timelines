@@ -22,9 +22,11 @@ public class UIController : MonoBehaviour
     private float timeTaken = 0f;
     private float timer = 0;
     [SerializeField]
-    private Image healthBar;
+    private Slider healthBar;
     [SerializeField]
-    private Image dashBar;
+    private Slider dashBar;
+    [SerializeField]
+    private Image rewindIcon;
 
     bool timeUp;
 
@@ -33,7 +35,7 @@ public class UIController : MonoBehaviour
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        scoreText.text = "Score: " + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();
+        scoreText.text = "$" + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();
         timeUp = false;
 
     }
@@ -67,22 +69,27 @@ public class UIController : MonoBehaviour
 
     public void updateTimer()
     {
-        timerText.text = "Timer: " + timer.ToString("F3");
+        timerText.text = timer.ToString("F3");
     }
 
     public void updateHealthBar(int health)
     {
-        healthBar.fillAmount = health / 100f;
+        healthBar.value = health / 100f;
     }
 
     public void updateDashBar(float dashCDTimer, float dashCD)
     {
-        dashBar.fillAmount = (dashCDTimer / dashCD);
+        dashBar.value = (dashCDTimer / dashCD);
     }
 
-   public void addTime(float time)
+    public void addTime(float time)
     {
         Debug.Log("Time added");
         timeLimit += (int)time;
+    }
+
+    public void updateRewindIcon(float lastRewind, float useCooldown)
+    {
+        rewindIcon.fillAmount = ((useCooldown - lastRewind) / useCooldown);
     }
 }

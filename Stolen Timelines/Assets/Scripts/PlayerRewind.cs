@@ -18,7 +18,8 @@ public class PlayerRewind : MonoBehaviour
     public float lerpAcceleration = 10.0f;
 
     private float beaconDuration;
-    private float lastRewind;
+    [HideInInspector]
+    public float lastRewind;
 
     [SerializeField]
     private GameObject beaconPrefab;
