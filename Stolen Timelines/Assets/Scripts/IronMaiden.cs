@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class IronMaiden : MonoBehaviour
 {
     private PlayerController player;
+    private Renderer renderer;
     private BoxCollider2D col;
     private Animator animator;
     public bool isReady;
@@ -14,6 +15,7 @@ public class IronMaiden : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        renderer = GameObject.FindGameObjectWithTag("PlayerSprite").GetComponent<Renderer>();
         col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         col.isTrigger = true;
@@ -41,6 +43,6 @@ public class IronMaiden : MonoBehaviour
 
     private void HidePlayer()
     {
-        player.GetComponent<Renderer>().enabled = false;
+        renderer.enabled = false;
     }
 }

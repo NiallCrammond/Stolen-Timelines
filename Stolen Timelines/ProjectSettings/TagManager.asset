@@ -16,6 +16,7 @@ TagManager:
   - SoloSplitter
   - LevelManager
   - Extract
+  - PlayerSprite
   layers:
   - Default
   - TransparentFX

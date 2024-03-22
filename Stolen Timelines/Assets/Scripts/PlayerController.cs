@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
     private float airControlSpeed;
     float walledTimer;
     bool canWallJump = false;
+    float wallJumpTimer = 0f;
 
     //Player Slide variables
     [SerializeField]
@@ -178,7 +179,7 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
-        animator = GetComponent<Animator>();
+        animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
@@ -302,9 +303,17 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.Jumping:
-                animator.Play("PlayerJump");
+                if (wallJumpTimer >= 0)
+                {
+                    animator.Play("PlayerWallJump");
+                    wallJumpTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    animator.Play("PlayerJump");
+                }
 
-                if(playJumpAudio)
+                if (playJumpAudio)
                 {
                 audioManager.playJumpSound();
                     playJumpAudio = false;
@@ -335,7 +344,6 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.WallSliding:
-
 
                 break;
 
@@ -584,6 +592,7 @@ public class PlayerController : MonoBehaviour
                     if (jumpPressed && canWallJump)
                     {
                         playJumpAudio = true;
+                        wallJumpTimer = 0.4f;
 
                         playerMovement.wallJump(wallJumpForce);
                      groundedTimer = 0;
@@ -1220,8 +1229,5 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-
-
 }
 

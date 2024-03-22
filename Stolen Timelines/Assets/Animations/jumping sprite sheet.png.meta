@@ -200,10 +200,10 @@ TextureImporter:
       name: jumping sprite sheet_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 427
-        width: 75
-        height: 184
+        x: 0
+        y: 413
+        width: 206
+        height: 206
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,10 +221,10 @@ TextureImporter:
       name: jumping sprite sheet_1
       rect:
         serializedVersion: 2
-        x: 275
-        y: 423
-        width: 86
-        height: 188
+        x: 206
+        y: 412.6667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: jumping sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 478
-        y: 422
-        width: 89
-        height: 190
+        x: 412
+        y: 412.6667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,10 +263,10 @@ TextureImporter:
       name: jumping sprite sheet_3
       rect:
         serializedVersion: 2
-        x: 684
-        y: 422
-        width: 89
-        height: 190
+        x: 618
+        y: 412.6667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: jumping sprite sheet_4
       rect:
         serializedVersion: 2
-        x: 891
-        y: 422
-        width: 89
-        height: 190
+        x: 824
+        y: 412.6667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,10 +305,10 @@ TextureImporter:
       name: jumping sprite sheet_5
       rect:
         serializedVersion: 2
-        x: 63
-        y: 216
-        width: 95
-        height: 189
+        x: 0
+        y: 206.66667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,10 +326,10 @@ TextureImporter:
       name: jumping sprite sheet_6
       rect:
         serializedVersion: 2
-        x: 270
-        y: 216
-        width: 94
-        height: 189
+        x: 205
+        y: 207
+        width: 206
+        height: 206
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,10 +347,10 @@ TextureImporter:
       name: jumping sprite sheet_7
       rect:
         serializedVersion: 2
-        x: 476
-        y: 216
-        width: 95
-        height: 189
+        x: 412
+        y: 206.66667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: jumping sprite sheet_8
       rect:
         serializedVersion: 2
-        x: 683
-        y: 216
-        width: 94
-        height: 189
+        x: 618
+        y: 206.66667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,10 +389,10 @@ TextureImporter:
       name: jumping sprite sheet_9
       rect:
         serializedVersion: 2
-        x: 881
-        y: 216
-        width: 108
-        height: 189
+        x: 824
+        y: 206.66667
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,10 +410,10 @@ TextureImporter:
       name: jumping sprite sheet_10
       rect:
         serializedVersion: 2
-        x: 56
-        y: 10
-        width: 107
-        height: 188
+        x: 0
+        y: 0.66667175
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,10 +431,10 @@ TextureImporter:
       name: jumping sprite sheet_11
       rect:
         serializedVersion: 2
-        x: 258
-        y: 10
-        width: 117
-        height: 188
+        x: 207
+        y: 1
+        width: 206
+        height: 206
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,10 +452,10 @@ TextureImporter:
       name: jumping sprite sheet_12
       rect:
         serializedVersion: 2
-        x: 465
-        y: 10
-        width: 116
-        height: 188
+        x: 412
+        y: 0.66667175
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,10 +473,10 @@ TextureImporter:
       name: jumping sprite sheet_13
       rect:
         serializedVersion: 2
-        x: 671
-        y: 10
-        width: 116
-        height: 189
+        x: 618
+        y: 0.66667175
+        width: 206.4
+        height: 206.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -493,7 +493,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ec0c4d9372057b448b322478463a2dc
     internalID: 0
     vertices: []
     indices: 
