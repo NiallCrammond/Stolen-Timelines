@@ -27,6 +27,8 @@ public class UIController : MonoBehaviour
     private Slider dashBar;
     [SerializeField]
     private Image rewindIcon;
+    [SerializeField]
+    private Image clockIcon;
 
     bool timeUp;
 
@@ -48,6 +50,7 @@ public class UIController : MonoBehaviour
         timeTaken += Time.deltaTime;
 
         updateTimer();
+        updateClockTimer(timeLimit, timeTaken);
         timer = (timeLimit - timeTaken);
         }
 
@@ -55,7 +58,7 @@ public class UIController : MonoBehaviour
         {
             timeUp = true;
             Mathf.RoundToInt(timer);
-           gameController.scoreData.score = 0;
+            gameController.scoreData.score = 0;
             gameController.scoreData.itemsCollected = 0;
             gameController.isTimeUp = true;
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
@@ -91,5 +94,10 @@ public class UIController : MonoBehaviour
     public void updateRewindIcon(float lastRewind, float useCooldown)
     {
         rewindIcon.fillAmount = ((useCooldown - lastRewind) / useCooldown);
+    }
+
+    public void updateClockTimer(float timeLimit, float timeTaken)
+    {
+        clockIcon.fillAmount = ((timeLimit - timeTaken) / timeLimit);
     }
 }
