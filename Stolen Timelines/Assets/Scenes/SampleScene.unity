@@ -1890,7 +1890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6ad9a10cb9be94a90ff8f8aaa78697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   topYPos: 0
   speed: 3
   retractSpeed: 5
@@ -2441,7 +2440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6ad9a10cb9be94a90ff8f8aaa78697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   topYPos: 0
   speed: 1
   retractSpeed: 1
@@ -3678,7 +3676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6ad9a10cb9be94a90ff8f8aaa78697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   topYPos: 0
   speed: 1
   retractSpeed: 1
@@ -6602,7 +6599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526b40b34bc4d8141a8921bc02f90ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!61 &955191454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7492,7 +7488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6ad9a10cb9be94a90ff8f8aaa78697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   topYPos: 0
   speed: 3
   retractSpeed: 5
@@ -8082,7 +8077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526b40b34bc4d8141a8921bc02f90ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!61 &1160930197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9185,6 +9179,7 @@ MonoBehaviour:
   useCooldown: 15
   rewindDuration: 3
   lerpAcceleration: 10
+  lastRewind: 0
   beaconPrefab: {fileID: 6849760792737536890, guid: a222b79f233ef744c9a483ac2bebd6bd, type: 3}
   boxCol: {fileID: 0}
   circleCol: {fileID: 0}
@@ -10936,7 +10931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909d6e03f2d669c4696ad8b49ce1bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   sceneName: MainMenu
 --- !u!1 &1804735125
 GameObject:
@@ -12521,7 +12515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526b40b34bc4d8141a8921bc02f90ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!61 &2006948760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13015,7 +13008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6ad9a10cb9be94a90ff8f8aaa78697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   topYPos: 2.5
   speed: 3
   retractSpeed: 3
@@ -13263,7 +13255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff4c90c3789dce459fb914f873272bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1301309005}
+  broken: {fileID: 0}
 --- !u!1001 &860466047427382510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13278,11 +13270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 18732096775399076, guid: d92036bb42626754f946b7752848b060, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.18
+      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 18732096775399076, guid: d92036bb42626754f946b7752848b060, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 18732096775399076, guid: d92036bb42626754f946b7752848b060, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13311,6 +13303,22 @@ PrefabInstance:
     - target: {fileID: 18732096775399076, guid: d92036bb42626754f946b7752848b060, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912710228927246331, guid: d92036bb42626754f946b7752848b060, type: 3}
+      propertyPath: m_Size.x
+      value: 2.329424
+      objectReference: {fileID: 0}
+    - target: {fileID: 912710228927246331, guid: d92036bb42626754f946b7752848b060, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3638501
+      objectReference: {fileID: 0}
+    - target: {fileID: 912710228927246331, guid: d92036bb42626754f946b7752848b060, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.66471195
+      objectReference: {fileID: 0}
+    - target: {fileID: 912710228927246331, guid: d92036bb42626754f946b7752848b060, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.029408216
       objectReference: {fileID: 0}
     - target: {fileID: 8384733828969435607, guid: d92036bb42626754f946b7752848b060, type: 3}
       propertyPath: player
