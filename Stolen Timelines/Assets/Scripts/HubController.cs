@@ -108,17 +108,13 @@ public class HubController : MonoBehaviour
             {
                 if (timer >= 6f)
                 {
-                    scoreText.text = "You were Transported back with nothing";
+                    scoreText.text = "You were Transported back with nothing...";
 
                 }
-                else if (timer >= 5f)
-                {
-                    scoreText.text = "Extract before the time runs put";
-
-                }
+       
                 else if (timer > 4f)
                 {
-                    scoreText.text = "Get good noob";
+                    scoreText.text = "Extract with time remaining";
 
                 }
 
@@ -155,7 +151,7 @@ public class HubController : MonoBehaviour
 
             if (timer >= 6f)
             {
-                scoreText.text = "Total Value Collected: " + "You have nothing to sell";
+                scoreText.text = "Total Value Collected: " + "X";
 
             }
             else if (timer >= 5f)
@@ -165,7 +161,7 @@ public class HubController : MonoBehaviour
             }
             else if (timer > 4f)
             {
-                scoreText.text = "Total Value Collected: " + "Do better noob";
+                scoreText.text = "Total Value Collected: " + "Survive to keep your Cash";
 
             }
 
