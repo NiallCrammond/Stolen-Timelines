@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLevel.unity
     guid: a2be8ee0ae708ed4caf051e4762571a1
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
     path: Assets/Scenes/Legacy Scenes/PlaypartyV1.unity
     guid: 47dc34b70784f8b47a9f013d89e9934a
   - enabled: 1
@@ -23,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildSubmissionV1.unity
     guid: 589d2460cc825a9449f9f7273c06cadd
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/New Scene.unity
+    guid: 48b97b914df9e3748a12e2e52ca7a07c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

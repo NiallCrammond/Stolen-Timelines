@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
 
     public Sound music;
 
+    public Sound[] traps;
+
    public bool canPlayFootsteps = true;
     public bool canPlayJumps = true;
 
@@ -82,6 +84,7 @@ public class AudioManager : MonoBehaviour
             s.source.outputAudioMixerGroup = sfxMixer;
 
         }
+
 
         dash.source = gameObject.AddComponent<AudioSource>();
         dash.source.clip = dash.clip;
