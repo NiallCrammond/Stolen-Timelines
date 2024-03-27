@@ -2056,9 +2056,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664866469}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: loadInstruction
+      - m_Target: {fileID: 1092316916}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: playGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2067,7 +2067,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1664866469}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: loadHub
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &791259982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5775,62 +5787,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819d0300fb32453489dd5920f3c2618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: IronMaiden
-    clip: {fileID: 8300000, guid: 03ecc4e9094aee3469d422baf0b28caf, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
+  sounds: []
   footsteps:
   - name: FootSteps_1
-    clip: {fileID: 8300000, guid: e7284ce3283787f42a604fecf33e1d42, type: 3}
+    clip: {fileID: 8300000, guid: b9f5049c70eaea947a1bd0831bc2ac53, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_2
-    clip: {fileID: 8300000, guid: 4a7a215e6db83c846b205e60e0203b0b, type: 3}
+    clip: {fileID: 8300000, guid: 66f3599f39160ee458557d9c8bca3a85, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_3
-    clip: {fileID: 8300000, guid: 0238689f61877a543a510774d979ffd6, type: 3}
+    clip: {fileID: 8300000, guid: 825f7eb19a7c81548a3cc6ea9406bb8c, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_4
-    clip: {fileID: 8300000, guid: d52b2c8cd70f13548b80f776a6a24f15, type: 3}
+    clip: {fileID: 8300000, guid: f17dedf6a823ba04bb779f95c7906770, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_5
-    clip: {fileID: 8300000, guid: a8668b339600fe1448d74f7e9d59b41f, type: 3}
+    clip: {fileID: 8300000, guid: ab35e3001ae2f76468ed247a74e830ed, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_6
-    clip: {fileID: 8300000, guid: 009a10badf95751469d36af21327f898, type: 3}
+    clip: {fileID: 8300000, guid: 0dce184b391a34c45ab2c6e88a9eba46, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_7
+    clip: {fileID: 8300000, guid: 2be602c73c5b2344494a9d4c728190b6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_8
+    clip: {fileID: 8300000, guid: 35ff0b6420a32ad4b90124ff764b4ae7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FootSteps_9
+    clip: {fileID: 8300000, guid: 2b6022807f80a304fa9c5e44c4e06df8, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   jumps:
   - name: Jump_1
-    clip: {fileID: 8300000, guid: 675d691323561a2408e2483e4ec65ae0, type: 3}
+    clip: {fileID: 8300000, guid: cc06355a9e80208439953c6d6fe60f3c, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Jump_2
-    clip: {fileID: 8300000, guid: 289531caf2c571e489a274c6bc670718, type: 3}
+    clip: {fileID: 8300000, guid: fa4707875d552d2488810f3cc0a0cafe, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Jump_3
-    clip: {fileID: 8300000, guid: 579e713b86fc0c643a00a2d5a87002b6, type: 3}
+    clip: {fileID: 8300000, guid: a9f9705f838ef9342819eca1a3d98ecd, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   dash:
     name: Dash
-    clip: {fileID: 8300000, guid: 59aa5c1ec30eb3c4394eb4e3609b21dc, type: 3}
+    clip: {fileID: 8300000, guid: b6ad79ef149e1c24facc88658324d440, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -5840,7 +5862,6 @@ MonoBehaviour:
     volume: 0
     pitch: 0
     source: {fileID: 0}
-  traps: []
   canPlayFootsteps: 1
   canPlayJumps: 1
   canPlayDash: 1
@@ -6854,17 +6875,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3226159237671658981, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
-      propertyPath: sceneNames.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3226159237671658981, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
       propertyPath: 'animator.Array.data[0]'
       value: 
       objectReference: {fileID: 646954057}
-    - target: {fileID: 3226159237671658981, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
-      propertyPath: 'sceneNames.Array.data[3]'
-      value: New Scene
-      objectReference: {fileID: 0}
     - target: {fileID: 3466376443336941433, guid: 0905e56acaae33645be237bd8cf623de, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.547983

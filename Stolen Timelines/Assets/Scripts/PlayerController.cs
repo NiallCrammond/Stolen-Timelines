@@ -164,8 +164,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Range(0,10)]
     private float exitWallForce;
-
-    LevelManager lm;
  
 
     private void Awake()
@@ -180,7 +178,7 @@ public class PlayerController : MonoBehaviour
         pauseMenu = GameObject.FindFirstObjectByType<PauseMenu>();
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
-        lm = GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>();
+
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         //animator = this.GetComponentInChildren<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
@@ -1211,7 +1209,8 @@ public class PlayerController : MonoBehaviour
             score.score = 0;
             score.itemsCollected = 0;
         yield return new WaitForSeconds(deathTime);
-            lm.loadHub();
+
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
             isDeathReady = true;
             Debug.Log("Death isa ready");
         }
@@ -1229,7 +1228,7 @@ public class PlayerController : MonoBehaviour
 
 
             yield return new WaitForSeconds(extractTime);
-            lm.loadHub();
+        GameObject.FindWithTag("LevelManager").GetComponent<LevelManager>().loadHub();
             isExtracting = false;
             Debug.Log("extracted successfully");
 

@@ -44,7 +44,7 @@ public class RatMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.health -= 10;
+            player.health -= 100;
         }
     }
 

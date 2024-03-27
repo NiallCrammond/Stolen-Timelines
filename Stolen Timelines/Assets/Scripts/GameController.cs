@@ -15,9 +15,7 @@ public class GameController : MonoBehaviour
 
     public bool isTimeUp = false;
     public bool isPlayerDead = false;
-
-
-    public AsyncOperation level;
+    
 
     private void Awake()
     {
@@ -69,6 +67,9 @@ public class GameController : MonoBehaviour
                 isPlayerDead = false;
             }
         }
+   
+   
+
     }
 
     void findPlayer()
