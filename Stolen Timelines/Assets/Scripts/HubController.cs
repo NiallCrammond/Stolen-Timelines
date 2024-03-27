@@ -20,16 +20,26 @@ public class HubController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI deathText;
 
-    GameController gc;
+    private GameController gc;
+    private LevelManager lM;
 
+    private GameObject loseScreen;
+    private GameObject winScreen;
+    private GameObject hubScreen;
 
     private float timer;
 
     private void Awake()
     {
-   
+        loseScreen = GameObject.FindWithTag("LoseScreen");
+        winScreen = GameObject.FindWithTag("WinScreen");
+        hubScreen = GameObject.FindWithTag("HubScreen");
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
+
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        
+        lM = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
 
         scoreText.text = "Total Value Collected: ...";
         quotaText.text = "Quota Remaining: ...";
@@ -109,9 +119,9 @@ public class HubController : MonoBehaviour
 
                     if (quotaData.quotaRemain <= 0)
                     {
+                        StartCoroutine(quotaWin());
                         quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
                         quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
                         quotaData.daysLeft = 3;
                     }
                 }
@@ -149,9 +159,9 @@ public class HubController : MonoBehaviour
 
                     if (quotaData.quotaRemain <= 0)
                     {
+                        StartCoroutine(quotaWin());
                         quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-                        quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
-
+                        quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
                         quotaData.daysLeft = 3;
                     }
                 }
@@ -190,13 +200,12 @@ public class HubController : MonoBehaviour
 
                 if (quotaData.quotaRemain <= 0)
                 {
+                    StartCoroutine(quotaWin());
                     quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
                     quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
                     quotaData.daysLeft = 3;
                 }
             }
-
         }
 
         else if (quotaData.gameStart == true) //Hub entered from main menu
@@ -218,9 +227,9 @@ public class HubController : MonoBehaviour
 
             if (quotaData.quotaRemain <= 0)
             {
+                StartCoroutine(quotaWin());
                 quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
                 quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
                 quotaData.daysLeft = 3;
             }
         }
@@ -236,14 +245,11 @@ public class HubController : MonoBehaviour
         gc.isTimeUp = false;
         if (quotaData.daysLeft <= 0 && quotaData.quotaRemain > 0)
         {
-            quotaData.quotaLevel = 1;
-            quotaData.quotaRemain = 50;
-            quotaData.daysLeft = 3;
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(quotaLose());
         }
         else
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+            lM.loadGameLevel();
         }
     }
 
@@ -252,5 +258,25 @@ public class HubController : MonoBehaviour
         scoreData.itemsCollected = 0;
         quotaData.quotaRemain -= scoreData.score;
         scoreData.score = 0;
+    }
+
+    private IEnumerator quotaWin()
+    {
+        titleText.text = "Daily Report - Day 0";
+        hubScreen.SetActive(false);
+        winScreen.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        hubScreen.SetActive(true);
+        winScreen.SetActive(false);
+    }
+
+    private IEnumerator quotaLose()
+    {
+        hubScreen.SetActive(false);
+        loseScreen.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        lM.loadMainMenu();
     }
 }
