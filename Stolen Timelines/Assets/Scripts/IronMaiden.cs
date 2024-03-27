@@ -28,6 +28,7 @@ public class IronMaiden : MonoBehaviour
         }
         if (isReady)
         {
+            GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>().playSound("IronMaiden");
             collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
             player.health -= 100;
             animator.SetBool("IsClosed", true);
