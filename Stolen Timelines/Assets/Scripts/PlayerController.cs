@@ -179,7 +179,8 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
-        animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
+        //animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
+        animator = this.GetComponentInChildren<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
