@@ -17,6 +17,7 @@ TagManager:
   - LevelManager
   - Extract
   - PlayerSprite
+  - DamageOverlay
   layers:
   - Default
   - TransparentFX
