@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      r-key-button-vector-image-260nw-2199857439-removebg-preview_0: 737598577065898201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

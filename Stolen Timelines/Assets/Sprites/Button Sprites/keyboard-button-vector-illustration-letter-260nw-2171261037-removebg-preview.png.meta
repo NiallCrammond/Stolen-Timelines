@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      keyboard-button-vector-illustration-letter-260nw-2171261037-removebg-preview_0: -3352516398367532217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

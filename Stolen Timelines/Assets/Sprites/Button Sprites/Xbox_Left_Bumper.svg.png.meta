@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Xbox_Left_Bumper.svg_0: 160042823358988881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
