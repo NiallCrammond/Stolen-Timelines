@@ -2070,7 +2070,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1664866469}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: loadGameLevel
+        m_MethodName: loadHub
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3430,6 +3430,7 @@ MonoBehaviour:
   quotaData: {fileID: 11400000, guid: 76f3d3a57a1921647967f17d3c8c2846, type: 2}
   uIController: {fileID: 0}
   pc: {fileID: 0}
+  isTimeUp: 0
   isPlayerDead: 0
 --- !u!4 &1353039085
 Transform:

@@ -23,6 +23,8 @@ public class MainMenu : MonoBehaviour
         quotaData.quotaRemain = 50;
         quotaData.quotaLevel = 1;
         quotaData.daysLeft = 3;
+        quotaData.gameStart = true;
+
         scoreData.score = 0;
         scoreData.itemsCollected = 0;
     }
