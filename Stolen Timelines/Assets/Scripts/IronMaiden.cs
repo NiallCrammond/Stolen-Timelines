@@ -15,7 +15,7 @@ public class IronMaiden : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        //renderer = GameObject.FindGameObjectWithTag("PlayerSprite").GetComponent<Renderer>();
+        renderer = GameObject.FindGameObjectWithTag("PlayerSprite").GetComponent<Renderer>();
         col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         col.isTrigger = true;
