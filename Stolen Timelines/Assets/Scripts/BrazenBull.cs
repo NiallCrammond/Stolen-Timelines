@@ -12,7 +12,7 @@ public class BrazenBull : MonoBehaviour
     public int damageDealt;
     public float bullCooldown;
     public float timer;
-    // Start is called before the first frame update
+    //Start is called before the first frame update
 
     private void Awake()
     {
