@@ -180,6 +180,7 @@ public class PlayerController : MonoBehaviour
         bottomCollider = GetComponent<CircleCollider2D>();
 
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
+        //animator = this.GetComponentInChildren<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
@@ -298,8 +299,10 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
-                animator.Play("PlayerIdle");
-
+                if (health > 0)
+                {
+                    animator.Play("PlayerIdle");
+                }
 
                 break;
             case playerState.Jumping:
@@ -310,7 +313,10 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    animator.Play("PlayerJump");
+                    if (health > 0)
+                    {
+                        animator.Play("PlayerJump");
+                    }
                 }
 
                 if (playJumpAudio)
@@ -348,6 +354,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case playerState.dashing:
+                animator.Play("PlayerDash");
                 if(playDashAudio)
                 {
                     playDashAudio = false;
@@ -365,9 +372,9 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-
+            animator.Play("PlayerDeath");
             StartCoroutine(death());
-          //  SceneManager.LoadScene("BuildSubmissionV1");
+            //  SceneManager.LoadScene("BuildSubmissionV1");
         }
 
 
