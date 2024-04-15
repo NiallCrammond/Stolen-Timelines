@@ -17,9 +17,6 @@ TagManager:
   - LevelManager
   - Extract
   - PlayerSprite
-  - HubScreen
-  - WinScreen
-  - LoseScreen
   layers:
   - Default
   - TransparentFX
