@@ -1,0 +1,473 @@
+fileFormatVersion: 2
+guid: 1861961fbc0daf546939df570fbb8f93
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6406486189337806138
+    second: imPulse_0
+  - first:
+      213: 3040551748028648491
+    second: imPulse_1
+  - first:
+      213: 3172633234521052448
+    second: imPulse_2
+  - first:
+      213: -966702463656495378
+    second: imPulse_3
+  - first:
+      213: -4270056103013569400
+    second: imPulse_4
+  - first:
+      213: 7166928528247992889
+    second: imPulse_5
+  - first:
+      213: 5696545661105418390
+    second: imPulse_6
+  - first:
+      213: 1534591605583766306
+    second: imPulse_7
+  - first:
+      213: 4058270138457306436
+    second: imPulse_8
+  - first:
+      213: -2893623848354792875
+    second: imPulse_9
+  - first:
+      213: -3735330030527047720
+    second: imPulse_10
+  - first:
+      213: 2114547861557484130
+    second: imPulse_11
+  - first:
+      213: -4683269822208571078
+    second: imPulse_12
+  - first:
+      213: 1946118801004671667
+    second: imPulse_13
+  - first:
+      213: 7935519193296688083
+    second: imPulse_14
+  - first:
+      213: -8491358844933398826
+    second: imPulse_15
+  - first:
+      213: 6304201766054641680
+    second: imPulse_16
+  - first:
+      213: -2225757653880073015
+    second: imPulse_17
+  - first:
+      213: -8601205319804392190
+    second: imPulse_18
+  - first:
+      213: -2179262578167028591
+    second: imPulse_19
+  - first:
+      213: 1230328546850960166
+    second: imPulse_20
+  - first:
+      213: -2769018832083227966
+    second: imPulse_21
+  - first:
+      213: -2917180700292413739
+    second: imPulse_22
+  - first:
+      213: -9042642694401663643
+    second: imPulse_23
+  - first:
+      213: -5269231532062935360
+    second: imPulse_24
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: imPulse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5820
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a47b39998f9134683d98127fba1a4a
+      internalID: -857326513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_1
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 5820
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c36cd42a4268084a8c53864940d9c3c
+      internalID: 142302164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_2
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5820
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6696b6f54d72ce4b822c3d3424d58fd
+      internalID: -1733205592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_3
+      rect:
+        serializedVersion: 2
+        x: 5040
+        y: 5820
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ff7bb348aa63548b5c3cd0df393da9
+      internalID: -1913439107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3880
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d6fa38c741147449a74a32d5d79c46
+      internalID: -990450399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_5
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 3880
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c920901bd1ee743ac202a787abc7d5
+      internalID: 2131689319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_6
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 3880
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1977a41931b05fe4e8987fef62773be1
+      internalID: 1457154494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_7
+      rect:
+        serializedVersion: 2
+        x: 5040
+        y: 3880
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12b6a1964e9dcd47baefa501c84831b
+      internalID: 638513616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1940
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc39b5a76d114441ac8db35ea043f40
+      internalID: 467969498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_9
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1940
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc7c5dabce758f468caff4b00e3fe41
+      internalID: -2087879025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_10
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1940
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97b06899251b394aa40b3a8f6eb9756
+      internalID: -1848499520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_11
+      rect:
+        serializedVersion: 2
+        x: 5040
+        y: 1940
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05548477d87157c4c9194beb36a81e09
+      internalID: -1693590206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: imPulse_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1680
+        height: 1940
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75aafe5ef029bfe41b8700c957d14a1a
+      internalID: 1705145620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 757060c8552081841b7058f58fcd0809
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      imPulse_0: -857326513
+      imPulse_1: 142302164
+      imPulse_10: -1848499520
+      imPulse_11: -1693590206
+      imPulse_12: 1705145620
+      imPulse_2: -1733205592
+      imPulse_3: -1913439107
+      imPulse_4: -990450399
+      imPulse_5: 2131689319
+      imPulse_6: 1457154494
+      imPulse_7: 638513616
+      imPulse_8: 467969498
+      imPulse_9: -2087879025
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

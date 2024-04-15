@@ -1,0 +1,587 @@
+fileFormatVersion: 2
+guid: 25ec5e3aa24c25340a148eb260b68ce3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4257832718083865660
+    second: PORTAL_ANI_0
+  - first:
+      213: -7039159732314902409
+    second: PORTAL_ANI_1
+  - first:
+      213: 5365551496091123495
+    second: PORTAL_ANI_2
+  - first:
+      213: -2892381772522311326
+    second: PORTAL_ANI_3
+  - first:
+      213: 7216804668469555842
+    second: PORTAL_ANI_4
+  - first:
+      213: 7753193282029274380
+    second: PORTAL_ANI_5
+  - first:
+      213: 8971342571082668210
+    second: PORTAL_ANI_6
+  - first:
+      213: -641056590867348316
+    second: PORTAL_ANI_7
+  - first:
+      213: 2728402322446526998
+    second: PORTAL_ANI_8
+  - first:
+      213: -2272456204443622654
+    second: PORTAL_ANI_9
+  - first:
+      213: -2358008130559088692
+    second: PORTAL_ANI_10
+  - first:
+      213: 6539950730186039469
+    second: PORTAL_ANI_11
+  - first:
+      213: -867992815095440336
+    second: PORTAL_ANI_12
+  - first:
+      213: 7210495213122359022
+    second: PORTAL_ANI_13
+  - first:
+      213: 1576956444857583354
+    second: PORTAL_ANI_14
+  - first:
+      213: -3330246986062033001
+    second: PORTAL_ANI_15
+  - first:
+      213: 3893363062162866351
+    second: PORTAL_ANI_16
+  - first:
+      213: -766690987980578522
+    second: PORTAL_ANI_17
+  - first:
+      213: 6567048237951320083
+    second: PORTAL_ANI_18
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PORTAL_ANI_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2352
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a58a606f92c4a4097d3d4ffb421276
+      internalID: 708880220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_1
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 2352
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a58bf8f8d567944baa2a6d73a9483b
+      internalID: 175486931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_2
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 2352
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b365b2affb301a04794756631e46b88a
+      internalID: 1138052362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_3
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2352
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e6252d3ffb38a43b49ff6c9580658e
+      internalID: 64421598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_4
+      rect:
+        serializedVersion: 2
+        x: 2672
+        y: 2352
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553b942cb60da9b4586c2d2346709615
+      internalID: -399911825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1568
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ae95a6346931240954bddaaa0d280f
+      internalID: 1637618912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_6
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 1568
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfb53a4f24821a4996f1470508097c2
+      internalID: -704088409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_7
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 1568
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41decf2a4c643254ca077b2cf218eb2d
+      internalID: -959796397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_8
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 1568
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786431cfe0d351b4082fb28bc78f80c9
+      internalID: -1337149215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_9
+      rect:
+        serializedVersion: 2
+        x: 2672
+        y: 1568
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aea1e28a93f1234b9da85364fdfc213
+      internalID: -510029663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 784
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a197fde20225924aa4d578dd6fa09b1
+      internalID: -1817735250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_11
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 784
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58318e7133b7c264f99280eea24132ee
+      internalID: -301014277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_12
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 784
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bacdb0fa167db3f40b8c4f35faa0ffa2
+      internalID: 169169953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_13
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 784
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2962ec43d0e124341a9afd34a9770796
+      internalID: -717503544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_14
+      rect:
+        serializedVersion: 2
+        x: 2672
+        y: 784
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84a439c040981841b1693531fdc3ab4
+      internalID: 563083016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9255af51e3ec58a4ba401de6251c718c
+      internalID: -961160474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_16
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525cc583b91ab7945990b55dac7f0b41
+      internalID: -751772495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_17
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 0
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d15e0fd51afc8b41866403f109d3760
+      internalID: 442988272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PORTAL_ANI_18
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 0
+        width: 668
+        height: 784
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69db6d30f12633042a4b0c92206e87a0
+      internalID: 1084205153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a5803d5f852b16e42bebe262a807268e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PORTAL_ANI_0: 708880220
+      PORTAL_ANI_1: 175486931
+      PORTAL_ANI_10: -1817735250
+      PORTAL_ANI_11: -301014277
+      PORTAL_ANI_12: 169169953
+      PORTAL_ANI_13: -717503544
+      PORTAL_ANI_14: 563083016
+      PORTAL_ANI_15: -961160474
+      PORTAL_ANI_16: -751772495
+      PORTAL_ANI_17: 442988272
+      PORTAL_ANI_18: 1084205153
+      PORTAL_ANI_2: 1138052362
+      PORTAL_ANI_3: 64421598
+      PORTAL_ANI_4: -399911825
+      PORTAL_ANI_5: 1637618912
+      PORTAL_ANI_6: -704088409
+      PORTAL_ANI_7: -959796397
+      PORTAL_ANI_8: -1337149215
+      PORTAL_ANI_9: -510029663
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
