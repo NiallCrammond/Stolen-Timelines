@@ -109,17 +109,12 @@ public class HubController : MonoBehaviour
                 if (timer >= 6f)
                 {
                     scoreText.text = "You were Transported back with nothing";
-
                 }
-                else if (timer >= 5f)
-                {
-                    scoreText.text = "Extract before the time runs put";
 
-                }
                 else if (timer > 4f)
                 {
-                    scoreText.text = "Get good noob";
-
+                    scoreText.text = "Extract before the time runs out";
+                 //   scoreText.text = "Get good noob";
                 }
 
                 if (timer < 4f)
@@ -158,16 +153,12 @@ public class HubController : MonoBehaviour
                 scoreText.text = "Total Value Collected: " + "You have nothing to sell";
 
             }
-            else if (timer >= 5f)
+            else if (timer >= 4f)
             {
-                scoreText.text = "Total Value Collected: " +  "...";
+                scoreText.text = "Total Value Collected: " +  "X";
 
             }
-            else if (timer > 4f)
-            {
-                scoreText.text = "Total Value Collected: " + "Do better noob";
 
-            }
 
             if (timer < 4f)
             {
