@@ -23,6 +23,7 @@ public class HubController : MonoBehaviour
     private GameController gc;
     private LevelManager lM;
 
+    private GameObject contButton;
     private GameObject loseScreen;
     private GameObject winScreen;
     private GameObject hubScreen;
@@ -36,6 +37,8 @@ public class HubController : MonoBehaviour
         loseScreen = GameObject.FindWithTag("LoseScreen");
         winScreen = GameObject.FindWithTag("WinScreen");
         hubScreen = GameObject.FindWithTag("HubScreen");
+        contButton = GameObject.FindWithTag("ContinueButton");
+        contButton.SetActive(false);
         loseScreen.SetActive(false);
         winScreen.SetActive(false);
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -103,7 +106,7 @@ public class HubController : MonoBehaviour
                 if (timer < 2f)
                 {
                     daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
-
+                    contButton.SetActive(true);
                 }
 
 
@@ -138,6 +141,7 @@ public class HubController : MonoBehaviour
                 if (timer < 2f)
                 {
                     daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+                    contButton.SetActive(true);
 
                 }
 
@@ -181,7 +185,7 @@ public class HubController : MonoBehaviour
             if (timer < 2f)
             {
                 daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
-
+                contButton.SetActive(true);
             }
 
 

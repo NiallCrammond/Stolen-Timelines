@@ -20,6 +20,7 @@ TagManager:
   - LoseScreen
   - WinScreen
   - HubScreen
+  - ContinueButton
   layers:
   - Default
   - TransparentFX
