@@ -39,8 +39,8 @@ public class FallingObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             {
-                player.health -= 20;
-                gameObject.SetActive(false);
+            player.TakeDamage(20);
+            gameObject.SetActive(false);
                 Invoke(nameof(Repeat), Random.Range(3, 7));
             }
         else

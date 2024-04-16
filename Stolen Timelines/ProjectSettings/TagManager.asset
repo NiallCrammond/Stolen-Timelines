@@ -21,6 +21,7 @@ TagManager:
   - WinScreen
   - HubScreen
   - ContinueButton
+  - vCam
   layers:
   - Default
   - TransparentFX

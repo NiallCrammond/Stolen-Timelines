@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour
     //UI controller
     private UIController uiController;
 
+    //Vcam Shake on Hit script
+    private ShakeOnHit shakeOnHit;
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
@@ -179,6 +181,7 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
+        shakeOnHit = GameObject.FindWithTag("vCam").GetComponent<ShakeOnHit>();
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
@@ -1183,7 +1186,13 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
- 
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        shakeOnHit.ShakeIfPlayerHit(damage);
+    }
+
     private IEnumerator printState()
     {
         yield return new WaitForSeconds(0.1f);

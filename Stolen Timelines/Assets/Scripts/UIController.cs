@@ -19,6 +19,8 @@ public class UIController : MonoBehaviour
 
     GameController gameController;
     PlayerController playerController;
+    ShakeOnHit shakeOnHit;
+
     [SerializeField]
     private QuotaData quotaData;
 
@@ -40,6 +42,8 @@ public class UIController : MonoBehaviour
 
     void Awake()
     {
+
+        shakeOnHit = GameObject.FindGameObjectWithTag("vCam").GetComponent<ShakeOnHit>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         scoreText.text = "$" + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();

@@ -34,7 +34,7 @@ public class BrazenBull : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > bullCooldown)
             {
-                player.health -= damageDealt;
+                player.TakeDamage(damageDealt);
                 timer = 0;
             }
         }

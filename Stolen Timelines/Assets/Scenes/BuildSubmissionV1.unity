@@ -13505,6 +13505,7 @@ GameObject:
   - component: {fileID: 605404119}
   - component: {fileID: 605404121}
   - component: {fileID: 605404120}
+  - component: {fileID: 605404122}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -13582,6 +13583,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &605404122
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605404118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &613079967
 GameObject:
   m_ObjectHideFlags: 0
@@ -33496,9 +33514,10 @@ GameObject:
   - component: {fileID: 1909833921}
   - component: {fileID: 1909833922}
   - component: {fileID: 1909833923}
+  - component: {fileID: 1909833924}
   m_Layer: 0
   m_Name: CenterPlayerFollowCAM
-  m_TagString: Untagged
+  m_TagString: vCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33573,6 +33592,21 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 673780469}
   m_Damping: 1.5
   m_MaxWindowSize: -1
+--- !u!114 &1909833924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909833920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c78bd54e2c3109498a65e58fe5cae40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitAmplitudeGain: 4
+  hitFrequencyGain: 2
+  shakeTime: 0.6
 --- !u!1 &1913927042
 GameObject:
   m_ObjectHideFlags: 0
