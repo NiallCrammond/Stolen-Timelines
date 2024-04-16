@@ -4298,7 +4298,7 @@ PrefabInstance:
       objectReference: {fileID: 98517717}
     - target: {fileID: 3856864822146707846, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: timeLimit
-      value: 50
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4148768780494512489, guid: 50bf04ddaacd6db4c9b9ed342ba19551, type: 3}
       propertyPath: m_AnchorMax.x
