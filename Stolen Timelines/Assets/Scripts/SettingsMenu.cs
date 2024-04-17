@@ -17,6 +17,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider masterVolumeSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+    public Toggle fullScreenToggle;
 
     private void Start()
     {
@@ -38,7 +39,6 @@ public class SettingsMenu : MonoBehaviour
 
            
         }
-
         resDropDown.AddOptions(options);
         resDropDown.value = currentRes;
         resDropDown.RefreshShownValue();
@@ -82,6 +82,8 @@ public class SettingsMenu : MonoBehaviour
     public void  toggleFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+
+ 
     }
 
     public void setResolution(int currentRes)

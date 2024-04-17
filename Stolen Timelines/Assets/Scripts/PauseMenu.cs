@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     public GameController gameController;
     
     private GameObject pauseMenu;
+    public GameObject settingsMenu;
     public bool isPaused = false;
     
     void Start()
     {
         pauseMenu = GameObject.FindWithTag("PauseMenu");
+        settingsMenu.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
@@ -27,6 +29,7 @@ public class PauseMenu : MonoBehaviour
     public void resumeGame()
     { 
         pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
     }

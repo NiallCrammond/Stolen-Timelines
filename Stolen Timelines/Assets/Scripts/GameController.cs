@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
 
+       Screen.fullScreen = true;
+
         if (instance == null)
         {
             scoreData.score = 0;
