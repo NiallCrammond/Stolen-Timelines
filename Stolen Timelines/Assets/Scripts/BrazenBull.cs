@@ -45,6 +45,7 @@ public class BrazenBull : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             overlay.SetActive(false);
+            timer = 0;
         }
     }
 
