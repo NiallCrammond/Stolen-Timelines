@@ -22,6 +22,7 @@ TagManager:
   - HubScreen
   - ContinueButton
   - vCam
+  - DamageOverlay
   layers:
   - Default
   - TransparentFX
