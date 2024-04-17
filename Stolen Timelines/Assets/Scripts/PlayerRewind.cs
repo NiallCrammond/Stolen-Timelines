@@ -17,7 +17,7 @@ public class PlayerRewind : MonoBehaviour
     [Range(0,20)]
     public float lerpAcceleration = 10.0f;
 
-    private float beaconDuration;
+    private float beaconDuration; // How long the beacon has been spawned for
     [HideInInspector]
     public float lastRewind;
 
@@ -40,6 +40,7 @@ public class PlayerRewind : MonoBehaviour
         circleCol = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
+        lastRewind = useCooldown;
     }
 
     private void Update()
@@ -47,6 +48,12 @@ public class PlayerRewind : MonoBehaviour
         if(isBeaconSpawned)
         {
             beaconDuration += Time.deltaTime;
+            float maxBeaconDuration = 8f;
+            if (beaconDuration >= maxBeaconDuration)
+            {
+                destroyBeacon();
+                lastRewind = 0f;
+            }
         }
 
     else if(!isBeaconSpawned)
@@ -89,9 +96,7 @@ public class PlayerRewind : MonoBehaviour
 
     IEnumerator rewindPlayer()
     {
-        isBeaconSpawned=false;
-        Destroy(currentBeacon);
-        beaconDuration = 0f;
+        destroyBeacon();
         isRewinding = true;
         Vector2 initialPosition = transform.position;
         Vector2 targetPosition = currentBeacon.transform.position;
@@ -139,5 +144,12 @@ public class PlayerRewind : MonoBehaviour
         isRewinding = false;
         rb.velocity = Vector2.zero;
 
+    }
+
+    private void destroyBeacon()
+    {
+        Destroy(currentBeacon);
+        beaconDuration = 0;
+        isBeaconSpawned = false;
     }
 }
