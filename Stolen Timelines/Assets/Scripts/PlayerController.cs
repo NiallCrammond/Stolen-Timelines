@@ -370,7 +370,6 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-
             StartCoroutine(death());
           //  SceneManager.LoadScene("BuildSubmissionV1");
         }
@@ -1210,7 +1209,8 @@ public class PlayerController : MonoBehaviour
             isDeathReady = false;
             input.Disable();
             rb.bodyType = RigidbodyType2D.Static;
-            //Play death animation
+            //pla death anim
+            animator.speed = 0f;
             score.score = 0;
             score.itemsCollected = 0;
         yield return new WaitForSeconds(deathTime);
