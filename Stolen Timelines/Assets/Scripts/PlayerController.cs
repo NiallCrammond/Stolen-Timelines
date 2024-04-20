@@ -351,7 +351,9 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case playerState.dashing:
-                if(playDashAudio)
+                animator.Play("PlayerDash");
+
+                if (playDashAudio)
                 {
                     playDashAudio = false;
                     audioManager.playDashSound();
