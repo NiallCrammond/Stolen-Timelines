@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Xbox_Right_Bumper_0: 296544338829495104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

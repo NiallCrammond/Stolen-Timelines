@@ -334,14 +334,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case playerState.Running:
                 animator.Play("PlayerRun");
-
                 StartCoroutine(audioManager.randomFootSteps());
-                // Debug.Log("MAKE A SOUND");
-
-                //animationManager.onLanding();
-                //animationManager.isRunning(playerMovement.rb.velocity.x);
-
                 break;
+
             case playerState.Sliding:
 
 
@@ -359,9 +354,6 @@ public class PlayerController : MonoBehaviour
                     playDashAudio = false;
                     audioManager.playDashSound();
                 }
-
-               
-                
                 break;
 
             case playerState.rewind:
@@ -373,12 +365,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(death());
           //  SceneManager.LoadScene("BuildSubmissionV1");
-        }
-
-
-        if(extractPressed)
-        {
-
         }
 
         uiController.updateHealthBar(health);
