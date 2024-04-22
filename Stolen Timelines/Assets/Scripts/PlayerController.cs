@@ -347,6 +347,7 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.WallSliding:
+                animator.Play("PlayerWallJump");
 
                 break;
 
@@ -725,7 +726,7 @@ public class PlayerController : MonoBehaviour
         {
             case playerState.Idle:
                 // If player presses move and Velociy over threshold switch to running
-                if (moveVec.x != 0f && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                if (moveVec.x != 0f && (rb.velocityX > 3 || rb.velocityX < -3) && isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     stateTransition(playerState.Running);
                 }

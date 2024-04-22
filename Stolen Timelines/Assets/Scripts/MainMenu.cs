@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
         quotaData.daysLeft = 3;
         scoreData.score = 0;
         scoreData.itemsCollected = 0;
+        SceneManager.LoadScene("DemoPage");
     }
 
     public void quitGame()
