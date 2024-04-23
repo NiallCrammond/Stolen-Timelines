@@ -138,6 +138,9 @@ public class PlayerController : MonoBehaviour
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
+    //Vcam Deadzone script
+    private DeadZoneController dzController;
+
     [Header("Health")]
     [Range(0,100)]
     public int health;
@@ -181,6 +184,7 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
+        dzController = GameObject.FindWithTag("vCam").GetComponent<DeadZoneController>();
         shakeOnHit = GameObject.FindWithTag("vCam").GetComponent<ShakeOnHit>();
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
@@ -620,6 +624,8 @@ public class PlayerController : MonoBehaviour
                     break;
 
             }
+
+            dzController.inDeadZone(speed, maxSpeed);
         }
 
 

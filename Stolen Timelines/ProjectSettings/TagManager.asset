@@ -23,6 +23,7 @@ TagManager:
   - ContinueButton
   - vCam
   - DamageOverlay
+  - CameraFollowTarget
   layers:
   - Default
   - TransparentFX
