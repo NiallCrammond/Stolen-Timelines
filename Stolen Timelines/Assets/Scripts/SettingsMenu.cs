@@ -17,6 +17,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider masterVolumeSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+    public Toggle fullScreenToggle;
 
     private void Start()
     {
@@ -38,22 +39,21 @@ public class SettingsMenu : MonoBehaviour
 
            
         }
-
         resDropDown.AddOptions(options);
         resDropDown.value = currentRes;
         resDropDown.RefreshShownValue();
 
-        float currentMasterVolume= 1;
+        float currentMasterVolume;
         audioMixer.GetFloat("masterVolume", out currentMasterVolume);
-        masterVolumeSlider.value = currentMasterVolume;
+        masterVolumeSlider.value = Mathf.Pow(10, currentMasterVolume / 20);
 
-        float currentMusicVolume = 1;
+        float currentMusicVolume;
         audioMixer.GetFloat("musicVolume", out currentMusicVolume);
-        musicSlider.value = currentMusicVolume;
+       musicSlider.value = Mathf.Pow(10, currentMusicVolume / 20);
 
-        float currentSFXVolume = 1;
+        float currentSFXVolume;
         audioMixer.GetFloat("sfxVolume", out currentSFXVolume);
-        sfxSlider.value = currentSFXVolume;
+        sfxSlider.value = Mathf.Pow(10, currentSFXVolume / 20);;
     }
     public void SetVolume(float vol)
     {
@@ -82,6 +82,8 @@ public class SettingsMenu : MonoBehaviour
     public void  toggleFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+
+ 
     }
 
     public void setResolution(int currentRes)

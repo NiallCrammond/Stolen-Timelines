@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            player.health -= 100;
+            player.TakeDamage(100);
         }
     }
 

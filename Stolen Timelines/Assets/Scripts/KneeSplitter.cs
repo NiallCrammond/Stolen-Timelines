@@ -95,7 +95,7 @@ public class KneeSplitter : MonoBehaviour
         {
             GetComponent<KneeSplitter>().enabled = false;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            player.health -= 100;
+            player.TakeDamage(100);
         }
     }
 

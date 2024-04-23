@@ -13,9 +13,16 @@ public class UIController : MonoBehaviour
     TextMeshProUGUI scoreText;
     [SerializeField]
     TextMeshProUGUI timerText;
+    [SerializeField]
+    TextMeshProUGUI quotaText;
     TextMeshProUGUI dashText;
+
     GameController gameController;
     PlayerController playerController;
+    ShakeOnHit shakeOnHit;
+
+    [SerializeField]
+    private QuotaData quotaData;
 
     [SerializeField]
     private float timeLimit = 60f;
@@ -35,6 +42,8 @@ public class UIController : MonoBehaviour
 
     void Awake()
     {
+
+        shakeOnHit = GameObject.FindGameObjectWithTag("vCam").GetComponent<ShakeOnHit>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         scoreText.text = "$" + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.playerDash.dashCooldown.ToString();
@@ -47,11 +56,12 @@ public class UIController : MonoBehaviour
         if(!timeUp)
         {
 
-        timeTaken += Time.deltaTime;
+            timeTaken += Time.deltaTime;
 
-        updateTimer();
-        updateClockTimer(timeLimit, timeTaken);
-        timer = (timeLimit - timeTaken);
+            updateQuotaText();
+            updateTimer();
+            updateClockTimer(timeLimit, timeTaken);
+            timer = (timeLimit - timeTaken);
         }
 
         if (timeTaken >= timeLimit)
@@ -70,9 +80,19 @@ public class UIController : MonoBehaviour
         scoreText.text = "$" + gameController.scoreData.score.ToString();// + "\n" + "Dash Cooldown: " + playerController.seconds.ToString();
     }
 
+    private void updateQuotaText()
+    {
+        quotaText.text = gameController.scoreData.score.ToString() + "/" + quotaData.quotaRemain.ToString();
+    }
+
     public void updateTimer()
     {
-        timerText.text = timer.ToString("F3");
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+
+        string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+        timerText.text = niceTime;
     }
 
     public void updateHealthBar(int health)

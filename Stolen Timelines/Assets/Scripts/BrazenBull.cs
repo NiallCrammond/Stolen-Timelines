@@ -23,7 +23,7 @@ public class BrazenBull : MonoBehaviour
     {
         col = GetComponent<BoxCollider2D>();
         col.isTrigger = true;
-        overlay .SetActive(false);
+        overlay.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -34,7 +34,7 @@ public class BrazenBull : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > bullCooldown)
             {
-                player.health -= damageDealt;
+                player.TakeDamage(damageDealt);
                 timer = 0;
             }
         }
@@ -45,6 +45,7 @@ public class BrazenBull : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             overlay.SetActive(false);
+            timer = 0;
         }
     }
 

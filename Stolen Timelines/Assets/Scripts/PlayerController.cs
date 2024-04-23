@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour
     //UI controller
     private UIController uiController;
 
+    //Vcam Shake on Hit script
+    private ShakeOnHit shakeOnHit;
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
@@ -179,8 +181,8 @@ public class PlayerController : MonoBehaviour
         topCollider = GetComponent<BoxCollider2D>();
         bottomCollider = GetComponent<CircleCollider2D>();
 
+        shakeOnHit = GameObject.FindWithTag("vCam").GetComponent<ShakeOnHit>();
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
-        //animator = this.GetComponentInChildren<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
@@ -299,10 +301,8 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
-                if (health > 0)
-                {
-                    animator.Play("PlayerIdle");
-                }
+                animator.Play("PlayerIdle");
+
 
                 break;
             case playerState.Jumping:
@@ -313,10 +313,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (health > 0)
-                    {
-                        animator.Play("PlayerJump");
-                    }
+                    animator.Play("PlayerJump");
                 }
 
                 if (playJumpAudio)
@@ -337,31 +334,26 @@ public class PlayerController : MonoBehaviour
                 break;
             case playerState.Running:
                 animator.Play("PlayerRun");
-
                 StartCoroutine(audioManager.randomFootSteps());
-                // Debug.Log("MAKE A SOUND");
-
-                //animationManager.onLanding();
-                //animationManager.isRunning(playerMovement.rb.velocity.x);
-
                 break;
+
             case playerState.Sliding:
 
 
                 break;
             case playerState.WallSliding:
+                animator.Play("PlayerWallJump");
 
                 break;
 
             case playerState.dashing:
-                if(playDashAudio)
+                animator.Play("PlayerDash");
+
+                if (playDashAudio)
                 {
                     playDashAudio = false;
                     audioManager.playDashSound();
                 }
-
-               
-                
                 break;
 
             case playerState.rewind:
@@ -371,15 +363,8 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            animator.Play("PlayerDeath");
             StartCoroutine(death());
-            //  SceneManager.LoadScene("BuildSubmissionV1");
-        }
-
-
-        if(extractPressed)
-        {
-
+          //  SceneManager.LoadScene("BuildSubmissionV1");
         }
 
         uiController.updateHealthBar(health);
@@ -727,7 +712,7 @@ public class PlayerController : MonoBehaviour
         {
             case playerState.Idle:
                 // If player presses move and Velociy over threshold switch to running
-                if (moveVec.x != 0f && (rb.velocityX > 0.1 || rb.velocityX < -0.1) && isGrounded(groundHit1, groundHit2, groundHit3))
+                if (moveVec.x != 0f && (rb.velocityX > 3 || rb.velocityX < -3) && isGrounded(groundHit1, groundHit2, groundHit3))
                 {
                     stateTransition(playerState.Running);
                 }
@@ -1189,7 +1174,13 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
- 
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        shakeOnHit.ShakeIfPlayerHit(damage);
+    }
+
     private IEnumerator printState()
     {
         yield return new WaitForSeconds(0.1f);
@@ -1205,7 +1196,8 @@ public class PlayerController : MonoBehaviour
             isDeathReady = false;
             input.Disable();
             rb.bodyType = RigidbodyType2D.Static;
-            //Play death animation
+            //pla death anim
+            animator.speed = 0f;
             score.score = 0;
             score.itemsCollected = 0;
         yield return new WaitForSeconds(deathTime);

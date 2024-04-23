@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: a3e91d077b75f4e42b2408c8e1595565
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4384299981800407671
+    second: Colourd_idle_FIN_0
+  - first:
+      213: 3620467726732765945
+    second: Colourd_idle_FIN_1
+  - first:
+      213: 4840345457958412820
+    second: Colourd_idle_FIN_2
+  - first:
+      213: -2403472667288839716
+    second: Colourd_idle_FIN_3
+  - first:
+      213: 5508780902279886297
+    second: Colourd_idle_FIN_4
+  - first:
+      213: -5573598493231569378
+    second: Colourd_idle_FIN_5
+  - first:
+      213: -6130622207741086122
+    second: Colourd_idle_FIN_6
+  - first:
+      213: -3457770086750382109
+    second: Colourd_idle_FIN_7
+  - first:
+      213: 208217888102538724
+    second: Colourd_idle_FIN_8
+  - first:
+      213: 5981024890913403603
+    second: Colourd_idle_FIN_9
+  - first:
+      213: 6649230370880814317
+    second: Colourd_idle_FIN_10
+  - first:
+      213: -3297901938745955097
+    second: Colourd_idle_FIN_11
+  - first:
+      213: -5715648887392501297
+    second: Colourd_idle_FIN_12
+  - first:
+      213: -8106825491518200635
+    second: Colourd_idle_FIN_13
+  - first:
+      213: -2834468709516364156
+    second: Colourd_idle_FIN_14
+  - first:
+      213: 3188742675046452001
+    second: Colourd_idle_FIN_15
+  - first:
+      213: 3629994801141472202
+    second: Colourd_idle_FIN_16
+  - first:
+      213: 80041037622330854
+    second: Colourd_idle_FIN_17
+  - first:
+      213: 8427280658310851775
+    second: Colourd_idle_FIN_18
+  - first:
+      213: -5972055540078222457
+    second: Colourd_idle_FIN_19
+  - first:
+      213: 956658283179774023
+    second: Colourd_idle_FIN_20
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2200
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e3779eee8412e439377f8746c869e4
+      internalID: 1228706204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2200
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a484683cb62bd4f993e35a4826b29f
+      internalID: 1650907354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2200
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b71d31b2555ef46b5e46d08602ecd0
+      internalID: -1230605368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2200
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2313f0b47dbf46949b268160c4e52fe7
+      internalID: 864860108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2200
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cecbd596243c4e48be3f37c9494af6d
+      internalID: 2000299938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc6bdc72bbab07843bfdf780a0dad572
+      internalID: -1857544735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12fdb5876c355848af9014284f3000d
+      internalID: 725517460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac82993fddbff424ba6871720f718b43
+      internalID: -1995146456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdea7f7b0effd0c4ca79a4366554aad2
+      internalID: 951376486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_9
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cacaf5440cd8934ebf0619adbb20758
+      internalID: -492711462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa591ac36d29724c94e172e94a82a26
+      internalID: 566270950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eec42a45e9b61d4b9822515f9d197a7
+      internalID: 1414292059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3f57d110844aa4ea6a9c8e82d74395
+      internalID: 2145513901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0136af8b188c1d4580b436ed9ef81c0
+      internalID: -2058407970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9530a0a0d5d118c4495b8886c4ea24e9
+      internalID: 1430258864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7102d6b1ee1eb4549a351eae595133dd
+      internalID: 1939609373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1199ac12ab69b5646bfafc02f59bb608
+      internalID: -1599453194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_17
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875f8ae668348644095d6182dbdbf41c
+      internalID: -1633448669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_18
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a4de94ce3f6fe448c1e5503bdbe9a2
+      internalID: -1045263890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_19
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4d0859d6bcaec4285d4457b5eed138
+      internalID: -574019160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_idle_FIN_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30a4a804beb0944d9a3ab16508c0934
+      internalID: 1770266500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 08e182fb49d054f4284980db8a7bf520
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Colourd_idle_FIN_0: 1228706204
+      Colourd_idle_FIN_1: 1650907354
+      Colourd_idle_FIN_10: 566270950
+      Colourd_idle_FIN_11: 1414292059
+      Colourd_idle_FIN_12: 2145513901
+      Colourd_idle_FIN_13: -2058407970
+      Colourd_idle_FIN_14: 1430258864
+      Colourd_idle_FIN_15: 1939609373
+      Colourd_idle_FIN_16: -1599453194
+      Colourd_idle_FIN_17: -1633448669
+      Colourd_idle_FIN_18: -1045263890
+      Colourd_idle_FIN_19: -574019160
+      Colourd_idle_FIN_2: -1230605368
+      Colourd_idle_FIN_20: 1770266500
+      Colourd_idle_FIN_3: 864860108
+      Colourd_idle_FIN_4: 2000299938
+      Colourd_idle_FIN_5: -1857544735
+      Colourd_idle_FIN_6: 725517460
+      Colourd_idle_FIN_7: -1995146456
+      Colourd_idle_FIN_8: 951376486
+      Colourd_idle_FIN_9: -492711462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

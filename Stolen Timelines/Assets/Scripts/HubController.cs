@@ -20,39 +20,44 @@ public class HubController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI deathText;
 
-    GameController gc;
+    private GameController gc;
+    private LevelManager lM;
+
+    private GameObject contButton;
+    private GameObject loseScreen;
+    private GameObject winScreen;
+    private GameObject hubScreen;
 
 
     private float timer;
 
     private void Awake()
     {
-   
+
+        loseScreen = GameObject.FindWithTag("LoseScreen");
+        winScreen = GameObject.FindWithTag("WinScreen");
+        hubScreen = GameObject.FindWithTag("HubScreen");
+        contButton = GameObject.FindWithTag("ContinueButton");
+        contButton.SetActive(false);
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        
+        lM = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
+        quotaData.daysLeft -= 1;
+        timer = 8f;
 
         scoreText.text = "Total Value Collected: ...";
         quotaText.text = "Quota Remaining: ...";
         daysText.text = "Days Remaining: ...";
 
 
-        int currentDay = 4 - quotaData.daysLeft;
+        int currentDay = 3 - quotaData.daysLeft;
         titleText.text = "Daily Report - Day " + currentDay.ToString();
     }
 
     private void Start()
     {
-        if (quotaData.gameStart == false)
-        {
-            quotaData.daysLeft -= 1;
-            timer = 8f;
-        }
-        else if (quotaData.gameStart == true)
-        {
-            timer = 6f;
-            Debug.Log("gameStart is true");
-        }
-
         if (!gc.isPlayerDead && !gc.isTimeUp)
         {
             deathText.enabled = false;
@@ -70,108 +75,25 @@ public class HubController : MonoBehaviour
         timer -= Time.deltaTime;
 
 
-        if (quotaData.gameStart == false) //Hub entered from level
+
+        if (!gc.isPlayerDead)
         {
-            
-            if (!gc.isPlayerDead) //Player didnt die in level and extracted
+            if (!gc.isTimeUp)
             {
-                if (!gc.isTimeUp)
-                {
 
-                    if (timer >= 6f)
-                    {
-                        scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
-
-                    }
-                    else if (timer >= 5f)
-                    {
-                        scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
-
-                    }
-                    else if (timer > 4f)
-                    {
-                        scoreText.text = "Total Value Collected: Sold";
-
-                    }
-
-                    if (timer < 4f)
-                    {
-                        sellScore();
-                        quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
-                    }
-
-                    if (timer < 2f)
-                    {
-                        daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
-
-                    }
-
-
-                    if (quotaData.quotaRemain <= 0)
-                    {
-                        quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-                        quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
-                        quotaData.daysLeft = 3;
-                    }
-                }
-
-                else //Player ran out of time
-                {
-                    if (timer >= 6f)
-                    {
-                        scoreText.text = "You were Transported back with nothing";
-
-                    }
-                    else if (timer >= 5f)
-                    {
-                        scoreText.text = "Extract before the time runs out";
-
-                    }
-                    else if (timer > 4f)
-                    {
-                        scoreText.text = "Get good noob";
-
-                    }
-
-                    if (timer < 4f)
-                    {
-                        sellScore();
-                        quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
-                    }
-
-                    if (timer < 2f)
-                    {
-                        daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
-
-                    }
-
-
-                    if (quotaData.quotaRemain <= 0)
-                    {
-                        quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
-                        quotaData.quotaRemain = Mathf.RoundToInt(200 * quotaData.quotaLevel);
-
-                        quotaData.daysLeft = 3;
-                    }
-                }
-            }
-
-            else if (gc.isPlayerDead) //Player died in level
-            {
                 if (timer >= 6f)
                 {
-                    scoreText.text = "Total Value Collected: " + "You have nothing to sell";
+                    scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
 
                 }
                 else if (timer >= 5f)
                 {
-                    scoreText.text = "Total Value Collected: " + "...";
+                    scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
 
                 }
                 else if (timer > 4f)
                 {
-                    scoreText.text = "Total Value Collected: " + "Do better noob";
+                    scoreText.text = "Total Value Collected: Sold";
 
                 }
 
@@ -184,24 +106,75 @@ public class HubController : MonoBehaviour
                 if (timer < 2f)
                 {
                     daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+                    contButton.SetActive(true);
+                }
+
+
+                if (quotaData.quotaRemain <= 0)
+                {
+                    StartCoroutine(quotaWin());
+                    quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
+                    quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
+                    quotaData.daysLeft = 3;
+                }
+            }
+
+            else
+            {
+                if (timer >= 6f)
+                {
+                    scoreText.text = "You were Transported back with nothing";
+                }
+
+                else if (timer > 4f)
+                {
+                    scoreText.text = "Extract before the time runs out";
+                 //   scoreText.text = "Get good noob";
+                }
+
+                if (timer < 4f)
+                {
+                    sellScore();
+                    quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
+                }
+
+                if (timer < 2f)
+                {
+                    daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
+                    contButton.SetActive(true);
 
                 }
 
 
                 if (quotaData.quotaRemain <= 0)
                 {
+                    StartCoroutine(quotaWin());
                     quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
                     quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
                     quotaData.daysLeft = 3;
                 }
+            
+            
             }
-
         }
 
-        else if (quotaData.gameStart == true) //Hub entered from main menu
+
+
+        else if (gc.isPlayerDead)
         {
-            quotaData.gameStart = false;
+
+
+            if (timer >= 6f)
+            {
+                scoreText.text = "Total Value Collected: " + "You have nothing to sell";
+
+            }
+            else if (timer >= 4f)
+            {
+                scoreText.text = "Total Value Collected: " +  "X";
+
+            }
+
 
             if (timer < 4f)
             {
@@ -212,22 +185,18 @@ public class HubController : MonoBehaviour
             if (timer < 2f)
             {
                 daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
-
+                contButton.SetActive(true);
             }
 
 
             if (quotaData.quotaRemain <= 0)
             {
+                StartCoroutine(quotaWin());
                 quotaData.quotaLevel = quotaData.quotaLevel * 1.5f;
                 quotaData.quotaRemain = Mathf.RoundToInt(50 * quotaData.quotaLevel);
-
                 quotaData.daysLeft = 3;
             }
         }
-
-
-
-        
 
     }
 
@@ -236,14 +205,11 @@ public class HubController : MonoBehaviour
         gc.isTimeUp = false;
         if (quotaData.daysLeft <= 0 && quotaData.quotaRemain > 0)
         {
-            quotaData.quotaLevel = 1;
-            quotaData.quotaRemain = 50;
-            quotaData.daysLeft = 3;
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(quotaLose());
         }
         else
         {
-            SceneManager.LoadScene("BuildSubmissionV1");
+            lM.loadGameLevel();
         }
     }
 
@@ -252,5 +218,25 @@ public class HubController : MonoBehaviour
         scoreData.itemsCollected = 0;
         quotaData.quotaRemain -= scoreData.score;
         scoreData.score = 0;
+    }
+
+    private IEnumerator quotaWin()
+    {
+        titleText.text = "Daily Report - Day 0";
+        hubScreen.SetActive(false);
+        winScreen.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        hubScreen.SetActive(true);
+        winScreen.SetActive(false);
+    }
+
+    private IEnumerator quotaLose()
+    {
+        hubScreen.SetActive(false);
+        loseScreen.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        lM.loadMainMenu();
     }
 }

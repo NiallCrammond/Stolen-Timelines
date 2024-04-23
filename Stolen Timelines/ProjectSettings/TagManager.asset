@@ -17,6 +17,11 @@ TagManager:
   - LevelManager
   - Extract
   - PlayerSprite
+  - LoseScreen
+  - WinScreen
+  - HubScreen
+  - ContinueButton
+  - vCam
   - DamageOverlay
   layers:
   - Default

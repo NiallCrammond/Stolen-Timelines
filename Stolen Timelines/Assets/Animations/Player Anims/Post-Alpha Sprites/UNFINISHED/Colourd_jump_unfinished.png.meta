@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 994932909a7495146b56328ce63ae0cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 353475826464202703
+    second: Colourd_jump_unfinished_0
+  - first:
+      213: 7324987545290344680
+    second: Colourd_jump_unfinished_1
+  - first:
+      213: -1160781828480956738
+    second: Colourd_jump_unfinished_2
+  - first:
+      213: 4347849493336015752
+    second: Colourd_jump_unfinished_3
+  - first:
+      213: 6681671110180477565
+    second: Colourd_jump_unfinished_4
+  - first:
+      213: -5037907377315452767
+    second: Colourd_jump_unfinished_5
+  - first:
+      213: -8017611527241078938
+    second: Colourd_jump_unfinished_6
+  - first:
+      213: -5958844868684372546
+    second: Colourd_jump_unfinished_7
+  - first:
+      213: 2826750586266872397
+    second: Colourd_jump_unfinished_8
+  - first:
+      213: 6928820371377314637
+    second: Colourd_jump_unfinished_9
+  - first:
+      213: 2818060703401802892
+    second: Colourd_jump_unfinished_10
+  - first:
+      213: 8744894152927244790
+    second: Colourd_jump_unfinished_11
+  - first:
+      213: -4469022114475286047
+    second: Colourd_jump_unfinished_12
+  - first:
+      213: -2681527733624490392
+    second: Colourd_jump_unfinished_13
+  - first:
+      213: -4471578479358563159
+    second: Colourd_jump_unfinished_14
+  - first:
+      213: 7144592190792456159
+    second: Colourd_jump_unfinished_15
+  - first:
+      213: 5255319457161162235
+    second: Colourd_jump_unfinished_16
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d6f9a9e89204d4aa051c93d36cef33
+      internalID: -1609309031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b868dee47fb7b8749bc5fb590d6aa30d
+      internalID: -1054801027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fabc1aaf7219242b35f76cf44d22d8
+      internalID: 1680257244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8413ae837c80695448c5c9b4f897495b
+      internalID: -125724812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ccc8e3377399f42aceb1cf2d68a71f
+      internalID: -1623131427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4800fb42ebf52e94e85eb3f8dcfbbc25
+      internalID: 1385801297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c1bf744cac1d14f97f2c001069a242
+      internalID: -1973871406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b2ee5bb3a302a48abf7b5b4a1cb6b7
+      internalID: -929314913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6362a13016794eb409fc8340e526dd82
+      internalID: -49308231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_9
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1367ff9d2914ab649bf344d25fa68c81
+      internalID: 2059466535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c9637044a09864799210728717cad7
+      internalID: -1958677933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1decb28bc63665843aec4a7036cfd345
+      internalID: -1479320731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a16729ebc903254484f1580ca26a748
+      internalID: 703249091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d35345b6e3daae4fbb7ecfbe40089e4
+      internalID: 606593225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7e7e27755319c479769cd6438ca724
+      internalID: 235519415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5f772cc3148d440bfd4a3cd3468ba6
+      internalID: -640979309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colourd_jump_unfinished_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae976988fd466bf41bd0d3d61007a624
+      internalID: -1188622839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3a99bebb11ed85a43ad3daabcd77e7fe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Colourd_jump_unfinished_0: -1609309031
+      Colourd_jump_unfinished_1: -1054801027
+      Colourd_jump_unfinished_10: -1958677933
+      Colourd_jump_unfinished_11: -1479320731
+      Colourd_jump_unfinished_12: 703249091
+      Colourd_jump_unfinished_13: 606593225
+      Colourd_jump_unfinished_14: 235519415
+      Colourd_jump_unfinished_15: -640979309
+      Colourd_jump_unfinished_16: -1188622839
+      Colourd_jump_unfinished_2: 1680257244
+      Colourd_jump_unfinished_3: -125724812
+      Colourd_jump_unfinished_4: -1623131427
+      Colourd_jump_unfinished_5: 1385801297
+      Colourd_jump_unfinished_6: -1973871406
+      Colourd_jump_unfinished_7: -929314913
+      Colourd_jump_unfinished_8: -49308231
+      Colourd_jump_unfinished_9: 2059466535
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
