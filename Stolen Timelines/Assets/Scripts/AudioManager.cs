@@ -119,10 +119,11 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
 
 
-    public void playSound(string name)
+    public void playSound(string name, bool isLooping)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
+        s.source.loop = isLooping;
 
     }
 
@@ -157,6 +158,13 @@ public class AudioManager : MonoBehaviour
         //Debug.Log("Dash Played");
         }
         
+
+    }
+
+    public void stopSound(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Stop();
 
     }
 
