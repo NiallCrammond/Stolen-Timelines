@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.UIElements;
 public class KneeSplitter : MonoBehaviour
 {
     private PlayerController player;
+    private Transform playerPos;
     private BoxCollider2D col;
     private Rigidbody2D rb;
     private Vector3 originalPos;
@@ -19,12 +21,15 @@ public class KneeSplitter : MonoBehaviour
     public float retractSpeed;
     public bool crushing;
     public bool retracting;
+    private bool canPlay;
 
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        canPlay = true;
     }
 
     private void Start()
@@ -52,7 +57,6 @@ public class KneeSplitter : MonoBehaviour
         {
             SplitterRetract();
         }
-
     }
 
     public void Crush()
@@ -127,4 +131,5 @@ public class KneeSplitter : MonoBehaviour
             }
         }
     }
+
 }

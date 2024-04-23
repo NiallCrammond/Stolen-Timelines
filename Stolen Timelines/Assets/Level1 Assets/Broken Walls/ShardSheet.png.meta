@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: c293fb1cc4becc443b66a9e7a0fbb1cc
+guid: 7f08faf14942bc44c874e706c51a6f0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8311812702126671692
-    second: IM_CLOSE_V3_0
+      213: -3045108475545856560
+    second: ShardSheet_0
   - first:
-      213: -9040406283750167747
-    second: IM_CLOSE_V3_1
+      213: 5636776060615299872
+    second: ShardSheet_1
+  - first:
+      213: -8037071054467050580
+    second: ShardSheet_2
+  - first:
+      213: -7143276384457363469
+    second: ShardSheet_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -161,13 +167,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IM_CLOSE_V3_0
+      name: ShardSheet_0
       rect:
         serializedVersion: 2
-        x: 276
-        y: 423
-        width: 748
-        height: 841
+        x: 172
+        y: 163
+        width: 56
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4707dd5d9d795370800000000000000
-      internalID: 8311812702126671692
+      spriteID: 0d5de84a9f99db5d0800000000000000
+      internalID: -3045108475545856560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IM_CLOSE_V3_1
+      name: ShardSheet_1
       rect:
         serializedVersion: 2
-        x: 1761
-        y: 423
-        width: 378
-        height: 841
+        x: 575
+        y: 150
+        width: 50
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,8 +202,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3bacdf02660a8280800000000000000
-      internalID: -9040406283750167747
+      spriteID: 023966356f9d93e40800000000000000
+      internalID: 5636776060615299872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShardSheet_2
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 165
+        width: 47
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3daeb4576967090800000000000000
+      internalID: -8037071054467050580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShardSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 178
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff6bfb99fbfddc90800000000000000
+      internalID: -7143276384457363469
       vertices: []
       indices: 
       edges: []
@@ -212,9 +260,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      IM_CLOSE_V3_0: 8311812702126671692
-      IM_CLOSE_V3_1: -9040406283750167747
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
