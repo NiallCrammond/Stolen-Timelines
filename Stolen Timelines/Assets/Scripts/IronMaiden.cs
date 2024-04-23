@@ -31,7 +31,7 @@ public class IronMaiden : MonoBehaviour
             collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
             player.TakeDamage(100);
             animator.SetBool("IsClosed", true);
-            Invoke(nameof(HidePlayer), 0.2f);
+            Invoke(nameof(HidePlayer), 0.1f);
         }
     }
 
