@@ -260,7 +260,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShardSheet_0: -3045108475545856560
+      ShardSheet_1: 5636776060615299872
+      ShardSheet_2: -8037071054467050580
+      ShardSheet_3: -7143276384457363469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
