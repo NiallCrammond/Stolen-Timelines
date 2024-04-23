@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 5819982bb46ed974580a23fb9839ffa7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -323152887847582239
+    second: CharacterJumpFin-SpriteSheet_0
+  - first:
+      213: 3420501397455814561
+    second: CharacterJumpFin-SpriteSheet_1
+  - first:
+      213: 7120815166435091729
+    second: CharacterJumpFin-SpriteSheet_2
+  - first:
+      213: -8673468955431999158
+    second: CharacterJumpFin-SpriteSheet_3
+  - first:
+      213: 2880401817902947365
+    second: CharacterJumpFin-SpriteSheet_4
+  - first:
+      213: 8453820764935542105
+    second: CharacterJumpFin-SpriteSheet_5
+  - first:
+      213: -565080080152387848
+    second: CharacterJumpFin-SpriteSheet_6
+  - first:
+      213: 2539483761769028328
+    second: CharacterJumpFin-SpriteSheet_7
+  - first:
+      213: -8263986009122148810
+    second: CharacterJumpFin-SpriteSheet_8
+  - first:
+      213: 5875246006073080213
+    second: CharacterJumpFin-SpriteSheet_9
+  - first:
+      213: -1120694584664803274
+    second: CharacterJumpFin-SpriteSheet_10
+  - first:
+      213: 969904350773255239
+    second: CharacterJumpFin-SpriteSheet_11
+  - first:
+      213: 48586329646469682
+    second: CharacterJumpFin-SpriteSheet_12
+  - first:
+      213: 4888468430164676483
+    second: CharacterJumpFin-SpriteSheet_13
+  - first:
+      213: 7635491270356275897
+    second: CharacterJumpFin-SpriteSheet_14
+  - first:
+      213: -3665118569080565750
+    second: CharacterJumpFin-SpriteSheet_15
+  - first:
+      213: -3277545291046443042
+    second: CharacterJumpFin-SpriteSheet_16
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee8315e76dbcf8479dea7508a8a3392
+      internalID: 81859031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58f6c891673b954e8c7946aeec2c4fb
+      internalID: -1746848353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02ec3f40b7d03343b8d916bafa14e6a
+      internalID: 332830627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720a0738ca9c8cf40802b2e58be1a466
+      internalID: -1551774505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a8fc3402ac6344b9fd1757235e9e28
+      internalID: 1359822694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8137c961ee3a754287bca3a62539e2a
+      internalID: 1916906756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9f7ebb5b0cab543b442950758c1530
+      internalID: 1753306560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5f38a9752a1bb4da1e9f6b952ba1da
+      internalID: -1450377037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5640c36df95c0a64686a677a621d4890
+      internalID: 1488400902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48576c572b5cba44190e33dbedcdcc13
+      internalID: -25495027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05adb5910fe074e459f92c5b0c5389a1
+      internalID: 471718449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e76d3a7d2c33340b3af349efa03c16
+      internalID: 1178750717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3b6929e13ca054691a3607d29dc2ce
+      internalID: 449532125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036875e8284f7434e9dd1ff591e4fbd0
+      internalID: 988696797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acc94fd26bfc5c489558176cd5870cd
+      internalID: -1849213508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d7350c3904aab439d06295059b0e27
+      internalID: -179659696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterJumpFin-SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c2699769f68a9419944ee24ea4c20a
+      internalID: -732009281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2528e9e2efeb2df40bb99d10b0388882
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CharacterJumpFin-SpriteSheet_0: 81859031
+      CharacterJumpFin-SpriteSheet_1: -1746848353
+      CharacterJumpFin-SpriteSheet_10: 471718449
+      CharacterJumpFin-SpriteSheet_11: 1178750717
+      CharacterJumpFin-SpriteSheet_12: 449532125
+      CharacterJumpFin-SpriteSheet_13: 988696797
+      CharacterJumpFin-SpriteSheet_14: -1849213508
+      CharacterJumpFin-SpriteSheet_15: -179659696
+      CharacterJumpFin-SpriteSheet_16: -732009281
+      CharacterJumpFin-SpriteSheet_2: 332830627
+      CharacterJumpFin-SpriteSheet_3: -1551774505
+      CharacterJumpFin-SpriteSheet_4: 1359822694
+      CharacterJumpFin-SpriteSheet_5: 1916906756
+      CharacterJumpFin-SpriteSheet_6: 1753306560
+      CharacterJumpFin-SpriteSheet_7: -1450377037
+      CharacterJumpFin-SpriteSheet_8: 1488400902
+      CharacterJumpFin-SpriteSheet_9: -25495027
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
