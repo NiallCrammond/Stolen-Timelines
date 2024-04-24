@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+
 public class SettingsMenu : MonoBehaviour
 {
 
@@ -39,9 +40,21 @@ public class SettingsMenu : MonoBehaviour
 
            
         }
+
+        if(Screen.fullScreen)
+        {
+            fullScreenToggle.isOn = true;
+        }
+
+        else
+        {
+            fullScreenToggle.isOn=false;
+        }
         resDropDown.AddOptions(options);
         resDropDown.value = currentRes;
         resDropDown.RefreshShownValue();
+
+        Screen.SetResolution(resoultions[currentRes].width, resoultions[currentRes].height, fullScreenToggle.isOn);
 
         float currentMasterVolume;
         audioMixer.GetFloat("masterVolume", out currentMasterVolume);
