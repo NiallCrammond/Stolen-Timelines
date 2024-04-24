@@ -15,7 +15,7 @@ public class DemoPage : MonoBehaviour
     public TextMeshProUGUI quotaToCollect;
     public TextMeshProUGUI daysLeft;
     public TextMeshProUGUI continueText;
-   
+
     // Start is called before the first frame update
     void Start()
     {

@@ -376,9 +376,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() // for physics functions
     {
             groundHit1 = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.8f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
-        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.8f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
         wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
@@ -698,6 +698,7 @@ public class PlayerController : MonoBehaviour
 
 
             case playerState.rewind:
+                audioManager.playSound("Rewind", false);
                 break;
 
 

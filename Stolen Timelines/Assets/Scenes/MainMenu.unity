@@ -4869,6 +4869,7 @@ GameObject:
   - component: {fileID: 1654411387}
   - component: {fileID: 1654411386}
   - component: {fileID: 1654411389}
+  - component: {fileID: 1654411390}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4994,6 +4995,102 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!82 &1654411390
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654411385}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5829262359202737220, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
+  m_audioClip: {fileID: 8300000, guid: f55c589308ee6ef459ab9ae545ec5a06, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1654625857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1962039513}
   - component: {fileID: 1962039512}
-  - component: {fileID: 1962039511}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: AudioManager
@@ -6033,102 +6129,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1962039511
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962039510}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5829262359202737220, guid: dd94fc9c5dd0d6a4989bc9e24c718373, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f55c589308ee6ef459ab9ae545ec5a06, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1962039512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6167,49 +6167,39 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: DoorSmash
+    clip: {fileID: 8300000, guid: ac0e1276f1aee7542ab8eb18dcb9df4d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Rewind
+    clip: {fileID: 8300000, guid: 1df5db44030153747980fb9066f3d9b5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   footsteps:
   - name: FootSteps_1
-    clip: {fileID: 8300000, guid: b9f5049c70eaea947a1bd0831bc2ac53, type: 3}
+    clip: {fileID: 8300000, guid: 245896a3e9f2c1544a0c422b6fd72b1c, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_2
-    clip: {fileID: 8300000, guid: 66f3599f39160ee458557d9c8bca3a85, type: 3}
+    clip: {fileID: 8300000, guid: 581734f638bfa1b41b1a7ea731287a01, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_3
-    clip: {fileID: 8300000, guid: 825f7eb19a7c81548a3cc6ea9406bb8c, type: 3}
+    clip: {fileID: 8300000, guid: 3c01d3693006b1648a43271378c2f2ac, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_4
-    clip: {fileID: 8300000, guid: f17dedf6a823ba04bb779f95c7906770, type: 3}
+    clip: {fileID: 8300000, guid: 026f6deb406e06544a2dd250464f1821, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: FootSteps_5
-    clip: {fileID: 8300000, guid: ab35e3001ae2f76468ed247a74e830ed, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: FootSteps_6
-    clip: {fileID: 8300000, guid: 0dce184b391a34c45ab2c6e88a9eba46, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: FootSteps_7
-    clip: {fileID: 8300000, guid: 2be602c73c5b2344494a9d4c728190b6, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: FootSteps_8
-    clip: {fileID: 8300000, guid: 35ff0b6420a32ad4b90124ff764b4ae7, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: FootSteps_9
-    clip: {fileID: 8300000, guid: 2b6022807f80a304fa9c5e44c4e06df8, type: 3}
+    clip: {fileID: 8300000, guid: b4292f74955d39f46814d6fcbbac7d8a, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -6231,7 +6221,7 @@ MonoBehaviour:
     source: {fileID: 0}
   dash:
     name: Dash
-    clip: {fileID: 8300000, guid: b6ad79ef149e1c24facc88658324d440, type: 3}
+    clip: {fileID: 8300000, guid: 9db97a9275f0b234883c68866b910542, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

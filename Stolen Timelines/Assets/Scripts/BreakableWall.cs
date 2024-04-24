@@ -31,6 +31,7 @@ public class BreakableWall : MonoBehaviour
             wallParticles.Emit(3);
             wallParticles.Play();
             spriteRenderer.sprite = broken;
+            AudioManager.instance.playSound("DoorSmash", false);
             col.enabled = false;
         }
     }
