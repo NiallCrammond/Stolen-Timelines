@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: c0b6a4765d2787d418e7654eafeb22b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3594197508354583388
+    second: PickupEffect-SpriteSheet_0
+  - first:
+      213: -5613113622731050123
+    second: PickupEffect-SpriteSheet_1
+  - first:
+      213: 2005573288807007230
+    second: PickupEffect-SpriteSheet_2
+  - first:
+      213: -604152285957886303
+    second: PickupEffect-SpriteSheet_3
+  - first:
+      213: -796493176637456516
+    second: PickupEffect-SpriteSheet_4
+  - first:
+      213: 9221226002398491590
+    second: PickupEffect-SpriteSheet_5
+  - first:
+      213: 8523633737381306476
+    second: PickupEffect-SpriteSheet_6
+  - first:
+      213: 6899515300493540021
+    second: PickupEffect-SpriteSheet_7
+  - first:
+      213: 8793832204368900211
+    second: PickupEffect-SpriteSheet_8
+  - first:
+      213: -606951799342232220
+    second: PickupEffect-SpriteSheet_9
+  - first:
+      213: 7911675994290436229
+    second: PickupEffect-SpriteSheet_10
+  - first:
+      213: 1596727305265050017
+    second: PickupEffect-SpriteSheet_11
+  - first:
+      213: -300066685272097599
+    second: PickupEffect-SpriteSheet_12
+  - first:
+      213: -5606183098742468888
+    second: PickupEffect-SpriteSheet_13
+  - first:
+      213: -3393737945933611154
+    second: PickupEffect-SpriteSheet_14
+  - first:
+      213: -6142679292299082867
+    second: PickupEffect-SpriteSheet_15
+  - first:
+      213: -7892206271437268088
+    second: PickupEffect-SpriteSheet_16
+  - first:
+      213: -4679228759570572114
+    second: PickupEffect-SpriteSheet_17
+  - first:
+      213: -8931024158086593530
+    second: PickupEffect-SpriteSheet_18
+  - first:
+      213: 229900821788394746
+    second: PickupEffect-SpriteSheet_19
+  - first:
+      213: -2355847214234076049
+    second: PickupEffect-SpriteSheet_20
+  - first:
+      213: -418641852929811918
+    second: PickupEffect-SpriteSheet_21
+  - first:
+      213: -713653364555485193
+    second: PickupEffect-SpriteSheet_22
+  - first:
+      213: -5346799751377689164
+    second: PickupEffect-SpriteSheet_23
+  - first:
+      213: 3707957498716340129
+    second: PickupEffect-SpriteSheet_24
+  - first:
+      213: -3624609429830306612
+    second: PickupEffect-SpriteSheet_25
+  - first:
+      213: -203552537229154959
+    second: PickupEffect-SpriteSheet_26
+  - first:
+      213: -2920145551654719849
+    second: PickupEffect-SpriteSheet_27
+  - first:
+      213: 8336337596435221581
+    second: PickupEffect-SpriteSheet_28
+  - first:
+      213: -7213783515212202806
+    second: PickupEffect-SpriteSheet_29
+  - first:
+      213: 6884610798471840864
+    second: PickupEffect-SpriteSheet_30
+  - first:
+      213: 3005854553752512133
+    second: PickupEffect-SpriteSheet_31
+  - first:
+      213: 1133471607103437224
+    second: PickupEffect-SpriteSheet_32
+  - first:
+      213: 8762017813799976744
+    second: PickupEffect-SpriteSheet_33
+  - first:
+      213: -1229273967396960892
+    second: PickupEffect-SpriteSheet_34
+  - first:
+      213: -889976136981960310
+    second: PickupEffect-SpriteSheet_35
+  - first:
+      213: 5235439794435863117
+    second: PickupEffect-SpriteSheet_36
+  - first:
+      213: 4434059180096557749
+    second: PickupEffect-SpriteSheet_37
+  - first:
+      213: -2984190277617719694
+    second: PickupEffect-SpriteSheet_38
+  - first:
+      213: -2141065978258449104
+    second: PickupEffect-SpriteSheet_39
+  - first:
+      213: -7744985210885673697
+    second: PickupEffect-SpriteSheet_40
+  - first:
+      213: 7907798088514875129
+    second: PickupEffect-SpriteSheet_41
+  - first:
+      213: 1827456211418870159
+    second: PickupEffect-SpriteSheet_42
+  - first:
+      213: -7664437908673144667
+    second: PickupEffect-SpriteSheet_43
+  - first:
+      213: 1404646977399376004
+    second: PickupEffect-SpriteSheet_44
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b06d7328c4769744bbdc2b2d5d980e1
+      internalID: 1092135115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1344
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe1534f500b2a34295c294fb1a74183
+      internalID: -945297442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1344
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1377dec43a629f499d993cf251523f8
+      internalID: 135992511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1344
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451f6d9a20f8f1c43a4dca721e12e311
+      internalID: 672205864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1344
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74051abe90d20ae40a32ed4edbca1062
+      internalID: 1428456319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130ab01679a24e14c94ef1c0d057da3c
+      internalID: 1989341163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 896
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a9f32f00f161f409abd3fd83869d83
+      internalID: 1742185711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 896
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731967f38c28e0b48ba9b13edc095a6a
+      internalID: -1983859874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 896
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6073b95cbe5510945bb59b83b705f43c
+      internalID: -75449025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 896
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1659b2fcbae61459693dc986e7eb44
+      internalID: -1669463274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4798fb40bfdcc46a6633c624949896
+      internalID: -599903268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 448
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d648a912444c85449ab002664a20f96
+      internalID: 598842720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 448
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5207bc6675d724388d9dc616c71dc6
+      internalID: 2121153492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 448
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb157cd79a5a99428a5cd489bddbc80
+      internalID: -1252505003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PickupEffect-SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 448
+        width: 600
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f1b06010409d04e8cf4792feb36218
+      internalID: 683123583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0cdb7e0211b012c499b62c0807ae3f09
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PickupEffect-SpriteSheet_0: 1092135115
+      PickupEffect-SpriteSheet_1: -945297442
+      PickupEffect-SpriteSheet_10: -599903268
+      PickupEffect-SpriteSheet_11: 598842720
+      PickupEffect-SpriteSheet_12: 2121153492
+      PickupEffect-SpriteSheet_13: -1252505003
+      PickupEffect-SpriteSheet_14: 683123583
+      PickupEffect-SpriteSheet_2: 135992511
+      PickupEffect-SpriteSheet_3: 672205864
+      PickupEffect-SpriteSheet_4: 1428456319
+      PickupEffect-SpriteSheet_5: 1989341163
+      PickupEffect-SpriteSheet_6: 1742185711
+      PickupEffect-SpriteSheet_7: -1983859874
+      PickupEffect-SpriteSheet_8: -75449025
+      PickupEffect-SpriteSheet_9: -1669463274
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 3c69a8ee823e06146b4e07542c9da465
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8082841574202389329
+    second: CharacterDeathFin-SpriteSheet_0
+  - first:
+      213: -2239257167446303601
+    second: CharacterDeathFin-SpriteSheet_1
+  - first:
+      213: -1839926349282249658
+    second: CharacterDeathFin-SpriteSheet_2
+  - first:
+      213: 7824420465491877046
+    second: CharacterDeathFin-SpriteSheet_3
+  - first:
+      213: 3148995168881652830
+    second: CharacterDeathFin-SpriteSheet_4
+  - first:
+      213: 4361415844147865011
+    second: CharacterDeathFin-SpriteSheet_5
+  - first:
+      213: -6014812256206709734
+    second: CharacterDeathFin-SpriteSheet_6
+  - first:
+      213: 3073257933030337986
+    second: CharacterDeathFin-SpriteSheet_7
+  - first:
+      213: -3556162672358136695
+    second: CharacterDeathFin-SpriteSheet_8
+  - first:
+      213: -3620387731356663082
+    second: CharacterDeathFin-SpriteSheet_9
+  - first:
+      213: -703914901203855822
+    second: CharacterDeathFin-SpriteSheet_10
+  - first:
+      213: -2921047459756612055
+    second: CharacterDeathFin-SpriteSheet_11
+  - first:
+      213: 6482288086611750125
+    second: CharacterDeathFin-SpriteSheet_12
+  - first:
+      213: 4069920990279327897
+    second: CharacterDeathFin-SpriteSheet_13
+  - first:
+      213: 2700828842953278077
+    second: CharacterDeathFin-SpriteSheet_14
+  - first:
+      213: 3137444502857346681
+    second: CharacterDeathFin-SpriteSheet_15
+  - first:
+      213: -4336187057124698810
+    second: CharacterDeathFin-SpriteSheet_16
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0860b6495b35c2b429fcf75b177a8b9f
+      internalID: 503615926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d13217f45f041a4dbb63d933413c9f9
+      internalID: 2038866894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ba50b8b80be9244a4c536ccb036074
+      internalID: 187556702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0639b121dd31241b5bcf982fe52bd0
+      internalID: 1272107311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1650
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bd47aa5986cb5458e4fdbecf118049
+      internalID: -731732144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38cbaf491e6d834dbe6363c4320172f
+      internalID: 104411912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3375bb69d8da5e34384897c88489406e
+      internalID: -1660522795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb7741e14ad3184e9ab0e4fb2be7415
+      internalID: 1246444723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314a081bf91375b4e958dbbe40a68da0
+      internalID: 879842650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1100
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a68975c5d75f4e84b9d5c400b29c546b
+      internalID: 1988543427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be46d46740e6c44bab0e1d26566e751
+      internalID: 661144203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce438af53acfe7b44b1fb7789a71d43a
+      internalID: -2031159150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369d2325e83fc024f8012169f3bebdfc
+      internalID: -618438643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f69ef822f137f5498cd20432d04c7c1
+      internalID: 178425977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 550
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243e04cfdf379414badeed022c9f5cf4
+      internalID: 367715538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b77a9bc016c4942a8c6d36601aa8ed
+      internalID: 860637990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterDeathFin-SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ed2a0611bfe0d459f0f2efdce5371c
+      internalID: -1635368895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0c4360a1ba4fb76448ea2a2258f1ea57
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CharacterDeathFin-SpriteSheet_0: 503615926
+      CharacterDeathFin-SpriteSheet_1: 2038866894
+      CharacterDeathFin-SpriteSheet_10: 661144203
+      CharacterDeathFin-SpriteSheet_11: -2031159150
+      CharacterDeathFin-SpriteSheet_12: -618438643
+      CharacterDeathFin-SpriteSheet_13: 178425977
+      CharacterDeathFin-SpriteSheet_14: 367715538
+      CharacterDeathFin-SpriteSheet_15: 860637990
+      CharacterDeathFin-SpriteSheet_16: -1635368895
+      CharacterDeathFin-SpriteSheet_2: 187556702
+      CharacterDeathFin-SpriteSheet_3: 1272107311
+      CharacterDeathFin-SpriteSheet_4: -731732144
+      CharacterDeathFin-SpriteSheet_5: 104411912
+      CharacterDeathFin-SpriteSheet_6: -1660522795
+      CharacterDeathFin-SpriteSheet_7: 1246444723
+      CharacterDeathFin-SpriteSheet_8: 879842650
+      CharacterDeathFin-SpriteSheet_9: 1988543427
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

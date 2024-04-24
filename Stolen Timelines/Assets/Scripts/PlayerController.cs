@@ -138,6 +138,10 @@ public class PlayerController : MonoBehaviour
     bool playJumpAudio= false;
     bool playDashAudio = false;
 
+    //Cam vars
+    private float fallSpeedYDampingChangeThreshold;
+
+    //Health vars
     [Header("Health")]
     [Range(0,100)]
     public int health;
@@ -145,7 +149,7 @@ public class PlayerController : MonoBehaviour
     public float deathTime;
     private bool isDeathReady = true;
 
-
+    //Extract vars
     bool extractPressed = false;
     bool canExtract = false;
     [Range(0,5)]
@@ -185,6 +189,7 @@ public class PlayerController : MonoBehaviour
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
+        fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChnageThreshold;
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
         if (topCollider == null)
@@ -367,6 +372,20 @@ public class PlayerController : MonoBehaviour
           //  SceneManager.LoadScene("BuildSubmissionV1");
         }
 
+        //if falling past a certain speed threshold
+        if(rb.velocity.y < fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+        //if standing still or moving up
+        if(rb.velocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            //reset so can be called again
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+
+            CameraManager.instance.LerpYDamping(false);
+        }
+
         uiController.updateHealthBar(health);
         uiController.updateDashBar(playerDash.dashCooldownTimer, playerDash.dashCooldown);
         uiController.updateRewindIcon(playerRewind.lastRewind, playerRewind.useCooldown);
@@ -376,9 +395,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() // for physics functions
     {
             groundHit1 = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.0f, groundLayer);
-        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit2 = Physics2D.Raycast(new Vector2(groundCheck.position.x + 0.8f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
-        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.6f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
+        groundHit3 = Physics2D.Raycast(new Vector2(groundCheck.position.x-0.8f, groundCheck.position.y), -Vector2.up, 0.0f, groundLayer);
 
         wallHit = Physics2D.Raycast(wallCheck.position, wallHitDirecton, 0.2f, wallLayer);
 
@@ -394,7 +413,7 @@ public class PlayerController : MonoBehaviour
 
             if(isGrounded(groundHit1, groundHit2, groundHit3) && state != playerState.Jumping)
             {
-                
+                CameraManager.instance.ChangeDeadZoneOnLanding(true);
                 groundedTimer += Time.deltaTime;
                 lastOnGround = 0;
                 allowCoyote = true;
@@ -402,6 +421,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                CameraManager.instance.ChangeDeadZoneOnLanding(false);
                // rb.drag = airDrag;
                 groundedTimer = 0;
                 rb.velocityX = airDrag * rb.velocityX;
@@ -698,6 +718,7 @@ public class PlayerController : MonoBehaviour
 
 
             case playerState.rewind:
+                audioManager.playSound("Rewind", false);
                 break;
 
 

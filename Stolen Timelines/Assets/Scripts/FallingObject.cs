@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class FallingObject : MonoBehaviour
 {
     private PlayerController player;
+    private Transform playerPos;
     private EdgeCollider2D col;
     private BoxCollider2D playerDetect;
     private Rigidbody2D rb;
@@ -47,6 +50,25 @@ public class FallingObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 Invoke(nameof(Repeat), Random.Range(3,7));
+            if (MathF.Abs(transform.position.x - player.gameObject.transform.position.x) < 35 && MathF.Abs(transform.position.y - player.gameObject.transform.position.y) <15 && AudioManager.instance!= null)
+            {
+
+           
+             float sound = Random.Range(0f, 1f);
+
+            if(sound<0.5)
+            {
+             AudioManager.instance.playSound("SpikeFall1", false);
+                    Debug.Log("1");
+            }
+            else
+            {
+                    Debug.Log("2");
+
+                    AudioManager.instance.playSound("SpikeFall2", false);
+            }
+
+            }
             }
 
     }

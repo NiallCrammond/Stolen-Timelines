@@ -23,6 +23,8 @@ TagManager:
   - ContinueButton
   - vCam
   - DamageOverlay
+  - CameraFollowTarget
+  - ArtefactSprite
   layers:
   - Default
   - TransparentFX
