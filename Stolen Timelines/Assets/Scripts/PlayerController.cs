@@ -189,7 +189,6 @@ public class PlayerController : MonoBehaviour
         animator = GameObject.FindWithTag("PlayerSprite").GetComponent<Animator>();
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         uiController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
-        fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChnageThreshold;
         //animationManager = GameObject.FindWithTag("AnimationManager").GetComponent<AnimationManager>();
 
         if (topCollider == null)
@@ -215,6 +214,11 @@ public class PlayerController : MonoBehaviour
 
         health = 100;
 
+    }
+
+    private void Start()
+    {
+        fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChnageThreshold;
     }
 
     private void OnEnable()
