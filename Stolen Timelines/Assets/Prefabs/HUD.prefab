@@ -666,7 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreData: {fileID: 11400000, guid: 6a2815e5db5e1034e8833685e510e9f6, type: 2}
   gameController: {fileID: 0}
-  settingsMenu: {fileID: 0}
+  settingsMenu: {fileID: 5157800169794515778}
   isPaused: 0
 --- !u!1 &616384424090183429
 GameObject:
