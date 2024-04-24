@@ -569,11 +569,11 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.4
-  m_DeadZoneHeight: 0.43
+  m_DeadZoneHeight: 0.5
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.4
-  m_SoftZoneHeight: 0.43
+  m_SoftZoneHeight: 0.5
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -614,6 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5450928216558747013}
+  - component: {fileID: 8716834669806874496}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -639,3 +640,21 @@ Transform:
   - {fileID: 2076139510260534070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8716834669806874496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876697321098112075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2661d4fdada16541a9fb061afc77279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allVirtualCamers:
+  - {fileID: 2277511005297631769}
+  fallPanAmount: 0.25
+  fallPanTime: 0.35
+  fallSpeedYDampingChnageThreshold: -15
+  deadZonePanTime: 0.35
