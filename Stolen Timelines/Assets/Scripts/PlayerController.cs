@@ -310,19 +310,30 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case playerState.Idle:
-                animator.Play("PlayerIdle");
+                if (health > 0)
+                {
+                    animator.Play("PlayerIdle");
+                }
+                else
+                {
+                    animator.Play("PlayerDeath");
+                }
 
 
                 break;
             case playerState.Jumping:
-                if (wallJumpTimer >= 0)
+                if (wallJumpTimer >= 0 && health > 0)
                 {
                     animator.Play("PlayerWallJump");
                     wallJumpTimer -= Time.deltaTime;
                 }
-                else
+                else if (health > 0)
                 {
                     animator.Play("PlayerJump");
+                }
+                else
+                {
+                    animator.Play("PlayerDeath");
                 }
 
                 if (playJumpAudio)
@@ -351,12 +362,26 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case playerState.WallSliding:
-                animator.Play("PlayerWallJump");
+                if (health > 0)
+                {
+                    animator.Play("PlayerWallJump");
+                }
+                else
+                {
+                    animator.Play("PlayerDeath");
+                }
 
                 break;
 
             case playerState.dashing:
-                animator.Play("PlayerDash");
+                if (health > 0)
+                {
+                    animator.Play("PlayerDash");
+                }
+                else
+                {
+                    animator.Play("PlayerDeath");
+                }
 
                 if (playDashAudio)
                 {
@@ -372,6 +397,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            //animator.Play("PlayerDeath");
             StartCoroutine(death());
           //  SceneManager.LoadScene("BuildSubmissionV1");
         }
