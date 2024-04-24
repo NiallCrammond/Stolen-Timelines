@@ -48,9 +48,12 @@ public class FallingObject : MonoBehaviour
             }
         else
             {
-            if (MathF.Abs(transform.position.x - player.gameObject.transform.position.x) < 35 && MathF.Abs(transform.position.y - player.gameObject.transform.position.y) <15)
+                gameObject.SetActive(false);
+                Invoke(nameof(Repeat), Random.Range(3,7));
+            if (MathF.Abs(transform.position.x - player.gameObject.transform.position.x) < 35 && MathF.Abs(transform.position.y - player.gameObject.transform.position.y) <15 && AudioManager.instance!= null)
             {
 
+           
              float sound = Random.Range(0f, 1f);
 
             if(sound<0.5)
@@ -66,8 +69,6 @@ public class FallingObject : MonoBehaviour
             }
 
             }
-                gameObject.SetActive(false);
-                Invoke(nameof(Repeat), Random.Range(3,7));
             }
 
     }
