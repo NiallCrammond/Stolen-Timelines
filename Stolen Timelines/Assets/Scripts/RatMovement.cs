@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,7 @@ public class RatMovement : MonoBehaviour
                 destination = 0;
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
