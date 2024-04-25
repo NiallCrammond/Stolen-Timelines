@@ -19,8 +19,9 @@ public class Coin : MonoBehaviour
     {
         if(!collected && collision.CompareTag("Player"))
         {
-           // onCoinCollect.Invoke();
+            // onCoinCollect.Invoke();
 
+            AudioManager.instance.playSound("Artefact", false);
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().increaseScore(val);
             GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().updateScore();
 

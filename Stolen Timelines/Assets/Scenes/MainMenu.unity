@@ -6177,6 +6177,46 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Stab
+    clip: {fileID: 8300000, guid: 9118b9559bbe3984fb5a24cf28826fd6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Ignite
+    clip: {fileID: 8300000, guid: 9ccd40c8fbe49ba49a6242378d550caa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BrazenBullOn
+    clip: {fileID: 8300000, guid: 79506efeee0c49b4ba1898dd3d271073, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Rats
+    clip: {fileID: 8300000, guid: e3861d5db2e94b74c8b9930a4dcfc72d, type: 3}
+    volume: 0.451
+    pitch: 0.3
+    source: {fileID: 0}
+  - name: QuotaLoad
+    clip: {fileID: 8300000, guid: a295e569a4aa39343ab0337498bcc540, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MoneyEarned
+    clip: {fileID: 8300000, guid: 3c5fcac2ce0cb8b46928af2eba062db1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Portal
+    clip: {fileID: 8300000, guid: d2de168ec191b5e45a47508da40bc4ac, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Artefact
+    clip: {fileID: 8300000, guid: 1ceaebdb349c4f04897e3655e198ae08, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   footsteps:
   - name: FootSteps_1
     clip: {fileID: 8300000, guid: 245896a3e9f2c1544a0c422b6fd72b1c, type: 3}

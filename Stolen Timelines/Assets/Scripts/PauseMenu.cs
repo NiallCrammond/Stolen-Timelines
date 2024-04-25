@@ -21,13 +21,15 @@ public class PauseMenu : MonoBehaviour
 
     public void pauseGame()
     {
+        AudioManager.instance.pauseAll();
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void resumeGame()
-    { 
+    {
+        AudioManager.instance.resumeAll();
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         Time.timeScale = 1.0f;

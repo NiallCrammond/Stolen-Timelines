@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     {
 
        Screen.fullScreen = true;
+       
 
         if (instance == null)
         {

@@ -28,6 +28,9 @@ public class HubController : MonoBehaviour
     private GameObject winScreen;
     private GameObject hubScreen;
 
+    bool canPlayQuotaLoad1;
+    bool canPlayQuotaLoad2;
+    bool canPlayMoneyEarned;
 
     private float timer;
 
@@ -50,6 +53,11 @@ public class HubController : MonoBehaviour
         scoreText.text = "Total Value Collected: ...";
         quotaText.text = "Quota Remaining: ...";
         daysText.text = "Days Remaining: ...";
+
+
+        canPlayQuotaLoad1 = true;
+        canPlayQuotaLoad2 = true;
+        canPlayMoneyEarned = true;
 
 
         int currentDay = 3 - quotaData.daysLeft;
@@ -83,16 +91,31 @@ public class HubController : MonoBehaviour
 
                 if (timer >= 6f)
                 {
+                    if(canPlayQuotaLoad1)
+                    {
+                    canPlayQuotaLoad1 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     scoreText.text = "Total Value Collected: " + scoreData.score.ToString();
 
                 }
                 else if (timer >= 5f)
                 {
+                    if(canPlayQuotaLoad2)
+                    {
+                        canPlayQuotaLoad2 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     scoreText.text = "Total Value Collected: " + scoreData.score.ToString() + " ...selling";
 
                 }
                 else if (timer > 4f)
                 {
+                    if(canPlayMoneyEarned)
+                    {
+                        canPlayMoneyEarned = false;
+                    AudioManager.instance.playSound("MoneyEarned", false);
+                    }
                     scoreText.text = "Total Value Collected: Sold";
 
                 }
@@ -166,6 +189,11 @@ public class HubController : MonoBehaviour
 
             if (timer >= 6f)
             {
+                if(canPlayQuotaLoad1)
+                {
+                canPlayQuotaLoad1 = false;
+                AudioManager.instance.playSound("QuotaLoad", false);
+                }
                 scoreText.text = "Total Value Collected: " + "You have nothing to sell";
 
             }

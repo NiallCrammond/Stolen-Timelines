@@ -168,6 +168,16 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void pauseAll()
+    {
+        AudioListener.pause = true;
+    }
+
+    public void resumeAll()
+    {
+        AudioListener.pause = false;
+    }
+
     public IEnumerator randomFootSteps()
     {
 
