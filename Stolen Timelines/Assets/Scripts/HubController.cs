@@ -30,6 +30,8 @@ public class HubController : MonoBehaviour
 
     bool canPlayQuotaLoad1;
     bool canPlayQuotaLoad2;
+    bool canPlayQuotaLoad3;
+    bool canPlayQuotaLoad4;
     bool canPlayMoneyEarned;
 
     private float timer;
@@ -57,6 +59,8 @@ public class HubController : MonoBehaviour
 
         canPlayQuotaLoad1 = true;
         canPlayQuotaLoad2 = true;
+        canPlayQuotaLoad3 = true;
+        canPlayQuotaLoad4 = true;   
         canPlayMoneyEarned = true;
 
 
@@ -122,12 +126,22 @@ public class HubController : MonoBehaviour
 
                 if (timer < 4f)
                 {
+                    if (canPlayQuotaLoad3)
+                    {
+                        canPlayQuotaLoad3 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     sellScore();
                     quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
                 }
 
                 if (timer < 2f)
                 {
+                    if(canPlayQuotaLoad4)
+                    {
+                        canPlayQuotaLoad4 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
                     contButton.SetActive(true);
                 }
@@ -146,11 +160,21 @@ public class HubController : MonoBehaviour
             {
                 if (timer >= 6f)
                 {
+                    if(canPlayQuotaLoad1)
+                    {
+                    canPlayQuotaLoad1 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     scoreText.text = "You were Transported back with nothing";
                 }
 
                 else if (timer > 4f)
                 {
+                    if(canPlayQuotaLoad2)
+                    {
+                        canPlayQuotaLoad2 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     scoreText.text = "Extract before the time runs out";
                  //   scoreText.text = "Get good noob";
                 }
@@ -158,11 +182,22 @@ public class HubController : MonoBehaviour
                 if (timer < 4f)
                 {
                     sellScore();
+                    if (canPlayQuotaLoad3)
+                    {
+                        canPlayQuotaLoad3 = false;
+                        AudioManager.instance.playSound("QuotaLoad", false);
+                    }
+
                     quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
                 }
 
                 if (timer < 2f)
                 {
+                    if(canPlayQuotaLoad4)
+                    {
+                        canPlayQuotaLoad4   = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                    }
                     daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
                     contButton.SetActive(true);
 
@@ -199,6 +234,12 @@ public class HubController : MonoBehaviour
             }
             else if (timer >= 4f)
             {
+
+                if(canPlayQuotaLoad2)
+                {
+                    canPlayQuotaLoad2 = false;
+                AudioManager.instance.playSound("QuotaLoad", false);
+                }
                 scoreText.text = "Total Value Collected: " +  "X";
 
             }
@@ -206,12 +247,24 @@ public class HubController : MonoBehaviour
 
             if (timer < 4f)
             {
+                if (canPlayQuotaLoad3)
+                {
+                    canPlayQuotaLoad3 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                }
+
                 sellScore();
                 quotaText.text = "Quota Remaining: " + quotaData.quotaRemain.ToString();
             }
 
             if (timer < 2f)
             {
+                if (canPlayQuotaLoad4)
+                {
+                    canPlayQuotaLoad4 = false;
+                    AudioManager.instance.playSound("QuotaLoad", false);
+                }
+
                 daysText.text = "Days Remaining: " + quotaData.daysLeft.ToString();
                 contButton.SetActive(true);
             }
