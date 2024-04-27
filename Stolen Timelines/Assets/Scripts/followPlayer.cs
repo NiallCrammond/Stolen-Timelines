@@ -9,7 +9,7 @@ public class followPlayer : MonoBehaviour
 
     private void Update()
     {
-        gameObject.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y+2, player.transform.position.z);
+        gameObject.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y+7, player.transform.position.z);
 
     }
 }
