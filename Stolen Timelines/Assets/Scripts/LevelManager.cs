@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public void loadMainMenu()
     {
         Time.timeScale = 1.0f;
+        AudioManager.instance.resumeAll();
         StartCoroutine(loadLevel(sceneNames[0], animator[0], "Start",1));
     }
 
