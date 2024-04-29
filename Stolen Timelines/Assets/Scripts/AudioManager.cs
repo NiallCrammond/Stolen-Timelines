@@ -57,6 +57,7 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in footsteps)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.playOnAwake = false;  
             s.source.clip = s.clip;
             s.source.volume = footStepVolume;
             s.source.pitch = s.pitch;
@@ -66,6 +67,8 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.playOnAwake = false;
+
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -76,6 +79,8 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in jumps)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.playOnAwake = false;
+
             s.source.clip = s.clip;
             s.source.volume = jumpVolume;
             s.source.pitch = s.pitch;
@@ -84,12 +89,14 @@ public class AudioManager : MonoBehaviour
         }
 
         dash.source = gameObject.AddComponent<AudioSource>();
+        dash.source.playOnAwake = false;
         dash.source.clip = dash.clip;
         dash.source.volume = dash.volume;
         dash.source.pitch = dash.pitch;
         dash.source.outputAudioMixerGroup = sfxMixer;
 
         music.source = gameObject.AddComponent<AudioSource>();
+        music.source.playOnAwake = false;
         music.source.clip = music.clip;
         music.source.volume = music.volume;
         music.source.pitch = music.pitch;
@@ -166,6 +173,16 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
 
+    }
+
+    public void pauseAll()
+    {
+        AudioListener.pause = true;
+    }
+
+    public void resumeAll()
+    {
+        AudioListener.pause = false;
     }
 
     public IEnumerator randomFootSteps()

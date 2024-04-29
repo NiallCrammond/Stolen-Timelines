@@ -21,6 +21,9 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+
+        bool savedFullScreen = PlayerPrefs.GetInt("FullScreen", 1) == 1;
+
         resoultions = Screen.resolutions;
         resDropDown.ClearOptions();
 
@@ -39,9 +42,11 @@ public class SettingsMenu : MonoBehaviour
 
            
         }
+        int savedResolution = PlayerPrefs.GetInt("ResolutionIndex", resoultions.Length-1);
         resDropDown.AddOptions(options);
-        resDropDown.value = currentRes;
+        resDropDown.value = savedResolution != -1 ?savedResolution : currentRes;
         resDropDown.RefreshShownValue();
+        Screen.SetResolution(resoultions[savedResolution].width, resoultions[savedResolution].height, Screen.fullScreen);
 
         float currentMasterVolume;
         audioMixer.GetFloat("masterVolume", out currentMasterVolume);
@@ -53,7 +58,12 @@ public class SettingsMenu : MonoBehaviour
 
         float currentSFXVolume;
         audioMixer.GetFloat("sfxVolume", out currentSFXVolume);
-        sfxSlider.value = Mathf.Pow(10, currentSFXVolume / 20);;
+        sfxSlider.value = Mathf.Pow(10, currentSFXVolume / 20);
+
+        Screen.fullScreen = savedFullScreen;
+        fullScreenToggle.isOn = savedFullScreen;
+
+
     }
     public void SetVolume(float vol)
     {
@@ -82,7 +92,7 @@ public class SettingsMenu : MonoBehaviour
     public void  toggleFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-
+        PlayerPrefs.SetInt("FullScreen", isFullscreen ? 1 : 0);
  
     }
 
@@ -90,6 +100,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution res = resoultions[currentRes];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        PlayerPrefs.SetInt("ResolutionIndex", currentRes);
     }
 
 }

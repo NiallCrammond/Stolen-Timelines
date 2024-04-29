@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -12,6 +13,9 @@ public class BrazenBull : MonoBehaviour
     public int damageDealt;
     public float bullCooldown;
     public float timer;
+
+    bool isOn = false;
+    bool inBull = false;
     //Start is called before the first frame update
 
     private void Awake()
@@ -28,6 +32,7 @@ public class BrazenBull : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        inBull = true;
         if (collision.CompareTag("Player"))
         {
             overlay.SetActive(true);
@@ -42,10 +47,39 @@ public class BrazenBull : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        inBull = false;
         if (collision.CompareTag("Player"))
         {
+            AudioManager.instance.stopSound("BrazenBullOn");
             overlay.SetActive(false);
             timer = 0;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !isOn)
+        {
+            isOn = true;
+            AudioManager.instance.playSound("Ignite", false);
+            StartCoroutine(playOn());
+        }
+        else if(collision.CompareTag("Player") && isOn)
+        {
+            AudioManager.instance.playSound("BrazenBullOn", true);
+        }
+
+       
+
+
+    }
+
+    IEnumerator playOn()
+    {
+        yield return new WaitForSeconds(2.5f);
+        if(inBull)
+        {
+        AudioManager.instance.playSound("BrazenBullOn", true); 
         }
     }
 

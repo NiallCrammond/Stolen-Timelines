@@ -19,6 +19,7 @@ public class Trap : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            AudioManager.instance.playSound("Stab", false);
             player.TakeDamage(100);
         }
     }

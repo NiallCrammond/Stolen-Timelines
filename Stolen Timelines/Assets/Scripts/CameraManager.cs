@@ -106,7 +106,7 @@ public class CameraManager : MonoBehaviour
         IsDeadZoneChanging = true;
 
         //get start vals for deadzone
-        float startHeight = 0.5f;
+        float startHeight = 1f;
         float targetHeight = 0f;
 
         //center Y deadzone (centre cam) upon landing on ground

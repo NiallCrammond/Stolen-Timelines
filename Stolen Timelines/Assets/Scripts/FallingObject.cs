@@ -42,6 +42,7 @@ public class FallingObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             {
+            AudioManager.instance.playSound("Stab", false);
             player.TakeDamage(20);
             gameObject.SetActive(false);
                 Invoke(nameof(Repeat), Random.Range(3, 7));

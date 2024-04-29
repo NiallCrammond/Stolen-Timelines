@@ -99,6 +99,7 @@ public class KneeSplitter : MonoBehaviour
         {
             GetComponent<KneeSplitter>().enabled = false;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            AudioManager.instance.playSound("Stab", false);
             player.TakeDamage(100);
         }
     }
