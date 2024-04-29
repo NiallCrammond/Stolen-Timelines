@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c3a168801e94342b0a02aa11e9b423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  damageDealt: 20
-  isReady: 0
+  damageDealt: 10
+  bullCooldown: 0
+  timer: 0
