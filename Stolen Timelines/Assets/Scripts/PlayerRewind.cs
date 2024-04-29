@@ -122,7 +122,7 @@ public class PlayerRewind : MonoBehaviour
             if(spawnTime <=0)
             {
               GameObject instance =  Instantiate(echo, transform.position,Quaternion.identity);
-                instance.transform.localScale = gameObject.transform.localScale;
+              //  instance.transform.localScale = gameObject.transform.localScale;
                 Destroy(instance, 3f);
                 spawnTime = startSpawnTime;
             }
