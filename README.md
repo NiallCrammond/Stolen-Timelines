@@ -1,5 +1,5 @@
 # Stolen-Timelines
-DES310 Abertay studrnt project 
+DES310 Abertay student project 
 Contributors
 
 Meet the Team
